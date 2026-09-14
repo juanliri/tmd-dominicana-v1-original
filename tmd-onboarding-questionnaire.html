@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMD — Cuestionario de Implementaci&oacute;n Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#0a0a0a;--surface:#141416;--surface2:#141416;
+      --accent:#f59e0b;--glow:rgba(245,158,11,0.14);
+      --green:#10b981;--text:#fafafa;--muted:#a1a1aa;
+      --dim:#52525b;--border:rgba(255,255,255,0.09);
+      --b-accent:rgba(245,158,11,0.4);
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;padding-bottom:80px;}
+    .topbar{background:rgba(6,9,16,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:8px;}
+    .topbar-brand{font-size:0.82rem;font-weight:800;color:#fff;letter-spacing:0.02em;}
+    .topbar-badge{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--accent);background:var(--glow);border:1px solid var(--b-accent);padding:4px 12px;border-radius:9999px;font-weight:700;}
+    .btn-print{padding:8px 18px;background:var(--accent);color:#0c0600;border:none;border-radius:8px;font-size:0.78rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.04em;}
+    .btn-print:hover{background:#fbbf24;}
+    .container{max-width:900px;margin:40px auto;padding:0 24px;}
+    .page-header{text-align:center;margin-bottom:48px;padding:40px 32px;background:linear-gradient(145deg,rgba(245,158,11,0.1) 0%,rgba(245,158,11,0.03) 100%);border:1px solid var(--b-accent);border-radius:20px;}
+    .eyebrow{font-size:0.72rem;font-family:'JetBrains Mono',monospace;font-weight:800;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;}
+    .page-header h1{font-size:2rem;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px;}
+    .page-header p{font-size:0.94rem;color:var(--muted);max-width:600px;margin:0 auto;}
+    .q-section{margin-bottom:40px;}
+    .q-section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+    .q-sec-icon{width:40px;height:40px;border-radius:10px;background:var(--glow);border:1px solid var(--b-accent);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .q-sec-title{font-size:1rem;font-weight:800;color:#fff;}
+    .q-sec-sub{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+    .q-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:14px;transition:border-color 0.2s;}
+    .q-card:hover{border-color:rgba(245,158,11,0.25);}
+    .q-num{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .q-text{font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.4;}
+    .q-why{font-size:0.78rem;color:var(--dim);margin-bottom:14px;line-height:1.5;font-style:italic;}
+    .q-input,.q-select,.q-textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:11px 14px;color:#fff;font-size:0.86rem;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+    .q-input:focus,.q-select:focus,.q-textarea:focus{border-color:var(--accent);}
+    .q-select{cursor:pointer;background-color:#141416;}
+    .q-textarea{min-height:80px;resize:vertical;}
+    .q-checks{display:flex;flex-direction:column;gap:8px;}
+    .q-chk{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;transition:all 0.2s;}
+    .q-chk:hover{background:rgba(255,255,255,0.05);border-color:rgba(245,158,11,0.25);}
+    .q-chk input[type="checkbox"]{accent-color:var(--accent);width:16px;height:16px;flex-shrink:0;}
+    .q-chk-label{font-size:0.86rem;color:#d4d4d8;}
+    /* Q&A PRICING PANEL */
+    .qa-panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px;}
+    .qa-q{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none;transition:background 0.15s;}
+    .qa-q:hover{background:rgba(255,255,255,0.04);}
+    .qa-q-text{font-size:0.9rem;font-weight:700;color:#fff;}
+    .qa-chevron{color:var(--accent);font-size:1rem;transition:transform 0.2s;flex-shrink:0;}
+    .qa-ans{padding:0 20px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;}
+    .qa-ans.open{max-height:600px;padding:0 20px 16px;}
+    .qa-ans p{font-size:0.84rem;color:var(--muted);line-height:1.65;margin-bottom:8px;}
+    .qa-ans ul{font-size:0.84rem;color:var(--muted);line-height:1.65;padding-left:18px;margin-bottom:8px;}
+    .price-tag{display:inline-block;background:var(--glow);border:1px solid var(--b-accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:800;padding:4px 12px;border-radius:8px;margin:4px 4px 4px 0;}
+    .green{color:var(--green);font-weight:700;}
+    /* SUBMIT */
+    .submit-section{background:linear-gradient(145deg,rgba(245,158,11,0.1) 0%,rgba(16,185,129,0.06) 100%);border:1px solid var(--b-accent);border-radius:20px;padding:32px;text-align:center;margin-top:48px;}
+    .submit-section h3{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:8px;}
+    .submit-section p{font-size:0.86rem;color:var(--muted);margin-bottom:20px;}
+    .btn-submit{padding:14px 36px;background:linear-gradient(135deg,#f59e0b 0%,#d97706 100%);border:none;border-radius:12px;color:#0c0600;font-size:0.92rem;font-weight:900;cursor:pointer;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.04em;box-shadow:0 8px 28px rgba(245,158,11,0.4);transition:all 0.22s;}
+    .btn-submit:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(245,158,11,0.55);}
+    @media print{
+      body{background:#fff;color:#141416;}
+      .topbar,.btn-print,.btn-submit{display:none!important;}
+      .q-card,.qa-panel{border:1px solid #d4d4d8!important;background:#fff!important;page-break-inside:avoid;}
+      .q-text,.qa-q-text{color:#141416!important;}
+      .q-num{color:#d97706!important;}
+      .qa-ans{max-height:none!important;padding-bottom:16px!important;}
+      .qa-ans p,.qa-ans ul{color:#3f3f46!important;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-brand">&#x1F3D7;&#xFE0F; TMD Tecnomaquinarias Diesel</div>
+    <div class="topbar-badge">Cuestionario de Implementaci&oacute;n Digital</div>
+    <button class="btn-print" onclick="window.print()">&#x1F5A8;&#xFE0F; Imprimir</button>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <div class="eyebrow">&#x1F4CB; De la Demo a la Implementaci&oacute;n Completa</div>
+      <h1>Cuestionario de Perfil Empresarial</h1>
+      <p>Complete estas preguntas para configurar su plataforma digital con integraci&oacute;n de cat&aacute;logo, APIs y portal de clientes. Un asesor TodoBuild le contactar&aacute; en menos de 24 horas.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F3E2;</div>
+        <div>
+          <div class="q-sec-title">Informaci&oacute;n de la Empresa</div>
+          <div class="q-sec-sub">Datos b&aacute;sicos para configurar su instancia</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-01</div>
+        <div class="q-text">&iquest;Cu&aacute;ntos empleados tiene TMD actualmente?</div>
+        <div class="q-why">&#x1F4A1; Determina el tama&ntilde;o del plan, licencias de usuario y permisos por rol.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione rango &#x2014;</option>
+          <option>1 a 10 empleados</option>
+          <option>11 a 25 empleados</option>
+          <option>26 a 50 empleados</option>
+          <option>51 a 100 empleados</option>
+          <option>M&aacute;s de 100 empleados</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-02</div>
+        <div class="q-text">&iquest;Qu&eacute; departamentos o &aacute;reas operativas tiene la empresa?</div>
+        <div class="q-why">&#x1F4A1; Creamos roles de usuario separados para cada &aacute;rea (Ventas, Taller, Repuestos, etc.).</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E6; Ventas / Comercial</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F527; Taller / Servicio T&eacute;cnico</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F3EA; Repuestos / Almac&eacute;n</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4B0; Administraci&oacute;n / Finanzas</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F69B; Log&iacute;stica / Despacho</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E3; Mercadeo / Marketing</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-03</div>
+        <div class="q-text">&iquest;Cu&aacute;ntas sucursales o puntos de venta tiene TMD?</div>
+        <div class="q-why">&#x1F4A1; Afecta la configuraci&oacute;n de inventarios multi-ubicaci&oacute;n y gesti&oacute;n de flota por zona.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione &#x2014;</option>
+          <option>Solo sede principal (Km 22)</option>
+          <option>2 a 3 ubicaciones</option>
+          <option>4 o m&aacute;s ubicaciones</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F4E6;</div>
+        <div>
+          <div class="q-sec-title">Tama&ntilde;o del Cat&aacute;logo</div>
+          <div class="q-sec-sub">Inventario de productos, repuestos y equipos</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-04</div>
+        <div class="q-text">&iquest;Cu&aacute;ntos modelos de maquinaria tienen activos en venta o renta?</div>
+        <div class="q-why">&#x1F4A1; Define el volumen de fichas t&eacute;cnicas y el tama&ntilde;o del cat&aacute;logo digital.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione rango &#x2014;</option>
+          <option>1 a 20 modelos</option>
+          <option>21 a 50 modelos</option>
+          <option>51 a 100 modelos</option>
+          <option>M&aacute;s de 100 modelos</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-05</div>
+        <div class="q-text">&iquest;Cu&aacute;ntas referencias de repuestos maneja TMD en su almac&eacute;n?</div>
+        <div class="q-why">&#x1F4A1; El portal de b&uacute;squeda de piezas OEM requiere saber el volumen para optimizar la base de datos.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione rango &#x2014;</option>
+          <option>Menos de 500 referencias</option>
+          <option>500 a 2,000 referencias</option>
+          <option>2,000 a 5,000 referencias</option>
+          <option>M&aacute;s de 5,000 referencias</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-06</div>
+        <div class="q-text">&iquest;Qu&eacute; marcas representan actualmente?</div>
+        <div class="q-why">&#x1F4A1; Creamos p&aacute;ginas de marca certificada y categor&iacute;as por fabricante para maximizar el SEO.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F7E1; JCB (Retroexcavadoras, Excavadoras, Telehandlers)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F7E0; LiuGong (Cargadores, Excavadoras)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F7E2; LS Tractor (Tractores Agr&iacute;colas)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F534; Yanmar (Motores, Minicargadores)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x26AB; Ammann (Rodillos, Compactaci&oacute;n)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2795; Otra marca</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F4BB;</div>
+        <div>
+          <div class="q-sec-title">Ecosistema Tecnol&oacute;gico Actual</div>
+          <div class="q-sec-sub">Sistemas y aplicaciones que usa TMD hoy</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-07</div>
+        <div class="q-text">&iquest;Qu&eacute; sistema de gesti&oacute;n o ERP usa actualmente?</div>
+        <div class="q-why">&#x1F4A1; Determina si necesitamos migrar datos, hacer integraciones o comenzar desde cero.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4CA; Excel / Hojas de c&aacute;lculo</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F3E2; ContaDom / Sistema local RD</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E6; QuickBooks</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F527; Fullbay (Taller)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2601;&#xFE0F; Otro sistema en la nube</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x274C; No hay sistema formal actualmente</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-08</div>
+        <div class="q-text">&iquest;Tiene cuenta activa en Fullbay?</div>
+        <div class="q-why">&#x1F4A1; Necesitamos su API Key para conectar los datos de taller en vivo al portal de clientes.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione &#x2014;</option>
+          <option>S&iacute;, cuenta activa y en uso</option>
+          <option>S&iacute;, cuenta activa pero sin uso regular</option>
+          <option>En per&iacute;odo de prueba</option>
+          <option>No tenemos Fullbay todav&iacute;a</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-09</div>
+        <div class="q-text">&iquest;Qu&eacute; canales de comunicaci&oacute;n con clientes usa actualmente?</div>
+        <div class="q-why">&#x1F4A1; Integramos WhatsApp, email y llamadas en un solo panel de atenci&oacute;n.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4F1; WhatsApp Personal o Business</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E7; Correo electr&oacute;nico corporativo</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4D8; Facebook / Instagram</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4DE; Tel&eacute;fono fijo / Celular</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F310; Formulario del sitio web actual</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-10</div>
+        <div class="q-text">&iquest;Tiene sitio web activo? &iquest;Con qu&eacute; plataforma fue construido?</div>
+        <div class="q-why">&#x1F4A1; Evaluamos si hacer migraci&oacute;n limpia o redespliegue paralelo sin interrumpir operaciones.</div>
+        <input type="text" class="q-input" placeholder="Ej: WordPress, Wix, sitio est&aacute;tico, no tenemos web...">
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F3AF;</div>
+        <div>
+          <div class="q-sec-title">Prioridades de Implementaci&oacute;n</div>
+          <div class="q-sec-sub">&iquest;Qu&eacute; quiere lograr primero?</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-11</div>
+        <div class="q-text">&iquest;Cu&aacute;l es su prioridad principal en los primeros 90 d&iacute;as?</div>
+        <div class="q-why">&#x1F4A1; Esto define qu&eacute; m&oacute;dulo activamos primero para generarle valor inmediato.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione prioridad &#x2014;</option>
+          <option>Cat&aacute;logo digital con cotizaci&oacute;n en l&iacute;nea</option>
+          <option>Portal de clientes con seguimiento de contratos</option>
+          <option>Panel de taller conectado a Fullbay</option>
+          <option>Captura y seguimiento de clientes potenciales (CRM)</option>
+          <option>Posicionamiento web SEO (aparecer en Google)</option>
+          <option>Implementaci&oacute;n completa de todos los m&oacute;dulos</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-12</div>
+        <div class="q-text">&iquest;Tiene dominio web propio? (Ej: tmdrd.com)</div>
+        <div class="q-why">&#x1F4A1; Necesitamos acceso DNS para apuntar su dominio al nuevo servidor con SSL/HTTPS seguro.</div>
+        <input type="text" class="q-input" placeholder="Ej: tmdrd.com — si no tiene, lo registramos por usted">
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-13</div>
+        <div class="q-text">&iquest;Qui&eacute;n ser&aacute; el administrador principal del sistema dentro de TMD?</div>
+        <div class="q-why">&#x1F4A1; Esta persona recibe capacitaci&oacute;n prioritaria y acceso de superusuario al panel de control.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <input type="text" class="q-input" placeholder="Nombre completo">
+          <input type="text" class="q-input" placeholder="WhatsApp / Correo">
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-14</div>
+        <div class="q-text">&iquest;Tiene presupuesto aprobado para la implementaci&oacute;n?</div>
+        <div class="q-why">&#x1F4A1; Nos ayuda a recomendarle el plan m&aacute;s adecuado y si aplica financiamiento o cuotas.</div>
+        <select class="q-select">
+          <option value="">&#x2014; Seleccione rango &#x2014;</option>
+          <option>Nivel B&aacute;sico &#x2014; Hasta $599/mes</option>
+          <option>Nivel Profesional &#x2014; $600 a $999/mes</option>
+          <option>Nivel Empresarial &#x2014; $1,000/mes o m&aacute;s</option>
+          <option>Quiero consultar opciones de financiamiento</option>
+        </select>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-15</div>
+        <div class="q-text">&iquest;Tiene alg&uacute;n comentario, requerimiento especial o pregunta adicional?</div>
+        <textarea class="q-textarea" placeholder="Ej: Necesitamos integraci&oacute;n con nuestro sistema de facturaci&oacute;n actual, queremos el portal en ingl&eacute;s tambi&eacute;n, tenemos 3 socios que deben tener acceso..."></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 5: CATALOG, INVENTORY & APP ECOSYSTEM -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F4E6;</div>
+        <div>
+          <div class="q-sec-title">Operaciones de Cat&aacute;logo, Inventario &amp; Ecosistema de Apps</div>
+          <div class="q-sec-sub">Entender c&oacute;mo gestionan productos, inventario y qu&eacute; apps utilizan</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-16</div>
+        <div class="q-text">&iquest;C&oacute;mo manejan actualmente el cat&aacute;logo de maquinaria disponible para venta o renta?</div>
+        <div class="q-why">&#x1F4A1; Necesitamos saber la fuente de datos para sincronizar autom&aacute;ticamente el cat&aacute;logo digital.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4CA; Excel / Hoja de c&aacute;lculo manual</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F527; Fullbay (lista de activos)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4B3; Square POS / Terminal</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4F1; WhatsApp (fotos/listas a clientes)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x274C; No hay cat&aacute;logo formal</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-17</div>
+        <div class="q-text">&iquest;Cu&aacute;l es el proceso cuando llega maquinaria nueva al puerto? (Del barco al cat&aacute;logo)</div>
+        <div class="q-why">&#x1F4A1; Mapeamos el pipeline de ingreso para automatizar la publicaci&oacute;n en el sitio web y notificar clientes VIP.</div>
+        <textarea class="q-textarea" placeholder="Ej: Llega al puerto de Haina, pasa por aduanas, se traslada a Km 22, se hace PDI (inspecci&oacute;n pre-entrega), se toman fotos, se publica en redes..."></textarea>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-18</div>
+        <div class="q-text">&iquest;Qu&eacute; aplicaciones o software utilizan activamente en el d&iacute;a a d&iacute;a?</div>
+        <div class="q-why">&#x1F4A1; Auditor&iacute;a completa del ecosistema digital para planificar integraciones y evitar duplicidad.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F527; Fullbay (&oacute;rdenes de trabajo taller)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4B3; Square (cobros, POS, terminal)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4CA; QuickBooks / ContaDom (contabilidad)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4F1; WhatsApp Business</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F30D; JCB LiveLink (telemetr&iacute;a GPS)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4D8; Facebook / Instagram (marketing)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E7; Gmail / Outlook (correo)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2795; Otro (especifique abajo)</span></label>
+        </div>
+        <input type="text" class="q-input" placeholder="Otras apps: ej. SAP, Odoo, sistema propio...">
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-19</div>
+        <div class="q-text">&iquest;Qui&eacute;n actualiza precios y disponibilidad del cat&aacute;logo actualmente? &iquest;Con qu&eacute; frecuencia?</div>
+        <div class="q-why">&#x1F4A1; Identificamos qui&eacute;n ser&aacute; el usuario Tier 2 que administre el cat&aacute;logo digital.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <input type="text" class="q-input" placeholder="Nombre / Cargo del responsable">
+          <select class="q-select">
+            <option value="">&#x2014; Frecuencia &#x2014;</option>
+            <option>Diariamente</option>
+            <option>Semanalmente</option>
+            <option>Mensualmente</option>
+            <option>Solo cuando llega inventario nuevo</option>
+            <option>No se actualiza formalmente</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-20</div>
+        <div class="q-text">&iquest;El personal de Nivel 2 (Gerentes de &aacute;rea) necesitar&iacute;a acceso para gestionar cat&aacute;logo, taller Y portal de clientes?</div>
+        <div class="q-why">&#x1F4A1; Define si Tier 2 puede ser administrador completo o solo de su &aacute;rea espec&iacute;fica.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E6; S&iacute;, gestionar cat&aacute;logo (agregar/editar equipos)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F527; S&iacute;, gestionar taller (asignar t&eacute;cnicos, cerrar &oacute;rdenes)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F464; S&iacute;, gestionar portal clientes (ver contratos, historial)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F6AB; No, solo el administrador principal</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-21</div>
+        <div class="q-text">&iquest;Tienen un POS o sistema de cobro en el taller / repuestos?</div>
+        <div class="q-why">&#x1F4A1; Conectamos el flujo de pagos del sitio web con su terminal de cobro existente.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4B3; Square Terminal / Square POS</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F3E6; Cobro directo por transferencia bancaria</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4B5; Solo efectivo / cheque</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2795; Otro POS (especifique)</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-22</div>
+        <div class="q-text">&iquest;C&oacute;mo procesan cotizaciones actualmente?</div>
+        <div class="q-why">&#x1F4A1; Dise&ntilde;amos el flujo digital de cotizaci&oacute;n autom&aacute;tica para reemplazar procesos manuales.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4F1; WhatsApp (env&iacute;o manual de precios)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4E7; Email (PDF o texto)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4DD; Papel / Formato impreso</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4CA; Excel con plantilla</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x274C; No hay proceso estandarizado</span></label>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-num">Q-23</div>
+        <div class="q-text">&iquest;Manejan contratos de mantenimiento preventivo (MasterCare o similares)? &iquest;En qu&eacute; formato?</div>
+        <div class="q-why">&#x1F4A1; Estructuramos el m&oacute;dulo de suscripciones y contratos recurrentes del portal.</div>
+        <div class="q-checks">
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2705; S&iacute;, contratos en papel / Word</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x2705; S&iacute;, contratos en Fullbay</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x1F4CB; S&iacute;, pero informalmente (acuerdos verbales)</span></label>
+          <label class="q-chk"><input type="checkbox"> <span class="q-chk-label">&#x274C; No manejamos contratos de mantenimiento a&uacute;n</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING Q&A -->
+    <div class="q-section">
+      <div class="q-section-header">
+        <div class="q-sec-icon">&#x1F4AC;</div>
+        <div>
+          <div class="q-sec-title">Preguntas Frecuentes sobre Precios y Descuentos</div>
+          <div class="q-sec-sub">Haga clic para ver las respuestas</div>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;El descuento de distribuidor (DR Discount) ya est&aacute; incluido en los precios?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p>&#x2705; <strong style="color:#fff;">S&iacute;, los precios ya reflejan el descuento de distribuidor regional.</strong></p>
+          <p>Los precios publicados (B&aacute;sico $399, Profesional $599, Empresarial $899) ya incluyen el ajuste preferencial para distribuidores como TMD. No se aplica cargo adicional por este concepto.</p>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Puedo aplicar el 10% de descuento VIP de referido?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p>&#x2705; <strong style="color:#fff;">S&iacute;, aplica en los primeros 12 meses de suscripci&oacute;n.</strong></p>
+          <p>Si fue referido por un cliente activo o socio de la red TodoBuild, su plan mensual recibe un <span class="green">10% de descuento durante el primer a&ntilde;o</span>. Ejemplo:</p>
+          <div style="margin:8px 0;">
+            <span class="price-tag">B&aacute;sico: $399 &rarr; $359/mes</span>
+            <span class="price-tag">Profesional: $599 &rarr; $539/mes</span>
+            <span class="price-tag">Empresarial: $899 &rarr; $809/mes</span>
+          </div>
+          <p>Para activarlo, ind&iacute;quenos el nombre del referidor al momento de firmar el acuerdo.</p>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Puedo acumular el DR Discount + el 10% VIP?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p>&#x26A0;&#xFE0F; <strong style="color:#fff;">Los descuentos no son acumulables independientemente, pero obtiene ambos beneficios.</strong></p>
+          <p>El DR Discount ya viene en la tarifa base. El 10% VIP se aplica sobre esa tarifa base. Para contratos anuales prepagados, podemos revisar un descuento adicional por volumen. Hable con su asesor TodoBuild.</p>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Qu&eacute; pasa si quiero escalar de un plan a otro?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p>&#x2705; <strong style="color:#fff;">El escalado es instant&aacute;neo y prorrateado al d&iacute;a.</strong></p>
+          <p>Puede subir de plan en cualquier momento desde su panel. El costo adicional se calcula proporcionalmente a los d&iacute;as restantes del mes. Sin cargos por cambio ni penalidades.</p>
+          <ul>
+            <li>B&aacute;sico &rarr; Profesional: Se habilitan CRM, Portal de Clientes y Telemetr&iacute;a.</li>
+            <li>Profesional &rarr; Empresarial: Cat&aacute;logo ilimitado, API WhatsApp Business y soporte 24/7.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Cu&aacute;nto cuesta la implementaci&oacute;n inicial (setup)?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p><strong style="color:#fff;">El costo de implementaci&oacute;n por nivel:</strong></p>
+          <div style="margin:8px 0;">
+            <span class="price-tag">B&aacute;sico: $0 Setup (autoservicio guiado)</span>
+            <span class="price-tag">Profesional: $499 Setup &uacute;nico</span>
+            <span class="price-tag">Empresarial: $999 Setup completo con migraci&oacute;n</span>
+          </div>
+          <p>Setup incluye: configuraci&oacute;n inicial, carga del cat&aacute;logo, capacitaci&oacute;n del administrador, conexi&oacute;n de dominio y primera sesi&oacute;n de revisi&oacute;n en vivo.</p>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Qu&eacute; necesito para conectar la API de Fullbay?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p><strong style="color:#fff;">Necesitamos 3 elementos de su cuenta Fullbay:</strong></p>
+          <ul>
+            <li>Su <strong style="color:#fff;">Fullbay API Key</strong> (se genera en Configuraci&oacute;n &rarr; Integraciones)</li>
+            <li>El <strong style="color:#fff;">Shop ID</strong> de su taller principal</li>
+            <li>Credenciales de un usuario con rol <strong style="color:#fff;">"API Access"</strong></li>
+          </ul>
+          <p>Con eso activamos telemetr&iacute;a en vivo: &oacute;rdenes de trabajo, disponibilidad de equipos, historial de mantenimiento y alertas de servicio.</p>
+        </div>
+      </div>
+
+      <div class="qa-panel">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-q-text">&iquest;Cu&aacute;nto tiempo tarda la implementaci&oacute;n completa?</span>
+          <span class="qa-chevron">&#x25BC;</span>
+        </div>
+        <div class="qa-ans">
+          <p><strong style="color:#fff;">Cronograma t&iacute;pico por nivel:</strong></p>
+          <ul>
+            <li>&#x1F7E2; <span class="green">Nivel B&aacute;sico:</span> 5 a 7 d&iacute;as h&aacute;biles</li>
+            <li>&#x1F7E1; <strong style="color:#f59e0b;">Nivel Profesional:</strong> 10 a 14 d&iacute;as h&aacute;biles</li>
+            <li>&#x1F7E0; <strong style="color:#ea580c;">Nivel Empresarial:</strong> 21 a 30 d&iacute;as h&aacute;biles</li>
+          </ul>
+          <p>El sitio web en vivo puede activarse en las primeras 48 horas con contenido b&aacute;sico. La implementaci&oacute;n m&aacute;s r&aacute;pida se logra cuando TMD entrega el cat&aacute;logo en Excel y el acceso a Fullbay en la primera semana.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="submit-section">
+      <h3>&iquest;Listo para comenzar?</h3>
+      <p>Complete el cuestionario, impr&iacute;malo o comp&aacute;rtalo con su equipo. Un asesor TodoBuild le contactar&aacute; en menos de 24 horas.</p>
+      <button class="btn-submit" onclick="alert('Gracias. Un asesor TodoBuild le contactar\u00e1 en menos de 24 horas.')">Enviar Cuestionario Completado &rarr;</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleQA(el) {
+      var ans = el.nextElementSibling;
+      var chev = el.querySelector('.qa-chevron');
+      var isOpen = ans.classList.contains('open');
+      document.querySelectorAll('.qa-ans.open').forEach(function(a) {
+        a.classList.remove('open');
+        a.previousElementSibling.querySelector('.qa-chevron').style.transform = '';
+      });
+      if (!isOpen) {
+        ans.classList.add('open');
+        chev.style.transform = 'rotate(180deg)';
+      }
+    }
+  </script>
+</body>
+</html>
