@@ -458,7 +458,11 @@
         display: block !important;
       }
 
-      /* ─── SERVICE PAGE BACKGROUND TRANSPARENCY FIX ─── */
+      /* ─── SERVICE PAGE BACKGROUND TRANSPARENCY FIX (ALL THEMES) ─── */
+      main,
+      main > div,
+      #root main,
+      #root main > div,
       html.dark main,
       html.dark main > div,
       html.dark #root main,
@@ -466,25 +470,40 @@
         background-color: transparent !important;
         background: transparent !important;
       }
+      main section,
+      #root main section,
       html.dark main section,
       html.dark #root main section {
         background-color: transparent !important;
         background: transparent !important;
       }
-      /* Keep interactive cards, panels, and navigation opaque */
-      html.dark main .rounded-xl,
-      html.dark main .rounded-lg,
-      html.dark main .rounded-2xl,
-      html.dark main [class*="bg-zinc-"],
-      html.dark main [class*="bg-slate-"],
-      html.dark main [class*="bg-neutral-"],
-      html.dark main [class*="bg-gray-"] {
+      /* Force body/html dark background so transparency reveals dark, not white */
+      html, body {
+        background-color: #0a0a0e !important;
+        background: #0a0a0e !important;
+      }
+      /* Service cards: dark glassmorphism always */
+      main .rounded-xl,
+      main .rounded-lg,
+      main .rounded-2xl,
+      #root main .rounded-xl,
+      #root main .rounded-lg,
+      #root main .rounded-2xl,
+      main [class*="bg-zinc-"],
+      main [class*="bg-slate-"],
+      main [class*="bg-neutral-"],
+      main [class*="bg-gray-"],
+      main [class*="bg-white"] {
         background-color: rgba(18, 18, 22, 0.85) !important;
+        border-color: rgba(245, 158, 11, 0.2) !important;
+        color: #e5e5e5 !important;
       }
       /* Keep header/footer opaque */
+      header,
+      footer,
+      #root header,
+      #root footer,
       html.dark header,
-      html.dark footer,
-      html.dark #root header,
       html.dark #root footer {
         background-color: #000000 !important;
       }
