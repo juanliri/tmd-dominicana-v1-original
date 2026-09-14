@@ -5,12 +5,9 @@
       // Synchronize with React state: tmd-theme in localStorage with smart auto-detect
       (function() {
         try {
-          var t = localStorage.getItem('tmd-theme');
-          if (t === 'light') {
-            document.documentElement.classList.remove('dark');
-          } else if (t === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else document.documentElement.classList.add('dark');
+          // Force industrial dark theme for consistent V1 luxury styling
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('tmd-theme', 'dark');
         } catch(e) {
           document.documentElement.classList.add('dark');
         }
@@ -38,7 +35,17 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+    <!-- PWA Manifest & Multiplatform App Support (Desktop, Android & iOS) -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TMD Km 22">
+    <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/aida/AEtjO1VA9lXrksvsphvsVJV2p9VPantEDAE0QXYc7JhlNdji1GF8PZHnaq7lcbvfGtuGv4MjiXJppk1ZrsZTKymyOQ37JSp5MeGesQRdRL7qcLLlsPb6-AcREt2N_jQj4INyoJ9tOcUEeliLzLngn8Q7cA35BHRv-1Avy-ETnUYbYuZ2ZQgTiFd4jBJYfqGt2Zv1NAnjZqkRAvNvDiBEUKt50dsHQoNQiJXGzag3HRXcrZ_T8PLKK-NxQb-7ov_a">
 
     <script>
       // Safeguard against environments where window.fetch has only a getter without a setter
@@ -184,7 +191,7 @@
     <link rel="preload" as="image" href="/assets/team_hd/brito_fuentes_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/leonardo_encarnacion_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/perkin_soriano_hd.jpg">
-    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260913_particles_restored_v17"></script>
+    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260914_v2_service_full_v34"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Bsg4cOg_.css?v=1789230245">
 
     <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -445,7 +452,7 @@
         display: none !important;
       }
 
-      /* ─── ATMOSPHERIC PARTICLE CANVAS (ALWAYS BEHIND CONTENT) ─── */
+      /* ─── ATMOSPHERIC PARTICLE CANVAS (ALWAYS VISIBLE BEHIND CARDS) ─── */
       #tmd-ambient-canvas {
         position: fixed !important;
         top: 0 !important;
@@ -453,9 +460,17 @@
         width: 100vw !important;
         height: 100vh !important;
         pointer-events: none !important;
-        z-index: 0 !important;
-        opacity: 0.82 !important;
+        z-index: 1 !important;
+        opacity: 0.90 !important;
         display: block !important;
+      }
+      #root {
+        position: relative !important;
+        z-index: 2 !important;
+        background: transparent !important;
+      }
+      #root > div {
+        background: transparent !important;
       }
 
       /* ─── SERVICE PAGE BACKGROUND TRANSPARENCY FIX (ALL THEMES) ─── */
@@ -506,11 +521,6 @@
       html.dark header,
       html.dark #root footer {
         background-color: #000000 !important;
-      }
-      /* Particle canvas z-index lock — NEVER MOVES */
-      #tmd-ambient-canvas {
-        z-index: -1 !important;
-        pointer-events: none !important;
       }
 
       /* ─── ELIMINATE HARSH SECTION OUTLINES & BOXING ─── */
@@ -1394,13 +1404,14 @@ html.dark .tmd-solid-card {
 }
 
 html.dark [class*="aspect-[16/11]"],
+html.dark [class*="aspect-[16/10]"],
 html.dark [class*="h-[360px]"][class*="rounded-2xl"],
 html.dark [class*="sm:h-[460px]"],
 html.dark [class*="min-h-[360px]"],
 html.dark .tmd-white-studio-stage {
-  background-color: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 18px 45px -10px rgba(0, 0, 0, 0.6) !important;
+  background-color: #050507 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.95), 0 0 30px rgba(245, 158, 11, 0.15) !important;
   position: relative;
   z-index: 6;
 }
@@ -2358,17 +2369,27 @@ html:not(.dark) #socios .group:hover {
           font-size: 1.15rem !important;
           margin-bottom: 1rem !important;
         }
-        #root section.relative.flex.flex-col .cursor-pointer.aspect-\[16\/11\] {
-          max-height: 380px !important;
-          max-width: 580px !important;
+        #root section.relative.flex.flex-col .cursor-pointer.aspect-\[16\/11\],
+        #root section.relative.flex.flex-col .cursor-pointer.aspect-\[16\/10\],
+        #root section.relative.flex.flex-col .cursor-pointer[class*="aspect-"] {
+          max-height: 480px !important;
+          max-width: 680px !important;
+          width: 100% !important;
           margin: 0 auto !important;
           border-radius: 1.5rem !important;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+          background-color: #050507 !important;
+          border: 1px solid rgba(245, 158, 11, 0.35) !important;
+          box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.95), 0 0 35px rgba(245, 158, 11, 0.18) !important;
+          padding: 0 !important;
+          overflow: hidden !important;
         }
-        #root section.relative.flex.flex-col .cursor-pointer.aspect-\[16\/11\] img {
-          max-height: 320px !important;
-          padding: 1rem !important;
-          object-fit: contain !important;
+        #root section.relative.flex.flex-col .cursor-pointer[class*="aspect-"] img {
+          max-height: 100% !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 0 !important;
+          object-fit: cover !important;
+          transform: none !important;
         }
         #root section.relative.flex.flex-col .grid.grid-cols-2.sm\:grid-cols-4 > div {
           padding: 0.85rem 1rem !important;
@@ -2600,8 +2621,8 @@ html:not(.dark) #socios .group:hover {
       /* ══════════════════════════════════════════════════════════════════ */
       .product-stage-white,
       .tmd-product-white-stage {
-        background-color: #ffffff !important;
-        background: #ffffff !important;
+        background-color: #050507 !important;
+        background: #050507 !important;
       }
 
       .product-stage-white::after,
@@ -3130,7 +3151,115 @@ html:not(.dark) #socios .group:hover {
     </style>
         <link rel="stylesheet" href="/assets/tmd_animation_suite.css?v=20260913_particles_restored_v17" />
 
-</head>
+
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <!-- TMD V1 LUXURY THEME & VIP MODAL ENFORCER                          -->
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <style id="tmd-v1-vip-modal-enforcer">
+      #vip-modal-container {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      }
+      #vip-modal-container h2,
+      #vip-modal-container .font-display-lg,
+      #vip-modal-container .text-headline-xl,
+      #vip-modal-container .font-headline-sm {
+        font-family: 'Space Grotesk', sans-serif !important;
+        letter-spacing: -0.02em !important;
+      }
+      #vip-modal-container .font-telemetry-data-lg,
+      #vip-modal-container [class*="font-telemetry"] {
+        font-family: 'JetBrains Mono', monospace !important;
+      }
+      #vip-modal-container .bg-primary-container {
+        background-color: #f59e0b !important;
+        color: #000000 !important;
+      }
+      #vip-modal-container .text-primary-container {
+        color: #f59e0b !important;
+      }
+      #vip-modal-container .text-on-primary-container {
+        color: #000000 !important;
+        font-weight: 800 !important;
+      }
+      #vip-modal-container .bg-surface-container-lowest {
+        background-color: #0c0e11 !important;
+      }
+      #vip-modal-container .bg-surface-container-high {
+        background-color: #14171d !important;
+      }
+      #vip-modal-container .text-on-surface {
+        color: #ffffff !important;
+      }
+      #vip-modal-container .text-secondary {
+        color: #94a3b8 !important;
+      }
+      #vip-modal-container .text-on-surface-variant {
+        color: #d4d4d4 !important;
+      }
+      #vip-modal-container .border-primary-container {
+        border-color: rgba(245, 158, 11, 0.4) !important;
+      }
+      #vip-modal-container .border-outline-variant {
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      #vip-modal-container input,
+      #vip-modal-container select {
+        background-color: rgba(12, 14, 17, 0.92) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        font-family: 'Inter', sans-serif !important;
+        transition: all 0.2s ease !important;
+      }
+      #vip-modal-container input:focus,
+      #vip-modal-container select:focus {
+        border-color: #f59e0b !important;
+        box-shadow: 0 0 12px rgba(245, 158, 11, 0.3) !important;
+        outline: none !important;
+      }
+      #submit-prive-btn {
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+        color: #000000 !important;
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-weight: 900 !important;
+        font-size: 0.95rem !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
+        box-shadow: 0 6px 25px rgba(245, 158, 11, 0.45) !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+      }
+      #submit-prive-btn:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 10px 30px rgba(245, 158, 11, 0.6) !important;
+      }
+      #submit-prive-btn span,
+      #submit-prive-btn .material-symbols-outlined {
+        color: #000000 !important;
+        font-weight: 900 !important;
+      }
+      #skip-modal-btn {
+        background: transparent !important;
+        border: none !important;
+        color: #737373 !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        padding: 6px 0 !important;
+        cursor: pointer !important;
+        box-shadow: none !important;
+        outline: none !important;
+        transition: color 0.2s ease !important;
+      }
+      #skip-modal-btn:hover {
+        color: #f59e0b !important;
+        background: transparent !important;
+        text-decoration: none !important;
+      }
+    </style>
+
+  </head>
   <body class="text-neutral-900 antialiased dark:text-neutral-100 transition-colors duration-200" style="background:transparent;">
     <!-- TMD Scroll Progress Bar -->
     <div id="tmd-scroll-progress" aria-hidden="true">
@@ -4383,192 +4512,441 @@ html:not(.dark) #socios .group:hover {
   // ──────────────────────────────────────────────────────────────────
   // 5B. SERVICE PAGE — FULL V2 PREMIUM SECTIONS + LEADERSHIP SHOWCASE
   // ──────────────────────────────────────────────────────────────────
+  // ─── 4. COMPLETE V2 SERVICE SUITE 1:1 INJECTION (Original V1 Luxury Theme) ───
   function mountServiceTechnicalLeadership() {
     const isService = window.location.hash.includes('service') || window.location.hash.includes('servicio');
-    if (!isService) return;
+    if (!isService) {
+      const existing = document.getElementById('tmd-service-v2-full-suite');
+      if (existing) existing.remove();
+      return;
+    }
 
-    if (document.getElementById('tmd-service-leadership-strip')) return;
+    if (document.getElementById('tmd-service-v2-full-suite')) return;
 
-    // Find injection point
+    // Find main element
     const mainEl = document.querySelector('main') || document.querySelector('#root main');
     if (!mainEl) return;
 
-    // ── V2 WORKSHOP IMAGE STRIP ──
-    const workshopStrip = document.createElement('div');
-    workshopStrip.id = 'tmd-v2-workshop-strip';
-    workshopStrip.style.cssText = 'max-width: 1200px; margin: 32px auto; padding: 0 24px;';
-    workshopStrip.innerHTML = `
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-        <div style="position: relative; border-radius: 22px; overflow: hidden; height: 240px; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1xvGxRtXQxnG30t0Vq7xiqAZkSW-xaydJD7gK1m3ICnp1zPSJpX7wS2R74yCXwkTO7FNIKTy2rm_cZVkZ72C-jdmRZWb1g21iUiwAVac_IHCi4mokaYrKs06QKXpAbtB7oYYknTKxJuvahtAIIPf_yjWpfth-Js0Jd1t3cNWdcKf2GCX93XoWtSJX4cnEgy8dwNMR7jQUkjQP6wchOcm7GvXwsVy77ppQnBQYDqEMFxsGpxKtDF6yyA" alt="Bahías Mayores" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0.3),transparent);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.1em;font-weight:800;">Bahías Mayores 01-06</span>
-            <span style="font-size:1.1rem;font-weight:800;color:#fff;margin-top:4px;">Grúas Puente de Doble Viga</span>
+    // Master container for full suite
+    const suiteContainer = document.createElement('div');
+    suiteContainer.id = 'tmd-service-v2-full-suite';
+    suiteContainer.style.cssText = 'width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 20px 60px 20px; font-family: "Inter", sans-serif;';
+
+    suiteContainer.innerHTML = `
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SECTION 1: WORKSHOP IMAGE SPOTLIGHT STRIP                         -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div style="margin: 20px 0 48px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; height: 260px; border: 1px solid rgba(245,158,11,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.8);">
+            <img src="/assets/machinery/high_tech_heavy_machinery_overhaul_workshop.jpg" alt="Bahías Mayores Km 22" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.95) 15%,rgba(0,0,0,0.4) 60%,transparent);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">BAHÍAS MAYORES 01-06 • KM 22</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:900;color:#fff;margin-top:4px;">Grúas Puente Doble Viga 25 Ton</span>
+              <span style="font-size:0.75rem;color:#a3a3a3;margin-top:3px;">Fosos de inspección para trenes de orugas y palas pesadas</span>
+            </div>
+          </div>
+
+          <div style="position: relative; border-radius: 24px; overflow: hidden; height: 260px; border: 1px solid rgba(16,185,129,0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.8);">
+            <img src="/assets/machinery/certified_diesel_injection_common_rail_testing.jpg" alt="Laboratorio Common Rail" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.95) 15%,rgba(0,0,0,0.4) 60%,transparent);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#10b981;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">SALA LIMPIA ISO 14644</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:900;color:#fff;margin-top:4px;">Laboratorio Inyección 2,500 Bar</span>
+              <span style="font-size:0.75rem;color:#a3a3a3;margin-top:3px;">Calibración de inyectores piezoeléctricos Bosch, Delphi y Denso</span>
+            </div>
+          </div>
+
+          <div style="position: relative; border-radius: 24px; overflow: hidden; height: 260px; border: 1px solid rgba(245,158,11,0.25); box-shadow: 0 15px 40px rgba(0,0,0,0.8);">
+            <img src="/assets/machinery/automated_hydraulic_testing_bench_with_heavy.jpg" alt="Banco Hidráulico Dinámico" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.95) 15%,rgba(0,0,0,0.4) 60%,transparent);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">DINAMÓMETRO DIGITAL DE PRESIÓN</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:900;color:#fff;margin-top:4px;">Banco de Carga Hidráulica 350 Bar</span>
+              <span style="font-size:0.75rem;color:#a3a3a3;margin-top:3px;">Pruebas dinámicas de bombas principales Kawasaki y Rexroth</span>
+            </div>
           </div>
         </div>
-        <div style="position: relative; border-radius: 22px; overflow: hidden; height: 240px; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2mJm0MsV1L-lwu-EyAcQHKHlrt0b_AD7F2STq3l130xJc7IzQmmQk4mZEjJ9J82cezJvOdUH96NxOLUF33pRvhHY3z31DKydQaRpCAtCrkKaCRyOUYpJC82rdk9VbKLPU6OIuVsxDXADKHnJQSzQ6Q8G2aJ8hQNuoFEfNMz05HR_xN4OE5XDkVez2CJ61GzIQrQAzyOOUS0ufgvnYw2Z5ihsFCAMjgQuwiXkbdSU4lWxryInuoD5JHA" alt="Lab Common Rail" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0.3),transparent);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#10b981;text-transform:uppercase;letter-spacing:0.1em;font-weight:800;">Sala Limpia ISO 14644</span>
-            <span style="font-size:1.1rem;font-weight:800;color:#fff;margin-top:4px;">Laboratorio Common Rail & Inyectores</span>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SECTION 2: LAS 4 DIVISIONES DE SERVICIO ESPECIALIZADO             -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div style="margin: 48px 0;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.14em;font-weight:800;">• CENTRO DE EXCELENCIA TÉCNICA EN RD •</span>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:900;color:#fff;text-transform:uppercase;margin:8px 0 0 0;">Las 4 Divisiones de Servicio Especializado</h2>
+          <p style="font-size:0.85rem;color:#a3a3a3;margin-top:8px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.6;">Ingeniería de postventa con protocolos directos de fábrica. Trazabilidad absoluta con repuestos 100% genuinos y certificación con dinamómetro antes de entrega.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));gap:22px;">
+          <!-- DIV-01 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(245,158,11,0.3);border-radius:24px;padding:26px;box-shadow:0 15px 35px rgba(0,0,0,0.7);transition:all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)';this.style.transform='none'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;font-weight:800;padding:4px 12px;border-radius:9999px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);">DIV-01</span>
+              <span class="material-symbols-outlined" style="font-size:28px;color:#f59e0b;">settings</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 8px 0;text-transform:uppercase;">Overhaul Integral de Motores</h3>
+            <p style="font-size:0.8rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.55;">Reconstrucción mayor bajo tolerancias micrométricas OEM: <strong style="color:#fff">JCB EcoMAX, Cummins QSB/QSL, Perkins y Yanmar</strong>. Rectificación, encamisado y prueba en dinamómetro.</p>
+            <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Pruebas con Carga:</span><span style="color:#10b981;font-weight:800;font-family:'JetBrains Mono',monospace;">100% CARGA DINÁMICA</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#a3a3a3;">Garantía de Fábrica:</span><span style="color:#f59e0b;font-weight:800;font-family:'JetBrains Mono',monospace;">1,500 HORAS / 1 AÑO</span></div>
+            </div>
+            <div style="font-size:0.72rem;color:#737373;border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;">✓ Descarbonizado ultrasónico • ✓ Balanceo de turbos</div>
+          </div>
+
+          <!-- DIV-02 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(16,185,129,0.3);border-radius:24px;padding:26px;box-shadow:0 15px 35px rgba(0,0,0,0.7);transition:all 0.3s ease;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(16,185,129,0.3)';this.style.transform='none'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#10b981;font-weight:800;padding:4px 12px;border-radius:9999px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);">DIV-02</span>
+              <span class="material-symbols-outlined" style="font-size:28px;color:#10b981;">science</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 8px 0;text-transform:uppercase;">Laboratorio de Inyección Diésel</h3>
+            <p style="font-size:0.8rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.55;">Sala limpia presurizada para diagnóstico y calibración de sistemas Common Rail. Diagnóstico de toberas, válvulas dosificadoras y codificación de inyectores.</p>
+            <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Presión Máxima:</span><span style="color:#10b981;font-weight:800;font-family:'JetBrains Mono',monospace;">2,500 BAR</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#a3a3a3;">Protocolo:</span><span style="color:#f59e0b;font-weight:800;font-family:'JetBrains Mono',monospace;">BOSCH & HARTRIDGE</span></div>
+            </div>
+            <div style="font-size:0.72rem;color:#737373;border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;">✓ Generación de códigos IMA • ✓ Muestreo de combustible</div>
+          </div>
+
+          <!-- DIV-03 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(16,185,129,0.3);border-radius:24px;padding:26px;box-shadow:0 15px 35px rgba(0,0,0,0.7);transition:all 0.3s ease;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(16,185,129,0.3)';this.style.transform='none'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#10b981;font-weight:800;padding:4px 12px;border-radius:9999px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);">DIV-03</span>
+              <span class="material-symbols-outlined" style="font-size:28px;color:#10b981;">tune</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 8px 0;text-transform:uppercase;">Hidráulica & Mandos 350 Bar</h3>
+            <p style="font-size:0.8rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.55;">Dinamómetro hidráulico de <strong style="color:#fff">5,000 PSI / 350 Bar</strong> con lectura digital de caudal y temperatura. Reconstrucción de bombas variables, distribuidores y transmisiones Powershift.</p>
+            <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Banco de Prueba:</span><span style="color:#10b981;font-weight:800;font-family:'JetBrains Mono',monospace;">350 BAR / 6,000 PSI</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#a3a3a3;">Garantía Hidráulica:</span><span style="color:#f59e0b;font-weight:800;font-family:'JetBrains Mono',monospace;">2,000 HORAS</span></div>
+            </div>
+            <div style="font-size:0.72rem;color:#737373;border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;">✓ Sellos Hallite originales • ✓ Aceite ISO 46 certificado</div>
+          </div>
+
+          <!-- DIV-04 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(245,158,11,0.3);border-radius:24px;padding:26px;box-shadow:0 15px 35px rgba(0,0,0,0.7);transition:all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)';this.style.transform='none'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;font-weight:800;padding:4px 12px;border-radius:9999px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);">DIV-04</span>
+              <span class="material-symbols-outlined" style="font-size:28px;color:#f59e0b;">engineering</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin:0 0 8px 0;text-transform:uppercase;">Campo 24/7 & Telemetría LiveLink</h3>
+            <p style="font-size:0.8rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.55;">Flota de camionetas 4x4 equipadas con escáner CAN-bus, generador, soldadora y lubricación a presión. Enlace satelital LiveLink para alerta temprana en obra.</p>
+            <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Tiempo de Arribo:</span><span style="color:#10b981;font-weight:800;font-family:'JetBrains Mono',monospace;">< 4 HORAS EN FAENA</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;"><span style="color:#a3a3a3;">Cobertura:</span><span style="color:#f59e0b;font-weight:800;font-family:'JetBrains Mono',monospace;">TODO EL PAÍS (RD)</span></div>
+            </div>
+            <div style="font-size:0.72rem;color:#737373;border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;">✓ Crimpadora de mangueras in situ • ✓ Soldadura Miller</div>
           </div>
         </div>
-        <div style="position: relative; border-radius: 22px; overflow: hidden; height: 240px; border: 1px solid rgba(255,255,255,0.08);">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFUOxlLR74RMi-yfWcmMBgHQBgYgusR1fUDxkRkC5CSDiMOZ6x0mZ_e1hnQghGw2nxeqlaKWMS7n-TzcdC-3yU9F05CZoDyuHynld1Xax5T2BetHEjKuAfPn9eW0siYMDGu_fAfQnuwI7mAy-nFQ01zT3e9SbTs5nXUveD9ZtPrikWTFdJ4F65ccVH8UchAxSkMEQNpoqo8ZRNQ0zxFygxLG-memrdQyMWnpdW54phyxdng3poBMZLfA" alt="Banco Hidráulico" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0.3),transparent);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.1em;font-weight:800;">Banco Dinámico de Carga</span>
-            <span style="font-size:1.1rem;font-weight:800;color:#fff;margin-top:4px;">Certificación Hidráulica 6,000 PSI</span>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SECTION 3: MÓDULOS DE FAENA & FLOTA DE ASISTENCIA MÓVIL 24/7       -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div style="margin: 56px 0;">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;">
+          <div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#10b981;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">• DESPACHO SATELITAL EN TIEMPO REAL •</span>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.85rem;font-weight:900;color:#fff;text-transform:uppercase;margin:6px 0 0 0;">Módulos de Faena & Flota de Asistencia Móvil 24/7</h2>
+          </div>
+          <a href="#solicitud-dtc" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:9999px;background:rgba(245,158,11,0.12);border:1px solid #f59e0b;color:#f59e0b;font-family:'Space Grotesk',sans-serif;font-size:0.78rem;font-weight:800;text-transform:uppercase;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.background='#f59e0b';this.style.color='#000'" onmouseout="this.style.background='rgba(245,158,11,0.12)';this.style.color='#f59e0b'">
+            <span>Solicitar Unidad a Obra →</span>
+          </a>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));gap:20px;">
+          <!-- MÓVIL 1 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(16,185,129,0.3);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.7);display:flex;flex-direction:column;justify-content:between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;"></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:#fff;">Móvil #1</span>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#10b981;background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:6px;border:1px solid rgba(16,185,129,0.25);font-weight:800;">EN SERVICIO</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;color:#f59e0b;margin-bottom:2px;">Eje Duarte & Cibao Norte</div>
+              <div style="font-size:0.72rem;color:#737373;margin-bottom:14px;">Base: Autopista Duarte Km 22 • Almacén Central</div>
+              <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;margin-bottom:14px;font-size:0.74rem;color:#a3a3a3;line-height:1.45;">
+                <strong style="color:#d4d4d4;display:block;margin-bottom:3px;">Equipamiento:</strong> Compresor 175 PSI, crimpadora móvil Gates, generador 10kVA y escáner Jaltest.
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#737373;margin-bottom:10px;">
+                <span>Técnico Líder:</span><strong style="color:#fff;">Ing. R. Batista</strong>
+              </div>
+              <a href="https://wa.me/18098262222?text=Solicito+Despacho+Emergencia+Móvil+1+Duarte" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);color:#10b981;font-size:0.75rem;font-weight:800;text-transform:uppercase;text-decoration:none;font-family:'JetBrains Mono',monospace;">
+                <span>Despachar Emergencia</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- MÓVIL 2 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(16,185,129,0.3);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.7);display:flex;flex-direction:column;justify-content:between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;"></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:#fff;">Móvil #2</span>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#10b981;background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:6px;border:1px solid rgba(16,185,129,0.25);font-weight:800;">EN SERVICIO</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;color:#f59e0b;margin-bottom:2px;">Gran Santo Domingo & Canteras</div>
+              <div style="font-size:0.72rem;color:#737373;margin-bottom:14px;">Base: Circunvalación Tramo II • Haina</div>
+              <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;margin-bottom:14px;font-size:0.74rem;color:#a3a3a3;line-height:1.45;">
+                <strong style="color:#d4d4d4;display:block;margin-bottom:3px;">Equipamiento:</strong> Planta Miller Trailblazer, soplete corte oxiacetilénico, torquímetro 2,500 Nm.
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#737373;margin-bottom:10px;">
+                <span>Técnico Líder:</span><strong style="color:#fff;">Téc. M. Santos</strong>
+              </div>
+              <a href="https://wa.me/18098262222?text=Solicito+Despacho+Emergencia+Móvil+2+Santo+Domingo" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);color:#10b981;font-size:0.75rem;font-weight:800;text-transform:uppercase;text-decoration:none;font-family:'JetBrains Mono',monospace;">
+                <span>Despachar Emergencia</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- MÓVIL 3 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(245,158,11,0.3);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.7);display:flex;flex-direction:column;justify-content:between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 10px #f59e0b;"></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:#fff;">Móvil #3</span>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#f59e0b;background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:6px;border:1px solid rgba(245,158,11,0.25);font-weight:800;">EN TRAYECTO</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;color:#f59e0b;margin-bottom:2px;">Región Este • Minería & Obras</div>
+              <div style="font-size:0.72rem;color:#737373;margin-bottom:14px;">Base: Autovía del Coral • Punta Cana / Miches</div>
+              <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;margin-bottom:14px;font-size:0.74rem;color:#a3a3a3;line-height:1.45;">
+                <strong style="color:#d4d4d4;display:block;margin-bottom:3px;">Equipamiento:</strong> Banco portátil de prueba de fugas, kit de mangueras 4-espirales, lubricación neumática.
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#737373;margin-bottom:10px;">
+                <span>Técnico Líder:</span><strong style="color:#fff;">Ing. J. Paulino</strong>
+              </div>
+              <a href="https://wa.me/18098262222?text=Solicito+Despacho+Emergencia+Móvil+3+Este" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:12px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);color:#f59e0b;font-size:0.75rem;font-weight:800;text-transform:uppercase;text-decoration:none;font-family:'JetBrains Mono',monospace;">
+                <span>Despachar Emergencia</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- MÓVIL 4 -->
+          <div style="background:rgba(14,16,22,0.92);border:1px solid rgba(16,185,129,0.3);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,0.7);display:flex;flex-direction:column;justify-content:between;">
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;"></span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:800;color:#fff;">Móvil #4</span>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#10b981;background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:6px;border:1px solid rgba(16,185,129,0.25);font-weight:800;">EN SERVICIO</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;color:#f59e0b;margin-bottom:2px;">Región Sur • Proyectos Viales</div>
+              <div style="font-size:0.72rem;color:#737373;margin-bottom:14px;">Base: Cruce de Ocoa • Baní / Azua / Barahona</div>
+              <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;margin-bottom:14px;font-size:0.74rem;color:#a3a3a3;line-height:1.45;">
+                <strong style="color:#d4d4d4;display:block;margin-bottom:3px;">Equipamiento:</strong> Tanque móvil de recuperación de aceite ecológico, bomba neumática de engrase, tester ECM.
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#737373;margin-bottom:10px;">
+                <span>Técnico Líder:</span><strong style="color:#fff;">Téc. C. Rosario</strong>
+              </div>
+              <a href="https://wa.me/18098262222?text=Solicito+Despacho+Emergencia+Móvil+4+Sur" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);color:#10b981;font-size:0.75rem;font-weight:800;text-transform:uppercase;text-decoration:none;font-family:'JetBrains Mono',monospace;">
+                <span>Despachar Emergencia</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SECTION 4: FORMULARIO DE SERVICIO TÉCNICO & CÓDIGOS DTC           -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div id="solicitud-dtc" style="margin: 64px 0 32px 0; background:rgba(14,16,22,0.95); border:1px solid rgba(245,158,11,0.35); border-radius:32px; padding:36px; box-shadow: 0 25px 70px rgba(0,0,0,0.9);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:36px;">
+          <!-- Info Column -->
+          <div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">• PROTOCOLO OFICIAL DE TALLER •</span>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:900;color:#fff;text-transform:uppercase;margin:8px 0 12px 0;line-height:1.2;">Solicitud de Servicio Técnico & Análisis DTC</h2>
+            <p style="font-size:0.85rem;color:#a3a3a3;line-height:1.6;margin-bottom:24px;">Ingrese los datos del equipo y códigos de falla del monitor de cabina para priorizar piezas en bodega y asignar bahía de inspección antes de su arribo.</p>
+
+            <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px;margin-bottom:20px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <span class="material-symbols-outlined" style="color:#10b981;font-size:22px;">verified</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:800;color:#fff;">Garantía de Servicio TMD</span>
+              </div>
+              <ul style="list-style:none;padding:0;margin:0;font-size:0.78rem;color:#a3a3a3;display:flex;flex-direction:column;gap:8px;">
+                <li style="display:flex;align-items:center;gap:8px;"><span style="color:#f59e0b;">✓</span> Diagnóstico computarizado en menos de 2 horas hábiles.</li>
+                <li style="display:flex;align-items:center;gap:8px;"><span style="color:#f59e0b;">✓</span> Facturación formal con NCF para crédito fiscal.</li>
+                <li style="display:flex;align-items:center;gap:8px;"><span style="color:#f59e0b;">✓</span> Repuestos 100% genuinos con trazabilidad directa de fábrica.</li>
+              </ul>
+            </div>
+
+            <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;">
+              <span class="material-symbols-outlined" style="font-size:36px;color:#f59e0b;">phone_in_talk</span>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#f59e0b;font-weight:800;text-transform:uppercase;">Línea Directa de Taller Central</div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:900;color:#fff;">+1 (809) 826-2222</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div>
+            <form id="tmd-v2-dtc-form" onsubmit="event.preventDefault(); window.tmdSubmitDtcTicket();" style="display:flex;flex-direction:column;gap:16px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">VIN / No. de Serie *</label>
+                  <input id="dtc-vin" type="text" required placeholder="Ej. JCB220X-2024-098" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+                </div>
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Horómetro Actual *</label>
+                  <input id="dtc-hours" type="number" required placeholder="Ej. 3,450" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Marca del Motor</label>
+                  <select id="dtc-engine" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;">
+                    <option value="JCB EcoMAX 4.4L / 4.8L">JCB EcoMAX Tier 4</option>
+                    <option value="Cummins QSB 6.7L">Cummins QSB / QSL Series</option>
+                    <option value="Perkins 1104D">Perkins 1100 / 1200 Industrial</option>
+                    <option value="Yanmar 4TNV">Yanmar 4TNV Series</option>
+                    <option value="Otra Marca">Otro Fabricante</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Tipo de Intervención</label>
+                  <select id="dtc-type" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;">
+                    <option value="Overhaul Bloque Motor">Overhaul Bloque Motor</option>
+                    <option value="Calibración Hidráulica 350 Bar">Calibración Hidráulica 350 Bar</option>
+                    <option value="Laboratorio Inyección Diésel">Inyectores / Bomba Common Rail</option>
+                    <option value="Despacho Móvil en Obra">Despacho Unidad Móvil en Obra</option>
+                    <option value="Mantenimiento Preventivo 500h">Mantenimiento Preventivo Programado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Código de Falla DTC (Opcional)</label>
+                <input id="dtc-code" type="text" placeholder="Ej. SPN 3251 FMI 0, P0087 (o dejar vacío)" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+              </div>
+
+              <div>
+                <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Descripción de la Falla / Síntomas *</label>
+                <textarea id="dtc-desc" required rows="3" placeholder="Pérdida de presión en banco, humo negro en aceleración, código en pantalla..." style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;resize:vertical;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"></textarea>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Contacto / Empresa *</label>
+                  <input id="dtc-contact" type="text" required placeholder="Ing. o Empresa" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;">
+                </div>
+                <div>
+                  <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#a3a3a3;text-transform:uppercase;font-weight:700;margin-bottom:6px;">WhatsApp / Teléfono *</label>
+                  <input id="dtc-phone" type="tel" required placeholder="(809) 000-0000" style="width:100%;box-sizing:border-box;background:rgba(8,10,14,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.85rem;outline:none;">
+                </div>
+              </div>
+
+              <button type="submit" style="width:100%;margin-top:8px;padding:16px;border-radius:14px;background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 100%);border:none;color:#000;font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;box-shadow:0 8px 30px rgba(245,158,11,0.45);transition:all 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                SOLICITAR DESPACHO TÉCNICO & RESERVAR BAHÍA →
+              </button>
+            </form>
+
+            <div id="dtc-ticket-success" style="display:none;background:rgba(16,185,129,0.12);border:1px solid #10b981;border-radius:20px;padding:24px;text-align:center;margin-top:16px;">
+              <span class="material-symbols-outlined" style="font-size:48px;color:#10b981;margin-bottom:8px;">check_circle</span>
+              <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;margin:0 0 6px 0;">¡Ticket de Bahía Generado con Éxito!</h3>
+              <p style="font-size:0.82rem;color:#a3a3a3;line-height:1.5;margin:0 0 12px 0;">Se ha canalizado la solicitud con prioridad al Jefe de Taller en Km 22. Un ingeniero técnico le contactará en menos de 30 minutos.</p>
+              <div id="dtc-ticket-details" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#f59e0b;background:rgba(0,0,0,0.4);padding:10px;border-radius:10px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SECTION 5: LIDERAZGO TÉCNICO DE TALLER & CAMPO                     -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div style="margin: 48px 0 20px 0; border-top: 1px solid rgba(245,158,11,0.25); padding-top: 40px;">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;display:block;margin-bottom:6px;">• LIDERAZGO TÉCNICO • TALLER & CAMPO KM 22 •</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.75rem;font-weight:900;color:#fff;text-transform:uppercase;margin:0;">Especialistas Certificados a Cargo</h3>
+          <p style="font-size:0.82rem;color:#a3a3a3;margin-top:6px;max-width:620px;margin-left:auto;margin-right:auto;">Contacto directo con los jefes de taller e ingenieros responsables de la disponibilidad de su flota.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; max-width: 1100px; margin: 0 auto;">
+          <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('edwin-martinez')" style="cursor: pointer; background: rgba(14,16,22,0.92); border: 1px solid rgba(245,158,11,0.3); border-radius: 20px; padding: 18px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)'">
+            <img src="/assets/team_hd/edwin_martinez_hd.jpg" alt="Edwin Martinez" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
+            <div>
+              <div style="font-size: 0.65rem; font-family:'JetBrains Mono',monospace; color: #10b981; font-weight: 800; text-transform: uppercase;">SERVICIO & CAMPO 24/7</div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.05rem; font-weight: 900; color: #fff;">Edwin Martinez</div>
+              <div style="font-size: 0.74rem; color: #a3a3a3;">Gerente de Servicios</div>
+            </div>
+          </div>
+          <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('elvys-alcantara')" style="cursor: pointer; background: rgba(14,16,22,0.92); border: 1px solid rgba(245,158,11,0.3); border-radius: 20px; padding: 18px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)'">
+            <img src="/assets/team_hd/elvys_alcantara_hd.jpg" alt="Elvys Alcantara" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
+            <div>
+              <div style="font-size: 0.65rem; font-family:'JetBrains Mono',monospace; color: #f59e0b; font-weight: 800; text-transform: uppercase;">TALLER CENTRAL KM 22</div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.05rem; font-weight: 900; color: #fff;">Elvys Alcantara</div>
+              <div style="font-size: 0.74rem; color: #a3a3a3;">Jefe de Taller & Overhaul</div>
+            </div>
           </div>
         </div>
       </div>
     `;
 
-    // ── V2 4 SPECIALIZED DIVISIONS ──
-    const divisionsSection = document.createElement('div');
-    divisionsSection.id = 'tmd-v2-divisions';
-    divisionsSection.style.cssText = 'max-width: 1200px; margin: 48px auto; padding: 0 24px;';
-    divisionsSection.innerHTML = `
-      <div style="text-align: center; margin-bottom: 32px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">● CENTRO DE EXCELENCIA TÉCNICA OEM</span>
-        <h3 style="font-size:1.6rem;font-weight:900;color:#fff;margin:8px 0 0 0;">Las 4 Divisiones de Servicio Especializado</h3>
-        <p style="font-size:0.82rem;color:#a3a3a3;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;">Procedimientos estandarizados bajo normativas directas de fábrica. Trazabilidad completa con repuestos genuinos y certificación por dinamómetro.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px;">
-        <div style="background:rgba(18,18,22,0.85);border:1px solid rgba(245,158,11,0.3);border-radius:22px;padding:24px;transition:all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)'">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;font-weight:700;padding:4px 10px;border-radius:9999px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">DIV-01</span>
-            <span style="font-size:1.5rem;">⚙️</span>
-          </div>
-          <h4 style="font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 8px 0;">Overhaul Integral de Motores</h4>
-          <p style="font-size:0.78rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.5;">Reconstrucción total de bloques mayores: <strong style='color:#fff'>Cummins, JCB EcoMAX, Perkins, Yanmar</strong>. Rectificación micrométrica, encamisado, calibración.</p>
-          <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:12px;margin-bottom:12px;">
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Pruebas Dinamométricas:</span><span style="color:#10b981;font-weight:800;">100% CARGA</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;"><span style="color:#a3a3a3;">Garantía Certificada:</span><span style="color:#f59e0b;font-weight:800;">1,500 HORAS</span></div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;font-size:0.72rem;color:#a3a3a3;">✓ Descarbonizado ultrasónico · ✓ Balanceo dinámico de turbos</div>
-        </div>
-        <div style="background:rgba(18,18,22,0.85);border:1px solid rgba(16,185,129,0.3);border-radius:22px;padding:24px;transition:all 0.3s ease;" onmouseover="this.style.borderColor='#10b981'" onmouseout="this.style.borderColor='rgba(16,185,129,0.3)'">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#10b981;font-weight:700;padding:4px 10px;border-radius:9999px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);">DIV-02</span>
-            <span style="font-size:1.5rem;">🔬</span>
-          </div>
-          <h4 style="font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 8px 0;">Laboratorio de Inyección Diésel</h4>
-          <p style="font-size:0.78rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.5;">Sala limpia ISO para calibración de bombas e inyectores <strong style='color:#fff'>Bosch, Delphi, Denso</strong>. Diagnóstico electrónico Common Rail.</p>
-          <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:12px;margin-bottom:12px;">
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Presión de Prueba:</span><span style="color:#10b981;font-weight:800;">2,200 BAR</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;"><span style="color:#a3a3a3;">Certificación OEM:</span><span style="color:#f59e0b;font-weight:800;">BOSCH LEVEL III</span></div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;font-size:0.72rem;color:#a3a3a3;">✓ Codificación IMA de inyectores · ✓ Muestreo de fluidos S·O·S</div>
-        </div>
-        <div style="background:rgba(18,18,22,0.85);border:1px solid rgba(16,185,129,0.3);border-radius:22px;padding:24px;transition:all 0.3s ease;" onmouseover="this.style.borderColor='#10b981'" onmouseout="this.style.borderColor='rgba(16,185,129,0.3)'">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#10b981;font-weight:700;padding:4px 10px;border-radius:9999px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);">DIV-03</span>
-            <span style="font-size:1.5rem;">🛢️</span>
-          </div>
-          <h4 style="font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 8px 0;">Hidráulica Avanzada & Transmisiones</h4>
-          <p style="font-size:0.78rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.5;">Banco de prueba de <strong style='color:#fff'>6,000 PSI</strong> con flujo proporcional dinámico. Reconstrucción de bombas principales, motores de giro y cilindros.</p>
-          <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:12px;margin-bottom:12px;">
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Capacidad Banco:</span><span style="color:#10b981;font-weight:800;">6,000 PSI</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;"><span style="color:#a3a3a3;">Garantía Hidráulica:</span><span style="color:#f59e0b;font-weight:800;">2,000 HORAS</span></div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;font-size:0.72rem;color:#a3a3a3;">✓ Sellado con juntas Hallite · ✓ Aceite ISO 46 certificado</div>
-        </div>
-        <div style="background:rgba(18,18,22,0.85);border:1px solid rgba(245,158,11,0.3);border-radius:22px;padding:24px;transition:all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='rgba(245,158,11,0.3)'">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f59e0b;font-weight:700;padding:4px 10px;border-radius:9999px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">DIV-04</span>
-            <span style="font-size:1.5rem;">📡</span>
-          </div>
-          <h4 style="font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 8px 0;">Campo 24/7 & Telemetría LiveLink</h4>
-          <p style="font-size:0.78rem;color:#a3a3a3;margin:0 0 16px 0;line-height:1.5;">Unidades móviles 4x4 con diagnóstico CAN bus satelital. Cobertura nacional: <strong style='color:#fff'>Santo Domingo, Santiago, Punta Cana, Barahona</strong>.</p>
-          <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:12px;margin-bottom:12px;">
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;margin-bottom:6px;"><span style="color:#a3a3a3;">Tiempo de Respuesta:</span><span style="color:#10b981;font-weight:800;">< 4 HORAS</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;"><span style="color:#a3a3a3;">Nodos GPS Activos:</span><span style="color:#f59e0b;font-weight:800;">4 ZONAS</span></div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:10px;font-size:0.72rem;color:#a3a3a3;">✓ Camiones taller completos · ✓ Soldadura en campo certificada</div>
-        </div>
-      </div>
-    `;
+    // Cleanly integrate into service layout: replace legacy quick-form with V2 suite
+    const serviceGrid = mainEl.querySelector('.max-w-7xl');
+    if (serviceGrid) {
+      // Hide legacy small form and legacy 4-photo grid if present
+      const legacyForm = serviceGrid.querySelector('.max-w-3xl.mx-auto.rounded-3xl');
+      if (legacyForm) legacyForm.style.display = 'none';
+      const legacyPhotos = serviceGrid.querySelectorAll('.mb-20');
+      if (legacyPhotos && legacyPhotos.length > 0) {
+        legacyPhotos.forEach(el => {
+          if (!el.contains(suiteContainer)) el.style.display = 'none';
+        });
+      }
 
-    // ── LEADERSHIP STRIP (existing) ──
-    const strip = document.createElement('div');
-    strip.id = 'tmd-service-leadership-strip';
-    strip.style.cssText = 'max-width: 1200px; margin: 48px auto; padding: 0 24px 48px 24px; border-top: 1px solid rgba(245,158,11,0.2); padding-top: 36px;';
-    strip.innerHTML = `
-      <div style="text-align: center; margin-bottom: 24px;">
-        <span style="font-family: monospace; font-size: 0.72rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; display: block; margin-bottom: 6px;">Liderazgo Técnico • Taller & Campo Km 22</span>
-        <h4 style="font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0;">Especialistas a Cargo de Servicio Técnico</h4>
-        <p style="font-size: 0.82rem; color: #a3a3a3; margin-top: 6px; max-width: 620px; margin-left: auto; margin-right: auto;">Acceda al expediente y contacto directo de los directores y jefes de taller responsables del mantenimiento mayor y la cobertura nacional.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto;">
-        <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('edwin-martinez')" style="cursor: pointer; background: rgba(18,18,22,0.85); border: 1px solid rgba(245,158,11,0.3); border-radius: 18px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;">
-          <img src="/assets/team_hd/edwin_martinez_hd.jpg" alt="Edwin Martinez" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
-          <div>
-            <div style="font-size: 0.62rem; font-family: monospace; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Servicio 24/7</div>
-            <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">Edwin Martinez</div>
-            <div style="font-size: 0.72rem; color: #a3a3a3;">Gerente de Servicios & Campo</div>
-          </div>
-        </div>
-        <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('elvys-alcantara')" style="cursor: pointer; background: rgba(18,18,22,0.85); border: 1px solid rgba(245,158,11,0.3); border-radius: 18px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;">
-          <img src="/assets/team_hd/elvys_alcantara_hd.jpg" alt="Elvys Alcantara" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
-          <div>
-            <div style="font-size: 0.62rem; font-family: monospace; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Overhaul Km 22</div>
-            <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">Elvys Alcantara</div>
-            <div style="font-size: 0.72rem; color: #a3a3a3;">Gerente de Taller Central</div>
-          </div>
-        </div>
-        <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('blasina-fabian')" style="cursor: pointer; background: rgba(18,18,22,0.85); border: 1px solid rgba(245,158,11,0.3); border-radius: 18px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;">
-          <img src="/assets/team_hd/blasina_fabian_hd.jpg" alt="Blasina Fabian" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
-          <div>
-            <div style="font-size: 0.62rem; font-family: monospace; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Certificación Técnica</div>
-            <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">Blasina Fabian</div>
-            <div style="font-size: 0.72rem; color: #a3a3a3;">Gerente de RRHH & Certificación</div>
-          </div>
-        </div>
-        <div class="tmd-exec-card" onclick="window.tmdOpenExecutiveModal('jorge-torres')" style="cursor: pointer; background: rgba(18,18,22,0.85); border: 1px solid rgba(245,158,11,0.3); border-radius: 18px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: all 0.25s ease;">
-          <img src="/assets/team_hd/jorge_torres_hd.jpg" alt="Jorge Torres" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #f59e0b; flex-shrink: 0; background: #000;">
-          <div>
-            <div style="font-size: 0.62rem; font-family: monospace; color: #f59e0b; font-weight: 800; text-transform: uppercase;">División Maquinaria</div>
-            <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">Jorge Torres</div>
-            <div style="font-size: 0.72rem; color: #a3a3a3;">Gerente de Ventas Construcción & Agrícola</div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 22px;">
-        <a href="#/about#equipo" onclick="window.location.hash='#/about'; setTimeout(function(){document.getElementById('equipo')?.scrollIntoView({behavior:'smooth'});}, 350); return false;" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 800; color: #f59e0b; text-decoration: none; padding: 10px 22px; border-radius: 9999px; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.35); transition: all 0.2s ease;">
-          <span>Explorar Directorio Completo de 12 Especialistas & Directivos TMD</span>
-          <span>→</span>
-        </a>
-      </div>
-    `;
-
-    // Insert V2 sections after the first section in the service page
-    const firstSection = mainEl.querySelector('section') || mainEl.firstElementChild;
-    if (firstSection && firstSection.nextSibling) {
-      firstSection.parentNode.insertBefore(workshopStrip, firstSection.nextSibling);
-      workshopStrip.parentNode.insertBefore(divisionsSection, workshopStrip.nextSibling);
-      divisionsSection.parentNode.insertBefore(strip, divisionsSection.nextSibling);
+      // Insert suiteContainer before footer CTA
+      const footerCta = serviceGrid.querySelector('.border-t');
+      if (footerCta) {
+        serviceGrid.insertBefore(suiteContainer, footerCta);
+      } else {
+        serviceGrid.appendChild(suiteContainer);
+      }
     } else {
-      mainEl.appendChild(workshopStrip);
-      mainEl.appendChild(divisionsSection);
-      mainEl.appendChild(strip);
+      mainEl.appendChild(suiteContainer);
     }
+    console.log('[TMD Service V2] Full 1:1 Suite seamlessly integrated into #/service');
   }
 
-  // ──────────────────────────────────────────────────────────────────
-  // 6. CONTINUOUS LIFECYCLE & MUTATION OBSERVER
-  // ──────────────────────────────────────────────────────────────────
-  function checkAndMount() {
-    mountHomeVideoShowcase();
+  // Global ticket handler
+  window.tmdSubmitDtcTicket = function() {
+    const vin = document.getElementById('dtc-vin').value;
+    const hours = document.getElementById('dtc-hours').value;
+    const engine = document.getElementById('dtc-engine').value;
+    const type = document.getElementById('dtc-type').value;
+    const code = document.getElementById('dtc-code').value || 'Sin código DTC';
+    const contact = document.getElementById('dtc-contact').value;
+    const phone = document.getElementById('dtc-phone').value;
 
-    const isAbout = window.location.hash.includes('about') || 
-                    window.location.hash.includes('empresa') || 
-                    window.location.hash.includes('nosotros') ||
-                    document.getElementById('equipo') !== null;
-    if (isAbout) {
-      mountVideoHero();
-      mountStaffSection();
+    const form = document.getElementById('tmd-v2-dtc-form');
+    const success = document.getElementById('dtc-ticket-success');
+    const details = document.getElementById('dtc-ticket-details');
+
+    if (form && success && details) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+      details.innerHTML = 'Ticket #TMD-' + Math.floor(100000 + Math.random() * 900000) + ' • ' + vin + ' • ' + type + ' (' + hours + ' hrs) • Contacto: ' + contact + ' (' + phone + ')';
     }
-    mountServiceTechnicalLeadership();
+  };
+  function checkAndMount() {
+    if (typeof mountVideoHero === 'function') mountVideoHero();
+    if (typeof mountHomeVideoShowcase === 'function') mountHomeVideoShowcase();
+    if (typeof mountStaffSection === 'function') mountStaffSection();
+    if (typeof mountServiceTechnicalLeadership === 'function') mountServiceTechnicalLeadership();
   }
 
   // DOM ready check
@@ -5142,52 +5520,540 @@ html:not(.dark) #socios .group:hover {
     <script src="/assets/tmd_animation_engine.js"></script>
 
     <!-- ══════════════════════════════════════════════════════════════════ -->
-    <!-- TMD VIP MODAL — 1:1 from code.html golden source                 -->
+    <!-- TMD TAILWIND THEME ENGINE & VIP MODAL (1:1 from code.html)       -->
     <!-- ══════════════════════════════════════════════════════════════════ -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = { corePlugins: { preflight: false } };
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#412d00",
+              "inverse-primary": "#7c5800",
+              "surface": "#111317",
+              "tertiary-container": "#faba35",
+              "surface-elevated": "#1A1F26",
+              "on-primary-fixed-variant": "#5e4200",
+              "tertiary": "#ffdca3",
+              "background": "#111317",
+              "hazard-gold-glow": "rgba(255, 184, 0, 0.25)",
+              "text-muted": "#94A3B8",
+              "secondary-fixed-dim": "#c2c6d3",
+              "on-secondary-container": "#b0b5c2",
+              "on-tertiary-container": "#6c4c00",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "inverse-surface": "#e2e2e6",
+              "on-surface": "#f1f3f7",
+              "surface-container": "#1e2023",
+              "on-primary-fixed": "#271900",
+              "surface-container-lowest": "#0c0e11",
+              "border-structural": "#2E3646",
+              "inverse-on-surface": "#2f3034",
+              "primary": "#ffdca1",
+              "surface-container-highest": "#333538",
+              "secondary-container": "#424752",
+              "border-subtle": "#222733",
+              "on-secondary-fixed": "#171c25",
+              "surface-tint": "#ffba20",
+              "tertiary-fixed-dim": "#fcbb37",
+              "surface-charcoal": "#14171D",
+              "secondary-fixed": "#dee2f0",
+              "surface-bright": "#37393d",
+              "primary-fixed": "#ffdea8",
+              "surface-container-low": "#1a1c1f",
+              "primary-container": "#ffb800",
+              "secondary": "#c2c6d3",
+              "error": "#ffb4ab",
+              "on-tertiary": "#422d00",
+              "on-tertiary-fixed": "#271900",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "alert-critical": "#EF4444",
+              "on-secondary-fixed-variant": "#424752",
+              "surface-variant": "#333538",
+              "surface-dim": "#111317",
+              "hazard-gold-active": "#E5A500",
+              "on-surface-variant": "#d5c4ab",
+              "outline-variant": "#514532",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdea9",
+              "on-background": "#e2e2e6",
+              "primary-fixed-dim": "#ffba20",
+              "canvas-offwhite": "#F8FAFC",
+              "on-primary-container": "#6b4c00",
+              "on-secondary": "#2b303b",
+              "surface-container-high": "#282a2d",
+              "outline": "#9e8f78"
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem"
+            },
+            fontFamily: {
+              "headline-sm": ["Space Grotesk", "sans-serif"],
+              "headline-xl": ["Space Grotesk", "sans-serif"],
+              "display-lg": ["Space Grotesk", "sans-serif"],
+              "telemetry-data-lg": ["JetBrains Mono", "monospace"],
+              "caption": ["Inter", "sans-serif"],
+              "body-md": ["Inter", "sans-serif"],
+              "body-lg": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      };
     </script>
 
-    <!-- VIP NEWSLETTER MODAL -->
-    <div id="tmd-vip-modal-overlay" style="display:none;position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;">
-      <div style="position:relative;width:90%;max-width:520px;background:linear-gradient(145deg,#0c0e11 0%,#1a1c20 100%);border:1px solid rgba(245,158,11,0.4);border-radius:24px;padding:40px 32px;box-shadow:0 25px 60px rgba(0,0,0,0.8),0 0 40px rgba(245,158,11,0.15);text-align:center;">
-        <button onclick="document.getElementById('tmd-vip-modal-overlay').style.display='none';localStorage.setItem('tmd-vip-dismissed','1');" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#a3a3a3;font-size:18px;transition:all 0.2s ease;" onmouseover="this.style.background='rgba(245,158,11,0.2)';this.style.color='#f59e0b'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='#a3a3a3'">✕</button>
-        <div style="width:56px;height:56px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px auto;box-shadow:0 0 20px rgba(245,158,11,0.3);">
-          <span style="font-size:28px;">🏗️</span>
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <!-- 1:1 POSTCARD NEWSLETTER POP-OUT (CLUB TMD PRIVÉ & 48H MANIFIESTO)  -->
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <div id="vip-modal-container" style="display:none;" class="fixed inset-0 z-[100000] items-center justify-center p-3 sm:p-5 md:p-8 bg-[#0c0e11]/85 backdrop-blur-md transition-opacity duration-300">
+      <!-- Postcard Card Container with 28px rounded corners and rich glassmorphic framing -->
+      <div class="relative w-full max-w-[1180px] max-h-[92vh] overflow-y-auto rounded-[28px] bg-[#0c0e11]/95 backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95),0_0_60px_rgba(245,158,11,0.25)] border border-amber-500/40 flex flex-col" style="font-family: 'Plus Jakarta Sans', sans-serif; scrollbar-width: thin; scrollbar-color: rgba(245, 158, 11, 0.4) transparent;">
+        <!-- Rich clearly visible background image of JCB fleet yard with delicate gradient so fleet is vividly seen -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <img alt="JCB Fleet Yard Golden Hour" class="w-full h-full object-cover object-center scale-100 opacity-60" src="/assets/images/tmd_sede_central_patio_km22.jpg"/>
+          <!-- Sophisticated multi-stop gradient ensuring text readability while keeping machinery sharp and vibrant -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0c0e11]/92 via-[#0c0e11]/75 to-[#0c0e11]/88"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e11]/95 via-transparent to-[#0c0e11]/80"></div>
         </div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#f59e0b;text-transform:uppercase;letter-spacing:0.12em;font-weight:800;">ACCESO EXCLUSIVO VIP • TMD DOMINICANA</span>
-        <h3 style="font-size:1.5rem;font-weight:900;color:#fff;margin:12px 0 8px 0;">Lista VIP de Precios & Disponibilidad</h3>
-        <p style="font-size:0.85rem;color:#a3a3a3;margin-bottom:24px;line-height:1.6;">Reciba cotizaciones prioritarias, alertas de inventario nuevo en puerto, y promociones exclusivas antes que el mercado.</p>
-        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Registrado';this.querySelector('button').style.background='#10b981';localStorage.setItem('tmd-vip-dismissed','1');setTimeout(function(){document.getElementById('tmd-vip-modal-overlay').style.display='none';},2000);" style="display:flex;flex-direction:column;gap:12px;">
-          <input type="text" placeholder="Nombre o Empresa" required style="width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:0.9rem;outline:none;transition:border 0.2s ease;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
-          <input type="tel" placeholder="WhatsApp (809-XXX-XXXX)" required style="width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:0.9rem;outline:none;transition:border 0.2s ease;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
-          <input type="email" placeholder="Correo Electrónico" style="width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:0.9rem;outline:none;transition:border 0.2s ease;" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
-          <button type="submit" style="width:100%;padding:14px;border-radius:14px;background:#f59e0b;color:#1c1917;font-weight:800;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.04em;border:none;cursor:pointer;transition:all 0.2s ease;box-shadow:0 0 20px rgba(245,158,11,0.25);" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">Unirme a la Lista VIP</button>
-        </form>
-        <p style="font-size:0.7rem;color:#525252;margin-top:16px;">🔒 Información confidencial. Sin spam. Solo ofertas verificadas Km 22.</p>
+        <!-- Top Accent Bar: Official TMD Industrial Gold Glow Line -->
+        <div class="relative z-10 w-full h-2 bg-gradient-to-r from-[#b8860b] via-primary-container to-[#ffb800] shadow-[0_0_20px_rgba(255,184,0,0.8)]"></div>
+        <!-- Close Action -->
+        <button aria-label="Cerrar ventana" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-30 w-11 h-11 rounded-full bg-[#1e2023]/80 hover:bg-primary-container text-on-surface hover:text-on-primary-container flex items-center justify-center transition-all duration-200 shadow-xl border border-primary-container/40 group cursor-pointer" id="close-modal-btn">
+          <span class="material-symbols-outlined text-[22px] group-hover:rotate-90 transition-transform">close</span>
+        </button>
+        <!-- Postcard Body -->
+        <div class="relative z-10 p-5 sm:p-7 md:p-9 flex flex-col gap-6">
+          <!-- Top Header Bar with TMD Logo, VIP Privé Badge & Dispatch Countdown -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-primary-container/20">
+            <div class="flex items-center gap-4">
+              <!-- Official TMD Logo Embed -->
+              <div class="bg-[#111317]/90 px-3.5 py-2 rounded-xl border border-primary-container/30 shadow-md flex items-center backdrop-blur-md">
+                <img alt="TMD Dominicana Oficial" class="h-9 sm:h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VA9lXrksvsphvsVJV2p9VPantEDAE0QXYc7JhlNdji1GF8PZHnaq7lcbvfGtuGv4MjiXJppk1ZrsZTKymyOQ37JSp5MeGesQRdRL7qcLLlsPb6-AcREt2N_jQj4INyoJ9tOcUEeliLzLngn8Q7cA35BHRv-1Avy-ETnUYbYuZ2ZQgTiFd4jBJYfqGt2Zv1NAnjZqkRAvNvDiBEUKt50dsHQoNQiJXGzag3HRXcrZ_T8PLKK-NxQb-7ov_a"/>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-telemetry-data-lg text-caption uppercase font-bold tracking-wider shadow-md">
+                    <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    Club TMD Privé
+                  </span>
+                  <span class="text-secondary text-caption font-telemetry-data-lg uppercase tracking-wider hidden sm:inline">• Acceso Corporativo Exclusivo</span>
+                </div>
+                <span class="font-caption text-caption text-on-surface-variant mt-1">Plataforma Prioritaria para Contratistas &amp; Operadores de Canteras R.D.</span>
+              </div>
+            </div>
+            <!-- Puerto Haina Inbound Ship Badge -->
+            <div class="flex items-center gap-3 self-start md:self-auto bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-xl border border-primary-container/40 shadow-inner">
+              <span class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+              </span>
+              <div class="flex flex-col text-left">
+                <span class="font-telemetry-data-lg text-[11px] text-primary-container font-bold uppercase tracking-wide">Próximo Buque Haina Oriental</span>
+                <span class="font-caption text-caption text-on-surface font-semibold">Arribo en 48h • 38 Equipos 0 Km</span>
+              </div>
+            </div>
+          </div>
+          <!-- Main Headline Area -->
+          <div class="flex flex-col gap-2">
+            <h2 class="font-display-lg text-headline-xl sm:text-display-lg text-on-surface tracking-tight leading-tight">
+              Manifiestos de Carga &amp; Asignación Prioritaria <span class="text-primary-container drop-shadow-[0_2px_12px_rgba(255,184,0,0.4)]">48 Horas Antes</span> de Arribo a Haina
+            </h2>
+            <p class="font-body-lg text-body-md text-secondary max-w-4xl leading-relaxed">
+              Bloquee maquinaria pesada directamente en puerto antes del despacho general a patio, asegurando precios con descuento preferencial, tasa de financiamiento protegida y entrega directa en su obra con garantía OEM de 2 años.
+            </p>
+          </div>
+          <!-- Split Grid: Product Showcase Image & Benefits vs Form -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            <!-- LEFT COLUMN: Embedded Product Showcase Image + VIP Perks (5 Cols) -->
+            <div class="lg:col-span-5 flex flex-col gap-4">
+              <div class="group relative rounded-2xl overflow-hidden bg-surface-container-lowest border-2 border-primary-container/50 shadow-[0_12px_32px_rgba(0,0,0,0.8),0_0_24px_rgba(255,184,0,0.2)]">
+                <div class="relative h-56 sm:h-64 w-full overflow-hidden">
+                  <img alt="JCB 220X Heavy Duty Excavator Bucket" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" src="/assets/images/jcb_220x_hd.jpg"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e11] via-transparent to-black/30"></div>
+                  <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                    <span class="inline-flex items-center gap-1 bg-primary-container text-on-primary-container font-telemetry-data-lg text-[11px] px-2.5 py-1 rounded-md uppercase font-bold shadow-lg">
+                      <span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                      Lote Puerto Haina • 0 Km
+                    </span>
+                    <span class="bg-[#111317]/90 text-primary-container backdrop-blur-md border border-primary-container/30 font-telemetry-data-lg text-[10px] px-2 py-0.5 rounded uppercase font-semibold">
+                      Asignación Inmediata
+                    </span>
+                  </div>
+                  <div class="absolute top-3 right-3 bg-[#0c0e11]/90 backdrop-blur-md border border-primary-container/40 px-2.5 py-1 rounded-md flex items-center gap-1.5 shadow-lg">
+                    <span class="material-symbols-outlined text-primary-container text-[16px]">verified</span>
+                    <span class="text-on-surface font-telemetry-data-lg text-[11px] font-bold">Garantía OEM 2 Años</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+                    <div>
+                      <span class="font-headline-sm text-body-lg sm:text-headline-sm text-white font-bold block leading-tight drop-shadow-md">
+                        JCB 220X Heavy Duty 0 Km
+                      </span>
+                      <span class="font-caption text-caption text-primary font-medium block">
+                        Paquete Especial Club Privé / Lote Puerto Haina
+                      </span>
+                    </div>
+                    <div class="text-right bg-[#111317]/95 px-3 py-1.5 rounded-lg border border-primary-container/60 shadow-xl backdrop-blur-md">
+                      <span class="font-caption text-[11px] text-secondary line-through block leading-none">US$ 186,500</span>
+                      <span class="font-telemetry-data-lg text-body-lg text-primary-container font-bold block leading-tight">US$ 186,000</span>
+                      <span class="font-caption text-[10px] text-primary-fixed block leading-none font-bold uppercase tracking-wider">-US$ 500 Bono Privé</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-surface-container-high/90 px-4 py-2 flex items-center justify-between font-telemetry-data-lg text-[11px] text-secondary border-t border-outline-variant/30">
+                  <span class="flex items-center gap-1 text-on-surface"><span class="text-primary-container font-bold">22 Ton</span> Operativas</span>
+                  <span class="flex items-center gap-1 text-on-surface"><span class="text-primary-container font-bold">Cuchara 1.2 m³</span> Reforzada</span>
+                  <span class="flex items-center gap-1 text-on-surface"><span class="text-primary-container font-bold">Motor</span> JCB EcoMax</span>
+                </div>
+              </div>
+              <!-- VIP Benefit 1: Alerta Temprana -->
+              <div class="group flex gap-3 p-3.5 rounded-xl bg-[#14171D]/80 backdrop-blur-md border border-primary-container/20 hover:border-primary-container/50 transition-all shadow-md">
+                <div class="w-11 h-11 rounded-lg bg-primary-container/15 text-primary-container flex items-center justify-center flex-shrink-0 border border-primary-container/30">
+                  <span class="material-symbols-outlined text-[24px]">radar</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-headline-sm text-body-md text-on-surface font-semibold">Alerta Temprana de Despacho</span>
+                  <p class="font-body-md text-caption text-secondary mt-0.5 leading-normal">
+                    Acceso prioritario a números de serie VIN y listas de empaque de Excavadoras JCB 220X, Retroexcavadoras 3CX y Rodillos Ammann antes del desembarque.
+                  </p>
+                </div>
+              </div>
+              <!-- VIP Benefit 2: Bono de Bienvenida US$ 500 -->
+              <div class="group flex gap-3 p-3.5 rounded-xl bg-gradient-to-r from-primary-container/20 via-[#1e2023]/90 to-[#14171D]/90 backdrop-blur-md border border-primary-container/50 transition-colors shadow-lg relative overflow-hidden">
+                <div class="w-11 h-11 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-md">
+                  <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-headline-sm text-body-md text-on-surface font-bold">Bono Inmediato de US$ 500</span>
+                    <span class="bg-primary-container text-on-primary-container font-telemetry-data-lg text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Acreditado</span>
+                  </div>
+                  <p class="font-body-md text-caption text-secondary mt-0.5 leading-normal">
+                    Aplicable de inmediato como crédito en su primera compra 0 Km, depósito de renta de flota o kit de mantenimiento en el Taller Km 22.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- RIGHT COLUMN: Subscription Form Tray with Rich Glassmorphism (7 Cols) -->
+            <div class="lg:col-span-7 bg-[#111317]/85 backdrop-blur-xl border border-primary-container/30 rounded-2xl p-5 sm:p-7 shadow-2xl flex flex-col justify-between">
+              <form class="flex flex-col gap-4" id="prive-subscribe-form">
+                <div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+                  <div class="flex flex-col">
+                    <span class="font-headline-sm text-headline-sm text-on-surface font-bold">Registro de Membresía Corporativa</span>
+                    <span class="font-caption text-caption text-secondary">Sin costo para empresas de construcción, transporte y minería</span>
+                  </div>
+                  <span class="font-telemetry-data-lg text-[11px] text-primary-container bg-primary-container/10 border border-primary-container/30 px-2.5 py-1 rounded-full uppercase font-bold">
+                    Cupos Q2-2026
+                  </span>
+                </div>
+                <!-- Form Top Row: Name & Cargo -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label class="font-telemetry-data-lg text-caption uppercase text-on-surface-variant font-semibold" for="contact-name">
+                      Nombre &amp; Cargo Directivo <span class="text-primary-container">*</span>
+                    </label>
+                    <div class="relative flex items-center">
+                      <span class="material-symbols-outlined absolute left-3 text-primary-container text-[18px]">person</span>
+                      <input class="w-full bg-[#0c0e11]/90 text-on-surface font-body-md text-body-md pl-10 pr-3 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/40 shadow-inner placeholder:text-secondary/40" id="contact-name" placeholder="Ing. Alejandro Morales - Dir. Obra" required="" type="text"/>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label class="font-telemetry-data-lg text-caption uppercase text-on-surface-variant font-semibold" for="contact-company">
+                      Empresa Constructora / RNC <span class="text-primary-container">*</span>
+                    </label>
+                    <div class="relative flex items-center">
+                      <span class="material-symbols-outlined absolute left-3 text-primary-container text-[18px]">domain</span>
+                      <input class="w-full bg-[#0c0e11]/90 text-on-surface font-body-md text-body-md pl-10 pr-3 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/40 shadow-inner placeholder:text-secondary/40" id="contact-company" placeholder="Consorcio Vial / RNC 1-30-XXXXX" required="" type="text"/>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form Mid Row: Email & Direct Obra Phone -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label class="font-telemetry-data-lg text-caption uppercase text-on-surface-variant font-semibold" for="contact-email">
+                      Correo Corporativo <span class="text-primary-container">*</span>
+                    </label>
+                    <div class="relative flex items-center">
+                      <span class="material-symbols-outlined absolute left-3 text-primary-container text-[18px]">mail</span>
+                      <input class="w-full bg-[#0c0e11]/90 text-on-surface font-body-md text-body-md pl-10 pr-3 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/40 shadow-inner placeholder:text-secondary/40" id="contact-email" placeholder="operaciones@consorcio.do" required="" type="email"/>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label class="font-telemetry-data-lg text-caption uppercase text-on-surface-variant font-semibold" for="contact-phone">
+                      WhatsApp Directo de Obra <span class="text-primary-container">*</span>
+                    </label>
+                    <div class="flex items-center gap-1.5">
+                      <select class="bg-[#0c0e11]/90 text-primary-container font-telemetry-data-lg text-caption px-2 py-3 rounded-lg focus:outline-none border border-outline-variant/40 shadow-inner cursor-pointer font-bold">
+                        <option value="+1-809">+1 (809)</option>
+                        <option value="+1-829">+1 (829)</option>
+                        <option value="+1-849">+1 (849)</option>
+                      </select>
+                      <div class="relative flex-1 flex items-center">
+                        <input class="w-full bg-[#0c0e11]/90 text-on-surface font-body-md text-body-md px-3 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container border border-outline-variant/40 shadow-inner placeholder:text-secondary/40" id="contact-phone" placeholder="555-0199" required="" type="tel"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Segment Interest Selection Pills -->
+                <div class="flex flex-col gap-1.5">
+                  <span class="font-telemetry-data-lg text-caption uppercase text-on-surface-variant font-semibold">
+                    Tipo de Maquinaria de Interés Primario (Seleccione)
+                  </span>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="segment-pills">
+                    <label class="cursor-pointer">
+                      <input checked="" class="peer sr-only" name="segment" type="checkbox" value="excavadoras"/>
+                      <div class="p-2.5 rounded-xl bg-[#0c0e11]/90 border border-outline-variant/30 text-center font-telemetry-data-lg text-caption text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container font-semibold transition-all shadow-sm flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-[20px]">construction</span>
+                        <span>Excavadoras 220X</span>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input checked="" class="peer sr-only" name="segment" type="checkbox" value="retroexcavadoras"/>
+                      <div class="p-2.5 rounded-xl bg-[#0c0e11]/90 border border-outline-variant/30 text-center font-telemetry-data-lg text-caption text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container font-semibold transition-all shadow-sm flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-[20px]">front_loader</span>
+                        <span>Retro 3CX / 4CX</span>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" name="segment" type="checkbox" value="compactacion"/>
+                      <div class="p-2.5 rounded-xl bg-[#0c0e11]/90 border border-outline-variant/30 text-center font-telemetry-data-lg text-caption text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container font-semibold transition-all shadow-sm flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-[20px]">engineering</span>
+                        <span>Rodillos Ammann</span>
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input class="peer sr-only" name="segment" type="checkbox" value="renta"/>
+                      <div class="p-2.5 rounded-xl bg-[#0c0e11]/90 border border-outline-variant/30 text-center font-telemetry-data-lg text-caption text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container font-semibold transition-all shadow-sm flex flex-col items-center gap-1">
+                        <span class="material-symbols-outlined text-[20px]">key</span>
+                        <span>Renta Llave en Mano</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <!-- Primary Submit CTA with Industrial Gold Accent -->
+                <div class="flex flex-col gap-2 pt-2">
+                  <button class="w-full py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer group" id="submit-prive-btn" type="submit" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important; color: #000000 !important; font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif !important; font-weight: 900 !important; font-size: 0.95rem !important; letter-spacing: 0.05em !important; text-transform: uppercase !important; box-shadow: 0 6px 25px rgba(245, 158, 11, 0.45) !important; border: none !important;">
+                    <span style="color: #000000 !important; font-weight: 900 !important;">SUSCRIBIRME &amp; RECLAMAR BONO US$ 500</span>
+                    <span class="material-symbols-outlined group-hover:translate-x-1.5 transition-transform text-[22px]" style="color: #000000 !important; font-weight: 900 !important;">arrow_forward</span>
+                  </button>
+                  <div class="flex items-center justify-center gap-2 text-secondary font-telemetry-data-lg text-[11px]">
+                    <span class="material-symbols-outlined text-primary-container text-[14px]">lock</span>
+                    <span>100% Confidencial • Red Privada TMD Dominicana • Sin Spam Publicitario</span>
+                  </div>
+                </div>
+                <!-- Bottom Secondary Actions -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-3 border-t border-outline-variant/20">
+                  <button id="skip-modal-btn" type="button" style="background: transparent !important; border: none !important; color: #94a3b8; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: none; padding: 6px 12px; transition: color 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#94a3b8'">
+                    Continuar al catálogo general sin beneficios VIP →
+                  </button>
+                  <span class="font-caption text-caption text-text-muted text-[11px] text-right">
+                    Autopista Duarte Km 22 • Santo Domingo Oeste
+                  </span>
+                </div>
+              </form>
+              <!-- Success State Overlay (Hidden by default) -->
+              <div class="hidden flex-col items-center justify-center py-8 text-center gap-4 animate-fade-in" id="form-success-state">
+                <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_25px_rgba(255,184,0,0.5)]">
+                  <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+                <div class="flex flex-col gap-1 max-w-md">
+                  <span class="font-telemetry-data-lg text-caption text-primary-container uppercase font-bold tracking-widest">Membresía Aprobada • Código TMD-PRIVE-500</span>
+                  <h3 class="font-display-lg text-headline-xl text-on-surface font-bold">¡Bienvenido al Club TMD Privé!</h3>
+                  <p class="font-body-lg text-body-md text-secondary mt-1">
+                    Hemos emitido su voucher oficial del <strong class="text-primary-container font-bold">Bono de US$ 500</strong> y el manifiesto aduanal de Haina para despacho anticipado.
+                  </p>
+                </div>
+                <button class="px-space-lg py-3 rounded-xl bg-primary-container hover:bg-hazard-gold-active text-on-primary-container font-headline-sm text-body-md uppercase font-bold transition-all shadow-lg cursor-pointer border-none" id="close-success-btn" type="button">
+                  Ver Inventario Disponible en Patio Km 22
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <script>
-    // VIP Modal auto-show: 3-second delay, only once per session
-    (function() {
-      if (localStorage.getItem('tmd-vip-dismissed')) return;
-      setTimeout(function() {
-        var modal = document.getElementById('tmd-vip-modal-overlay');
-        if (modal) modal.style.display = 'flex';
-      }, 3000);
-    })();
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <!-- MULTIPLATFORM PWA AUTO-INSTALLER (Desktop, Android & iOS)          -->
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <div id="tmd-pwa-installer-banner" style="display:none;position:fixed;bottom:70px;left:18px;z-index:9999;background:linear-gradient(135deg,#0c0e11,#1a1c20);border:1px solid rgba(245,158,11,0.4);border-radius:16px;padding:10px 16px;box-shadow:0 10px 30px rgba(0,0,0,0.8),0 0 20px rgba(245,158,11,0.2);align-items:center;gap:12px;max-width:360px;">
+      <div style="width:36px;height:36px;border-radius:10px;background:#f59e0b;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;font-size:18px;flex-shrink:0;">📲</div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:0.8rem;font-weight:800;color:#fff;line-height:1.2;">Instalar TMD Dominicana App</div>
+        <div style="font-size:0.7rem;color:#94a3b8;" id="tmd-pwa-subtext">Acceso directo offline a Taller Km 22</div>
+      </div>
+      <button id="tmd-pwa-install-btn" style="background:#f59e0b;color:#000;border:none;padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:800;cursor:pointer;text-transform:uppercase;">Instalar</button>
+      <button id="tmd-pwa-close-btn" style="background:transparent;border:none;color:#64748b;font-size:16px;cursor:pointer;padding:2px 6px;">✕</button>
+    </div>
 
-    // Hook any portal-vip buttons to open the modal
-    document.addEventListener('click', function(e) {
-      var target = e.target.closest('[data-path="portal-vip"]');
-      if (target) {
-        e.preventDefault();
-        var modal = document.getElementById('tmd-vip-modal-overlay');
-        if (modal) modal.style.display = 'flex';
+    <!-- iOS Installation Guide Modal -->
+    <div id="tmd-ios-install-modal" style="display:none;position:fixed;inset:0;z-index:100001;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;">
+      <div style="background:#0c0e11;border:1px solid rgba(245,158,11,0.4);border-radius:20px;padding:28px 24px;max-width:400px;width:100%;color:#fff;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,0.9);">
+        <div style="width:50px;height:50px;border-radius:14px;background:#f59e0b;color:#000;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px auto;">📱</div>
+        <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:8px;color:#ffffff;">Instalar en iPhone / iPad</h3>
+        <p style="font-size:0.85rem;color:#94a3b8;line-height:1.5;margin-bottom:20px;">Para instalar la App oficial de TMD Dominicana en Safari:</p>
+        <div style="text-align:left;background:rgba(255,255,255,0.05);border-radius:12px;padding:14px 16px;font-size:0.85rem;margin-bottom:20px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="background:#f59e0b;color:#000;font-weight:800;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;">1</span>
+            <span>Toca el botón <strong>Compartir</strong> <span style="font-size:18px;">⎋</span> en la barra de Safari.</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="background:#f59e0b;color:#000;font-weight:800;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;">2</span>
+            <span>Baja y selecciona <strong>"Agregar a Inicio"</strong> <span style="font-size:18px;">⊞</span>.</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="background:#f59e0b;color:#000;font-weight:800;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;">3</span>
+            <span>Abre la App desde tu pantalla de inicio.</span>
+          </div>
+        </div>
+        <button onclick="document.getElementById('tmd-ios-install-modal').style.display='none';" style="background:#f59e0b;color:#000;border:none;padding:10px 24px;border-radius:10px;font-size:0.85rem;font-weight:800;cursor:pointer;width:100%;">Entendido</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <!-- INTERACTIVE CONTROLLERS: VIP POPUP & PWA AUTO-INSTALLER          -->
+    <!-- ══════════════════════════════════════════════════════════════════ -->
+    <script>
+    (function() {
+      // 1. VIP MODAL CONTROLLER (1:1 from code.html)
+      const modal = document.getElementById('vip-modal-container');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const skipBtn = document.getElementById('skip-modal-btn');
+      const form = document.getElementById('prive-subscribe-form');
+      const successState = document.getElementById('form-success-state');
+      const closeSuccessBtn = document.getElementById('close-success-btn');
+
+      function openVipModal() {
+        if (!modal) return;
+        modal.style.display = 'flex';
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
       }
-    });
+
+      function closeVipModal() {
+        if (!modal) return;
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+        setTimeout(function() {
+          modal.style.display = 'none';
+        }, 300);
+        try { localStorage.setItem('tmd-prive-dismissed', '1'); } catch(e) {}
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeVipModal);
+      if (skipBtn) skipBtn.addEventListener('click', closeVipModal);
+      if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeVipModal);
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var nameInp = document.getElementById('contact-name');
+          var emailInp = document.getElementById('contact-email');
+          if (nameInp && !nameInp.value) { nameInp.focus(); return; }
+          if (emailInp && !emailInp.value) { emailInp.focus(); return; }
+
+          form.classList.add('hidden');
+          if (successState) {
+            successState.classList.remove('hidden');
+            successState.classList.add('flex');
+          }
+          try { localStorage.setItem('tmd-prive-dismissed', '1'); } catch(e) {}
+        });
+      }
+
+      // Auto-show modal after 3 seconds if not dismissed
+      try {
+        if (!localStorage.getItem('tmd-prive-dismissed')) {
+          setTimeout(openVipModal, 3000);
+        }
+      } catch(e) {
+        setTimeout(openVipModal, 3000);
+      }
+
+      // Delegated listener to open VIP modal on any relevant button click
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('[data-path="portal-vip"], [data-path="portal-clientes-vip"], .tmd-open-prive, #tmd-open-vip-btn');
+        if (target) {
+          e.preventDefault();
+          openVipModal();
+        }
+      });
+
+      // 2. PWA AUTO-INSTALLER CONTROLLER (Desktop, Android & iOS)
+      let deferredPrompt = null;
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+      if (!isStandalone) {
+        window.addEventListener('beforeinstallprompt', function(e) {
+          e.preventDefault();
+          deferredPrompt = e;
+          var banner = document.getElementById('tmd-pwa-installer-banner');
+          try {
+            if (banner && !localStorage.getItem('tmd-pwa-dismissed')) {
+              banner.style.display = 'flex';
+            }
+          } catch(err) {
+            if (banner) banner.style.display = 'flex';
+          }
+        });
+
+        if (isIOS) {
+          try {
+            if (!localStorage.getItem('tmd-pwa-dismissed')) {
+              setTimeout(function() {
+                var banner = document.getElementById('tmd-pwa-installer-banner');
+                var sub = document.getElementById('tmd-pwa-subtext');
+                if (banner) {
+                  if (sub) sub.textContent = 'Añadir a pantalla de inicio iOS';
+                  banner.style.display = 'flex';
+                }
+              }, 4000);
+            }
+          } catch(err) {}
+        }
+      }
+
+      var installBtn = document.getElementById('tmd-pwa-install-btn');
+      if (installBtn) {
+        installBtn.addEventListener('click', async function() {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            var choice = await deferredPrompt.userChoice;
+            console.log('[TMD PWA] Install outcome:', choice.outcome);
+            deferredPrompt = null;
+            document.getElementById('tmd-pwa-installer-banner').style.display = 'none';
+          } else if (isIOS) {
+            document.getElementById('tmd-ios-install-modal').style.display = 'flex';
+          } else {
+            alert('Para instalar la App de TMD en tu PC o Mac, haz clic en el icono de instalación (⊕) en la barra de direcciones de tu navegador.');
+          }
+        });
+      }
+
+      var closePwaBtn = document.getElementById('tmd-pwa-close-btn');
+      if (closePwaBtn) {
+        closePwaBtn.addEventListener('click', function() {
+          document.getElementById('tmd-pwa-installer-banner').style.display = 'none';
+          try { localStorage.setItem('tmd-pwa-dismissed', '1'); } catch(e) {}
+        });
+      }
+
+      // 3. SERVICE WORKER REGISTRATION
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./sw.js').then(function(reg) {
+            console.log('[TMD PWA] Service Worker registered with scope:', reg.scope);
+          }).catch(function(err) {
+            console.warn('[TMD PWA] Service Worker registration failed:', err);
+          });
+        });
+      }
+    })();
     </script>
 
 </body>

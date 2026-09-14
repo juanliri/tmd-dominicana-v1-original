@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook Maestro de Negociación: Plataforma 360° TMD Dominicana — Don Eduardo López</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #b45309;
+            --primary-light: #fef3c7;
+            --dark: #0c0e11;
+            --dark-card: #14171d;
+            --border: #e2e8f0;
+            --border-dark: #2e3646;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background-color: #f1f5f9;
+            padding: 30px 15px;
+        }
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .header-banner {
+            background: linear-gradient(135deg, #0c0e11 0%, #171a21 100%);
+            color: #ffffff;
+            padding: 45px 50px;
+            border-bottom: 5px solid var(--primary);
+            position: relative;
+        }
+        .vip-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 158, 11, 0.16);
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+        }
+        .header-banner h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .header-banner h1 span { color: var(--primary); }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.88rem;
+            color: #cbd5e1;
+        }
+        .meta-grid strong { color: #ffffff; }
+
+        .content-body { padding: 45px 50px; }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #0f172a;
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+        h2:first-of-type { margin-top: 0; }
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* CARDS & BOXES */
+        .mindset-card {
+            background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 26px 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
+        }
+        .mindset-card h3 { color: #92400e; margin-top: 0; }
+        .mindset-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #78350f;
+            font-size: 0.95rem;
+        }
+        .mindset-item span { font-size: 1.25rem; }
+
+        .script-box {
+            background: #0c0e11;
+            color: #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 20px 0;
+            border-left: 6px solid var(--primary);
+            position: relative;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+        .script-label {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            background: rgba(245, 158, 11, 0.15);
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .script-text {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #f8fafc;
+        }
+        .script-tip {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.86rem;
+            color: #94a3b8;
+        }
+
+        .agenda-step {
+            background: #f8fafc;
+            border-left: 5px solid var(--accent-green);
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-left-width: 5px;
+            border-left-color: var(--accent-green);
+        }
+        .agenda-step h3 { margin-top: 0; color: #0f172a; font-size: 1.05rem; }
+        .speaker-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #2563eb;
+            display: block;
+            margin-bottom: 6px;
+            margin-top: 8px;
+        }
+        .client-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            display: block;
+            margin-bottom: 6px;
+            margin-top: 8px;
+        }
+
+        .qa-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 18px;
+            transition: all 0.2s ease;
+        }
+        .qa-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+        }
+        .qa-q {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.02rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .qa-why {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .qa-attack {
+            background: #eff6ff;
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background-color: #f1f5f9;
+            border-left: 5px solid #64748b;
+            padding: 22px 26px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            border-left-width: 5px;
+            border-left-color: #64748b;
+        }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 0.9rem; }
+        th, td { padding: 13px 16px; border: 1px solid var(--border); text-align: left; }
+        th { background: #f8fafc; font-weight: 800; color: #334155; }
+        .check { color: var(--accent-green); font-weight: 800; }
+        .cross { color: var(--accent-red); font-weight: 800; }
+
+        /* LOSS MATRIX */
+        .loss-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .loss-col {
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid var(--border);
+        }
+        .loss-col.bad {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+        .loss-col.good {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+        .loss-col h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .loss-col.bad h4 { color: #991b1b; }
+        .loss-col.good h4 { color: #166534; }
+        .loss-col ul { list-style: none; }
+        .loss-col li {
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .tier-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            position: relative;
+        }
+        .tier-card.selected {
+            background: #fffbeb;
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 25px rgba(245,158,11,0.12);
+        }
+        .badge-recommended {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--primary);
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            letter-spacing: 0.05em;
+        }
+        .tier-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 12px 0 6px 0;
+        }
+        .tier-price span { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
+        .price-badge { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #b45309; }
+        .min-badge { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: var(--accent-red); font-size: 1.1rem; }
+
+        /* UPSELLS */
+        .upsells {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .upsell-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .upsell-card strong { color: var(--text); display: block; margin-bottom: 6px; }
+
+        /* REBUTTAL BOX */
+        .rebuttal-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin-bottom: 18px;
+            border-left: 5px solid #64748b;
+        }
+        .rebuttal-box.featured { border-left-color: var(--primary); }
+        .objection-title {
+            font-weight: 800;
+            color: #991b1b;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .response-box {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.94rem;
+            color: #0f172a;
+            border: 1px solid var(--border);
+            line-height: 1.6;
+        }
+        .response-box strong { color: var(--primary-dark); }
+
+        /* ALERT BOX INTERNAL */
+        .alert-box {
+            background-color: #fee2e2;
+            border-left: 5px solid var(--accent-red);
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+        .alert-box h3 { color: #991b1b; margin-top: 0; }
+
+        @media (max-width: 768px) {
+            .content-body { padding: 25px 18px; }
+            .header-banner { padding: 30px 20px; }
+            .loss-matrix { grid-template-columns: 1fr; }
+        }
+    
+        /* INTERACTIVE QUESTIONNAIRE & DIAGNOSTIC PLAYGROUND */
+        .diag-toolbar {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin: 20px 0 28px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+            border: 1px solid #334155;
+        }
+        .diag-toolbar-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .diag-toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .diag-btn {
+            background: var(--primary);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.78rem;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .diag-btn:hover { background: #fbbf24; transform: translateY(-1px); }
+        .diag-btn-secondary {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+        .diag-btn-secondary:hover { background: #334155; color: #fff; }
+        .diag-save-status {
+            font-size: 0.78rem;
+            color: #10b981;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .qa-card {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 22px 24px;
+            margin-bottom: 24px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .qa-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.08);
+        }
+        .qa-pre {
+            background: #fffbeb;
+            border-left: 4px solid var(--primary);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: #92400e;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .qa-q {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .qa-checklist {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px;
+        }
+        .qa-checklist label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            user-select: none;
+        }
+        .qa-checklist input[type="checkbox"] {
+            accent-color: var(--primary);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .qa-input-area {
+            margin: 14px 0 10px 0;
+        }
+        .qa-input-area label {
+            display: block;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 6px;
+        }
+        .qa-textarea {
+            width: 100%;
+            min-height: 68px;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: #0f172a;
+            background: #ffffff;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        .qa-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+        .qa-why {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .qa-attack {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent-blue);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            color: #1e40af;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+    
+        /* ══════════════════════════════════════════════════════════════════ */
+        /* APPS AUDIT & TIER 2 COMPATIBILITY STYLES                           */
+        /* ══════════════════════════════════════════════════════════════════ */
+        .readiness-score-box {
+            background: linear-gradient(135deg, #0c0e11 0%, #171a21 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 26px 30px;
+            margin: 24px 0 32px 0;
+            color: #ffffff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        .readiness-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+        .readiness-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .readiness-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        .readiness-score-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+            line-height: 1;
+        }
+        .readiness-bar-track {
+            width: 100%;
+            height: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 14px;
+        }
+        .readiness-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b 0%, #10b981 100%);
+            border-radius: 9999px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+        }
+        .readiness-status-msg {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-audit-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        .app-audit-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.08);
+        }
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .app-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-icon-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            flex-shrink: 0;
+        }
+        .app-title-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .app-category-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2px;
+        }
+
+        .app-meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 18px;
+            background: #f8fafc;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            .app-meta-grid { grid-template-columns: 1fr; }
+        }
+        .app-field-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .app-select, .app-input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            color: #0f172a;
+            background: #ffffff;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .app-select:focus, .app-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+
+        .tier2-req-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.86rem;
+            color: #92400e;
+            line-height: 1.5;
+        }
+        .tier2-req-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .app-checklist-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #334155;
+            margin: 14px 0 8px 0;
+        }
+
+        .app-script-box {
+            background: #0f172a;
+            color: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 14px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-left: 4px solid var(--accent-green);
+        }
+        .app-script-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .app-gap-box {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .app-gap-box strong { color: #0f172a; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER PRINCIPAL -->
+        <div class="header-banner">
+            <div class="vip-tag">
+                <span>🏆</span> SCRIPT COMERCIAL DE ALTO IMPACTO • ENFOQUE OPERATIVO TMD
+            </div>
+            <h1>Mi Playbook Comercial Directo con <span>Don Eduardo López</span></h1>
+            <p style="font-size: 1.05rem; color: #cbd5e1; max-width: 780px;">
+                Estrategia completa para presentar, defender y cerrar la <strong>Plataforma Digital 360° para Tecnomaquinarias Diesel (TMD)</strong>. Todo en primera persona ("yo"), en tono de conversación ejecutiva directa de igual a igual, con autoridad técnica absoluta y el producto completamente terminado y funcional.
+            </p>
+            <div class="meta-grid">
+                <div><strong>Interlocutor Principal:</strong> Don Eduardo López (Presidente TMD)</div>
+                <div><strong>Enfoque de Negociación:</strong> Conversación directa de igual a igual, respeto comercial y enfoque 100% en el negocio de TMD.</div>
+                <div><strong>Mi Prueba de Autoridad:</strong> Plataforma ya construida, probada y lista para demostración en vivo (cero maquetas teóricas).</div>
+                <div><strong>Objetivo Primario:</strong> Cerrar Tier 2 (Setup $2,850 + $250/mes)</div>
+            </div>
+        </div>
+
+        <div class="content-body">
+
+            <!-- SECCIÓN 1: MIS MENSAJES DE SOPORTE Y SEGURIDAD INTERNA -->
+            <h2>1. Mis Mensajes de Soporte y Certeza Interna (Para Leer Antes de Entrar)</h2>
+            <div class="mindset-card">
+                <h3>Mi Mentalidad Ganadora (Yo Tengo el Control de la Reunión):</h3>
+                <div class="mindset-item">
+                    <span>🏆</span>
+                    <div><strong>Vengo con los deberes hechos y la solución terminada:</strong> Conozco a fondo la operación de TMD: el flujo de entrada al patio del Km 22, las líneas de JCB, LiuGong y LS Tractor, la presión del taller y el valor de cada hora máquina. No vengo a teorizar sobre lo que se 'podría' hacer; vengo con la plataforma ya construida, probada y adaptada a su realidad comercial en República Dominicana.</div>
+                </div>
+                <div class="mindset-item">
+                    <span>💎</span>
+                    <div><strong>No vengo a pedir favores ni a mendigar un trabajo:</strong> Vengo a resolverle a TMD un desangre operativo de decenas de miles de dólares al año. Las llamadas perdidas fuera de horario, la falta de cotizador automático y el desorden del taller en Km 22 les cuestan clientes todos los días.</div>
+                </div>
+                <div class="mindset-item">
+                    <span>⚡</span>
+                    <div><strong>Tengo el producto ya programado y funcionando:</strong> Mientras cualquier agencia le llevaría diapositivas o promesas vacías, yo ya tengo el código escrito, optimizado en Vercel, con cotizador PDF, instalador PWA para celulares y conexión a Fullbay. Ver es creer.</div>
+                </div>
+                <div class="mindset-item">
+                    <span>🎯</span>
+                    <div><strong>La inversión es minúscula para el volumen de TMD:</strong> Una sola retroexcavadora o rodillo alquilado paga la plataforma entera por años. Presento los precios con la tranquilidad de quien sabe el valor gigantesco de lo que entrega.</div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: MI SCRIPT DE APERTURA EXACTO -->
+            <h2>2. Mi Script de Apertura (Palabra por Palabra, en 1ra Persona)</h2>
+            <div class="script-box">
+                <span class="script-label">🎙️ Mis Primeras Palabras al Iniciar con Don Eduardo (Enfoque 100% TMD):</span>
+                <div class="script-text">
+                    "Don Eduardo, qué gran gusto saludarlo en persona.
+                    <br><br>
+                    Mire, Don Eduardo, he venido siguiendo de cerca el crecimiento y el peso que tiene <strong>Tecnomaquinarias Diesel</strong> en este país. Sé perfectamente lo que representa su sede central en el <strong>Km 22 de la Autopista Duarte</strong>: el patio de maquinaria pesada más completo, el taller de reconstrucción de componentes con mayor capacidad técnica y el respaldo oficial de marcas de primer orden mundial como <strong>JCB, LiuGong, Ammann y LS Tractor</strong>.
+                    <br><br>
+                    Pero también conozco la realidad operativa del sector construcción y minería en República Dominicana: el contratista que necesita cotizar una excavadora de 20 toneladas o una retro 4x4 un sábado por la tarde; la constructora que tiene una máquina parada en obra y llama tres veces a recepción a preguntar si la bomba hidráulica salió de prueba de banco; o el ingeniero de compras que entra a internet buscando tarifas de renta y se encuentra con páginas lentas que no le dicen precios claros ni fichas técnicas.
+                    <br><br>
+                    Por eso, Don Eduardo, por el respeto enorme que le tengo a su tiempo y a la seriedad de su empresa, no quise venir a traerle una presentación de diapositivas teóricas o promesas en papel. Me senté a trabajar primero: <strong>le programé y le monté una plataforma digital 360° viva, ultra-rápida y hecha a la medida exacta de TMD</strong>.
+                    <br><br>
+                    Aquí mismo en mi pantalla tengo el sistema corriendo en vivo: con el catálogo de maquinaria sincronizado con precios reales del mercado dominicano, un cotizador instantáneo de renta y venta que emite la proforma en PDF con sello TMD sin esperar al lunes, consulta de órdenes de trabajo de taller conectable a Fullbay, y telemetría de monitoreo de flota.
+                    <br><br>
+                    Don Eduardo, permítame 5 minutos de reloj para enseñarle cómo esto le va a tapar fugas de dinero en el taller y a cerrarle contratos de maquinaria 24/7 sin que su equipo pierda horas en WhatsApp contestando lo mismo."
+                </div>
+                <div class="script-tip">
+                    💡 <strong>Postura:</strong> Sonrisa tranquila, mirada directa, tono pausado, firme y de respeto profesional de tú a tú. Inmediatamente después de esta frase, comparto pantalla mostrando la plataforma en vivo.
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: AGENDA PASO A PASO DE LA REUNIÓN -->
+            <h2>3. Agenda Paso a Paso (Guión de Reunión Minuto a Minuto)</h2>
+            <p>Sigo esta estructura estricta durante la llamada para mantener el control comercial en todo momento:</p>
+
+            <div class="agenda-step">
+                <h3>Paso 1: El Hook y Cambio de Paradigma (Minuto 0-5)</h3>
+                <span class="speaker-label">Yo (Speaker):</span>
+                <p>Apertura directa con enfoque 100% operativo en TMD: <em>"Don Eduardo, no vengo a venderles una página web decorativa; vengo a enseñarles cómo tapar las fugas operativas entre su patio de Km 22, su taller Fullbay y el contratista en obra."</em></p>
+                <span class="client-label">Respuesta Esperada de Don Eduardo:</span>
+                <p><em>"¿A qué te refieres con fugas? Nuestro sitio actual funciona y la gente nos llama."</em></p>
+            </div>
+
+            <div class="agenda-step">
+                <h3>Paso 2: Auditoría de Comunicaciones &amp; Diagnóstico (Minuto 5-15)</h3>
+                <span class="speaker-label">Yo (Speaker):</span>
+                <p>Aplico las <strong>Preguntas de Diagnóstico (Sección 4)</strong> para que Don Eduardo y su equipo admitan sus cuellos de botella manuales en WhatsApp, llamadas al taller y cotizaciones de fin de semana.</p>
+            </div>
+
+            <div class="agenda-step">
+                <h3>Paso 3: Demostración del Prototipo 360° en Vivo (Minuto 15-25)</h3>
+                <span class="speaker-label">Yo (Speaker):</span>
+                <p><em>"Fíjese, Don Eduardo: esto no es una maqueta, es código real. Vea la velocidad de 1.1 segundos. Mire cómo un contratista de cantera selecciona una Excavadora JCB 220X o cotiza 15 días de renta y descarga un PDF automático con sello TMD sin esperar a que un vendedor le conteste el lunes."</em></p>
+            </div>
+
+            <div class="agenda-step">
+                <h3>Paso 4: Presentación de la Inversión (Minuto 25-35)</h3>
+                <span class="speaker-label">Yo (Speaker):</span>
+                <p><em>"Para implementar esto en TMD tenemos 3 escenarios de despliegue con garantía y soporte continuo. Como consultor recomiendo el <strong>Tier 2 (Fullbay Connected)</strong> porque es el que realmente conecta su taller del Km 22 y elimina el trabajo manual."</em></p>
+                <p><strong>SILENCIO ABSOLUTO TRAS DECIR EL PRECIO.</strong> No digo una sola palabra más hasta que Don Eduardo hable primero.</p>
+            </div>
+
+            <div class="agenda-step">
+                <h3>Paso 5: Manejo de Objeciones y Cierre en 2 Fases (Minuto 35-45)</h3>
+                <span class="speaker-label">Yo (Speaker):</span>
+                <p>Aplico los <strong>Guiones de Refutación (Sección 10)</strong> y cierro con la <strong>Estrategia de 2 Fases (Sección 12)</strong>: arrancar con Tier 1 en subdominio ($1,250) acreditable al 100% hacia el Tier 2.</p>
+            </div>
+
+                        <!-- SECCIÓN 4: CUESTIONARIO DE DIAGNÓSTICO Y AUDITORÍA OPERATIVA -->
+            <h2>4. Cuestionario de Diagnóstico: Fugas de Operación, Aduana, WhatsApp y Fullbay</h2>
+            <p>Uso estas preguntas durante el <strong>Paso 2 (Auditoría en Vivo)</strong>. Cada pregunta cuenta con su <em>pre-sondeo</em>, casillas de verificación rápida y campo para anotar en tiempo real lo que responda Don Eduardo:</p>
+
+            <!-- DIAGNOSTIC TOOLBAR (SAVE / EXPORT / STATUS) -->
+            <div class="diag-toolbar">
+                <div class="diag-toolbar-title">
+                    <span>⚡</span> CUADERNO INTERACTIVO DE DIAGNÓSTICO TMD
+                    <span id="saveStatus" class="diag-save-status">✓ Guardado</span>
+                </div>
+                <div class="diag-toolbar-actions">
+                    <button type="button" class="diag-btn" onclick="saveDiagnosticAnswers()">💾 Guardar Respuestas</button>
+                    <button type="button" class="diag-btn diag-btn-secondary" onclick="exportDiagnosticTxt()">📥 Exportar Resumen (TXT)</button>
+                    <button type="button" class="diag-btn diag-btn-secondary" onclick="resetDiagnosticAnswers()">🔄 Limpiar</button>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 1: TALLER KM 22 Y RECEPCIÓN -->
+            <div class="qa-card" id="card_q1">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, su taller del Km 22 es famoso por capacidad, pero me imagino que la carga de trabajo en las bahías y el teléfono debe ser intensa todos los días..."
+                </div>
+                <div class="qa-q">1. "Don Eduardo, cuando una constructora tiene una máquina pesada en reparación en el Km 22, ¿cuántas veces al día llaman a recepción a preguntar: '¿Cómo va mi equipo, ya le hicieron la prueba de banco a la bomba?'"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_1_1" onchange="autoSave()"> 📞 Más de 10-15 llamadas al día a recepción</label>
+                    <label><input type="checkbox" id="chk_1_2" onchange="autoSave()"> ⏳ Recepcionista interrumpe al jefe de taller</label>
+                    <label><input type="checkbox" id="chk_1_3" onchange="autoSave()"> ⚠️ Clientes molestos por falta de actualización</label>
+                    <label><input type="checkbox" id="chk_1_4" onchange="autoSave()"> 📋 El estatus solo se sabe en la pizarra física</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_1" placeholder="Ej: Eduardo admitió que llaman todo el día y la recepcionista se satura..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Poner en evidencia el costo oculto en horas hombre que su personal gasta contestando llamadas repetitivas.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "Con nuestra integración en Tier 2, el contratista entra con su RNC o número de orden y ve el rastreador en vivo: <em>'En banco hidráulico 6,000 PSI - Calibración lista para entrega mañana'</em>. Eliminamos más del 60% de llamadas improductivas al taller y TMD proyecta la imagen de un concesionario de clase mundial."
+                </div>
+            </div>
+
+            <!-- PREGUNTA 2: IMPORTACIÓN, ADUANA (DGA), MUELLE Y SEGUIMIENTO DE EMBARQUES (NUEVA & PROFUNDA) -->
+            <div class="qa-card" id="card_q2">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, antes de hablar de patio, hablemos de importaciones: cuando un cliente de cantera les pide una máquina bajo pedido o un lote de repuestos críticos de JCB desde UK o LiuGong desde fábrica..."
+                </div>
+                <div class="qa-q">2. "¿Cómo sabe el cliente hoy en día en qué punto de la Aduana (DGA), muelle de Haina Oriental o Caucedo está su contenedor, sin tener que llamar 5 veces a su agente aduanal o a su encargado de logística?"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_2_1" onchange="autoSave()"> 🚢 Cero visibilidad para el comprador en línea</label>
+                    <label><input type="checkbox" id="chk_2_2" onchange="autoSave()"> 📄 Agente aduanal manda fotos de DGA por WhatsApp</label>
+                    <label><input type="checkbox" id="chk_2_3" onchange="autoSave()"> ⏱️ Retrasos de inspección en muelle sin avisar</label>
+                    <label><input type="checkbox" id="chk_2_4" onchange="autoSave()"> 📉 No se pre-venden máquinas en tránsito</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_2" placeholder="Ej: Dijo que actualmente usan llamadas directas y manifiestos que les pasa el gestor aduanal en Haina..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Revelar el estrés de las constructoras esperando equipos en aduana y la oportunidad de pre-vender unidades con depósito 48h antes del atraque.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "En el Tier 2 activamos el <strong>Módulo de Seguimiento de Importaciones & Manifiestos Aduanales</strong>. El cliente ve 5 hitos transparentes: <em>1. En Tránsito Marítimo → 2. En Muelle Haina/Caucedo → 3. En Despacho e Inspección DGA → 4. En Patio Km 22 (Alistamiento & PDI) → 5. Entregado en Obra</em>. Y lo mejor: publicamos los manifiestos de barcos en camino y los contratistas bloquean excavadoras con depósito antes de que toquen tierra dominicana."
+                </div>
+            </div>
+
+            <!-- PREGUNTA 3: COTIZACIONES FIN DE SEMANA / FUERA DE HORARIO -->
+            <div class="qa-card" id="card_q3">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, las licitaciones y los imprevistos de obras viales en este país ocurren a deshoras..."
+                </div>
+                <div class="qa-q">3. "Si un ingeniero de caminos o una constructora necesita cotizar 2 excavadoras 220X y un rodillo un sábado por la noche o domingo para someter una propuesta el lunes a primera hora, ¿cómo lo hace en su página actual?"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_3_1" onchange="autoSave()"> ❌ La página actual no tiene cotizador ni precios</label>
+                    <label><input type="checkbox" id="chk_3_2" onchange="autoSave()"> 📱 Depende de que el vendedor conteste un domingo</label>
+                    <label><input type="checkbox" id="chk_3_3" onchange="autoSave()"> 🏃 El cliente busca en otro suplidor con precios en línea</label>
+                    <label><input type="checkbox" id="chk_3_4" onchange="autoSave()"> 📄 No genera contratos proforma PDF al instante</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_3" placeholder="Ej: Confirmó que los fines de semana no se cotiza nada hasta el lunes por la mañana..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Demostrar que fuera de horario de oficina pierden negocios millonarios ante distribuidores con cotizador interactivo.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "Hoy en día no pueden. En nuestra plataforma el cliente calcula días de renta, transporte a su provincia y depósito, y descarga de inmediato un PDF profesional con sello TMD. El lunes a las 8:00 AM sus vendedores no tienen que cotizar en frío; tienen la solicitud lista para cobrar."
+                </div>
+            </div>
+
+            <!-- PREGUNTA 4: CONTROL DE WHATSAPP Y FUGA DE LEADS -->
+            <div class="qa-card" id="card_q4">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, todo el mundo usa WhatsApp en RD, pero la forma en que se maneja a nivel corporativo define si los clientes son de la empresa o del vendedor..."
+                </div>
+                <div class="qa-q">4. "El botón de WhatsApp que tienen en su web hoy, ¿a dónde cae? ¿Al celular personal de un solo empleado o a una central multi-agente donde usted como presidente puede auditar tiempos de respuesta?"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_4_1" onchange="autoSave()"> 📱 Cae al celular de un solo empleado o vendedor</label>
+                    <label><input type="checkbox" id="chk_4_2" onchange="autoSave()"> 🚪 Si el empleado renuncia, se lleva los prospectos</label>
+                    <label><input type="checkbox" id="chk_4_3" onchange="autoSave()"> 📉 No hay métricas de cuántos leads se pierden</label>
+                    <label><input type="checkbox" id="chk_4_4" onchange="autoSave()"> ⏱️ Demoras de horas en responder solicitudes</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_4" placeholder="Ej: Reconoció que cae a un teléfono individual y no tienen control centralizado..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Tocar el dolor de la fuga de cartera comercial y la falta de supervisión gerencial.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "Si el botón cae a un teléfono individual, cuando ese vendedor está comiendo, en carretera o si algún día se va, esos clientes y ese dinero se van con él. Nosotros conectamos los botones a rutas departamentales: Taller Km 22, Renta de Maquinaria y Repuestos Genuinos, con registro en consola."
+                </div>
+            </div>
+
+            <!-- PREGUNTA 5: AUTOMATIZACIÓN DE FULLBAY Y WEBHOOKS -->
+            <div class="qa-card" id="card_q5">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, ustedes usan Fullbay para gestionar el taller, lo cual es excelente..."
+                </div>
+                <div class="qa-q">5. "Cuando el mecánico en Fullbay cambia el estatus de una orden a 'Completada', ¿su personal tiene que redactar un correo y adjuntar la factura a mano, o el sistema le notifica al cliente automáticamente?"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_5_1" onchange="autoSave()"> ✍️ Todo el aviso se hace a mano por teléfono o correo</label>
+                    <label><input type="checkbox" id="chk_5_2" onchange="autoSave()"> 🚚 Máquinas listas duran 1 o 2 días paradas en patio sin recoger</label>
+                    <label><input type="checkbox" id="chk_5_3" onchange="autoSave()"> ⏰ Retraso en el cobro de la reparación</label>
+                    <label><input type="checkbox" id="chk_5_4" onchange="autoSave()"> 🔄 Doble digitación entre Fullbay y administración</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_5" placeholder="Ej: Dijo que la secretaria llama o escribe cuando se acuerda..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Vender la velocidad de cobro: equipo avisado de inmediato es equipo cobrado y retirado del patio más rápido.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "En Tier 2 conectamos webhooks con Fullbay: el mecánico cierra la orden en su tableta, y en 3 segundos el cliente recibe un WhatsApp y correo oficial con su proforma y el aviso: <em>'Su equipo ha superado las pruebas técnicas en Km 22 y está listo para retiro o despacho en cama baja'</em>. Aceleramos el ciclo de cobro de TMD de días a minutos."
+                </div>
+            </div>
+
+            <!-- PREGUNTA 6: INVENTARIO DE REPUESTOS CRÍTICOS & FILTROS -->
+            <div class="qa-card" id="card_q6">
+                <div class="qa-pre">
+                    <span>💡</span> <strong>Pre-Sondeo de Calentamiento:</strong> "Don Eduardo, en una cantera una excavadora parada por un juego de sellos o un filtro de combustible son pérdidas de miles de dólares por hora..."
+                </div>
+                <div class="qa-q">6. "Cuando a un contratista en el interior del país se le rompe una manguera o necesita filtros para 500 horas, ¿puede ver en su web si ustedes tienen el repuesto físico en el Km 22 y pedir despacho de emergencia?"</div>
+                
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="chk_6_1" onchange="autoSave()"> 🔍 El catálogo web actual no muestra inventario real</label>
+                    <label><input type="checkbox" id="chk_6_2" onchange="autoSave()"> 📦 El cliente no sabe si hay stock inmediato en Km 22</label>
+                    <label><input type="checkbox" id="chk_6_3" onchange="autoSave()"> 🚚 No hay botón de despacho exprés para emergencias</label>
+                    <label><input type="checkbox" id="chk_6_4" onchange="autoSave()"> 🛒 No pueden cotizar kits de mantenimiento preventivo</label>
+                </div>
+
+                <div class="qa-input-area">
+                    <label>📝 Anotaciones de la Respuesta de Don Eduardo:</label>
+                    <textarea class="qa-textarea" id="diag_ans_6" placeholder="Ej: Confirmó que todo el catálogo de repuestos es estático y deben llamar a mostrador..." oninput="autoSave()"></textarea>
+                </div>
+
+                <div class="qa-why">🎯 <strong>Objetivo Táctico:</strong> Posicionar el catálogo interactivo de repuestos con números de parte originales y despacho urgente como generador de caja recurrente.</div>
+                <div class="qa-attack">
+                    <strong>Mi Remate:</strong> "Con la plataforma que construimos, montamos el catálogo interactivo con stock verificado en Km 22. El contratista busca por modelo o número de parte, agrega filtros o bombas al pedido y solicita despacho exprés a obra. Convertimos las consultas de repuestos en ventas directas."
+                </div>
+            </div>
+
+            
+            <!-- ══════════════════════════════════════════════════════════════ -->
+            <!-- SECCIÓN 5: AUDITORÍA DE APPS, MEMBRESÍAS Y MATRIZ TIER 2       -->
+            <!-- ══════════════════════════════════════════════════════════════ -->
+            <h2 id="sec-apps-audit">5. Checklist de Aplicaciones, Membresías Actuales y Compatibilidad Total (Tier 2 Ready)</h2>
+            <p>Uso este checklist interactivo durante la reunión con Don Eduardo para <strong>auditar el software que TMD tiene hoy</strong>, validar su nivel de suscripción/membresía, y definir con precisión quirúrgica <strong>qué conectores y requerimientos técnicos necesitamos para que Tier 2 corra al 100%</strong> sin fricciones operativas.</p>
+
+            <!-- READINESS SCORE WIDGET -->
+            <div class="readiness-score-box">
+                <div class="readiness-header">
+                    <div>
+                        <div class="readiness-title">Índice de Preparación Tecnológica TMD (Tier 2 Readiness)</div>
+                        <div class="readiness-desc">Cálculo en vivo de compatibilidad entre los sistemas actuales de Don Eduardo y el nuevo portal de clientes / taller.</div>
+                    </div>
+                    <div class="readiness-score-number" id="readinessScoreVal">0%</div>
+                </div>
+                <div class="readiness-bar-track">
+                    <div class="readiness-bar-fill" id="readinessBarFill" style="width: 0%;"></div>
+                </div>
+                <div class="readiness-status-msg" id="readinessStatusMsg">
+                    <span>⚡</span> <span>Marque las casillas y seleccione los planes para diagnosticar la compatibilidad de TMD.</span>
+                </div>
+            </div>
+
+            <!-- APP 1: FULLBAY -->
+            <div class="app-audit-card" id="app_card_1">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">🔧</div>
+                        <div>
+                            <div class="app-title-text">1. Fullbay Heavy-Duty Shop Management</div>
+                            <div class="app-category-text">Gestión de Taller Km 22 • Bahías • Órdenes de Trabajo (RO) • Flotas</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;">Pilar Central Tier 2</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Tienen Fullbay activo en TMD?</label>
+                        <select class="app-select" id="app_status_1" onchange="calcReadiness(); autoSave();">
+                            <option value="activo">✓ Activo en TMD (Taller Km 22)</option>
+                            <option value="manual">⚠️ Manual / Papel / Sistema Local Antiguo</option>
+                            <option value="no_tienen">✗ No lo tienen contratado</option>
+                            <option value="evaluando">⚙️ En Evaluación / Prueba</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_1" placeholder="Ej. Fullbay Standard Shop / Pro con API" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Para habilitar el <strong>Portal de Clientes VIP y el seguimiento en vivo de bahía</strong>, TMD requiere acceso a <strong>Fullbay Connect REST API (v2)</strong> y habilitación de <strong>Webhooks</strong> para recibir cambios de estado de Órdenes de Reparación (RO) en tiempo real.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_1_1" onchange="calcReadiness(); autoSave();"> <strong>Acceso a Fullbay Connect API:</strong> Token / API Keys generadas para entorno de producción.</label>
+                    <label><input type="checkbox" id="app_chk_1_2" onchange="calcReadiness(); autoSave();"> <strong>Módulo de Órdenes de Reparación (RO):</strong> Capacidad de leer y crear ROs automáticamente desde el portal web.</label>
+                    <label><input type="checkbox" id="app_chk_1_3" onchange="calcReadiness(); autoSave();"> <strong>Sincronización de Catálogo de Piezas:</strong> Lectura de stock de repuestos en bodega central Km 22.</label>
+                    <label><input type="checkbox" id="app_chk_1_4" onchange="calcReadiness(); autoSave();"> <strong>Portal de Clientes Fullbay Habilitado:</strong> Permisos para que el cliente apruebe cotizaciones y proformas online.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Don Eduardo, en Fullbay, ¿ustedes tienen activo el módulo de API para que el portal web cree la Orden de Trabajo sola cuando el cliente pide la bahía desde la máquina, o su plan actual es solo para uso interno de los mecánicos en el mostrador?"
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción si falta API:</strong> Si Don Eduardo tiene Fullbay básico sin API, en <em>Fase 1</em> desplegamos el receptor inteligente con despacho directo a WhatsApp/Email del Jefe de Taller en Km 22, y en <em>Fase 2</em> gestionamos la activación de Fullbay Connect API para enlace automático.
+                </div>
+            </div>
+
+            <!-- APP 2: ERP & FACTURACIÓN FISCAL NCF -->
+            <div class="app-audit-card" id="app_card_2">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">📋</div>
+                        <div>
+                            <div class="app-title-text">2. Sistema ERP, Contabilidad & Facturación Fiscal (NCF)</div>
+                            <div class="app-category-text">Comprobantes Fiscales DGII • RNC • Facturación de Maquinaria & Repuestos</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;">Crédito Fiscal RD</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Qué software contable / ERP usan?</label>
+                        <select class="app-select" id="app_status_2" onchange="calcReadiness(); autoSave();">
+                            <option value="odoo">Odoo ERP (Local / Enterprise)</option>
+                            <option value="sap">SAP Business One</option>
+                            <option value="quickbooks">QuickBooks Online / Desktop</option>
+                            <option value="local">ERP Dominicano (Mónica, Softland, etc.)</option>
+                            <option value="excel">Excel / Talonario Físico / DGII Directo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_2" placeholder="Ej. Odoo 17 Enterprise / QB Online Plus" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Generación de <strong>Proformas Oficiales con NCF (B01 Crédito Fiscal, B02 Consumo, B14, B15)</strong> y validación de RNC de empresas constructoras en tiempo real para cotizaciones descargables en PDF.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_2_1" onchange="calcReadiness(); autoSave();"> <strong>Secuencias NCF Autorizadas por DGII:</strong> Rangos de comprobantes B01/B02 vigentes en sistema.</label>
+                    <label><input type="checkbox" id="app_chk_2_2" onchange="calcReadiness(); autoSave();"> <strong>Validación de RNC en Línea:</strong> Capacidad de autocompletar razón social oficial de constructora.</label>
+                    <label><input type="checkbox" id="app_chk_2_3" onchange="calcReadiness(); autoSave();"> <strong>Desglose de ITBIS (18%) & Selectivo:</strong> Normativa fiscal formal en proformas de compra y contratos de renta.</label>
+                    <label><input type="checkbox" id="app_chk_2_4" onchange="calcReadiness(); autoSave();"> <strong>Exportación de Cotizaciones a Contabilidad:</strong> Formato JSON o CSV compatible para carga en el ERP.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "¿Las cotizaciones formales para las constructoras grandes las emiten desde su ERP o las prepara ventas a mano en Word/Excel? Nuestro configurador ya emite el PDF formal con el NCF y el RNC verificado para que contabilidad no tenga que volver a tipear nada."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción si falta ERP moderno:</strong> Nuestro generador de proformas embebido en V1/V2 produce PDFs con estándar legal DGII de forma independiente, listo para ser adjuntado o importado por contabilidad sin necesidad de licencias adicionales.
+                </div>
+            </div>
+
+            <!-- APP 3: WHATSAPP BUSINESS PLATFORM -->
+            <div class="app-audit-card" id="app_card_3">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">💬</div>
+                        <div>
+                            <div class="app-title-text">3. WhatsApp Business Platform & Despacho de Guardia</div>
+                            <div class="app-category-text">Canal Oficial +1 (809) 826-2222 • Despacho Unidades Móviles 1-4 • Asesoría</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;">Canal #1 en RD</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Cómo gestionan WhatsApp hoy?</label>
+                        <select class="app-select" id="app_status_3" onchange="calcReadiness(); autoSave();">
+                            <option value="app_celular">App Regular WhatsApp Business en 1 solo Celular</option>
+                            <option value="cloud_api">WhatsApp Cloud API Oficial (Multi-agente)</option>
+                            <option value="plataforma">Plataforma Externa (Twilio, WATI, ManyChat)</option>
+                            <option value="personal">Celulares Personales de los Vendedores</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_3" placeholder="Ej. WhatsApp Business App / WATI Standard" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Enrutamiento de <strong>Despacho Técnico Inteligente</strong>: separar las consultas de compra/renta de maquinaria hacia los asesores comerciales, y las solicitudes de auxilio mecánico urgente hacia los <strong>Técnicos Líderes de Guardia en Móvil 1 (Cibao), Móvil 2 (Capital), Móvil 3 (Este) y Móvil 4 (Sur)</strong>.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_3_1" onchange="calcReadiness(); autoSave();"> <strong>Número Master Oficial:</strong> +1 (809) 826-2222 verificado con insignia de empresa.</label>
+                    <label><input type="checkbox" id="app_chk_3_2" onchange="calcReadiness(); autoSave();"> <strong>Enrutamiento por Zonas Geográficas:</strong> Cibao Norte, Santo Domingo, Región Este y Sur.</label>
+                    <label><input type="checkbox" id="app_chk_3_3" onchange="calcReadiness(); autoSave();"> <strong>Deep-Links con Contexto Pre-cargado:</strong> Mensajes con Modelo, Horómetro y Falla DTC pre-llenados.</label>
+                    <label><input type="checkbox" id="app_chk_3_4" onchange="calcReadiness(); autoSave();"> <strong>Bandeja Multi-Operador:</strong> Posibilidad de que ventas y taller respondan simultáneamente.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Cuando un contratista escribe al 809-826-2222 pidiendo auxilio porque una excavadora se calentó en una cantera en Bonao, ¿ese mensaje le llega al recepcionista, a un vendedor o al mecánico que está en la camioneta taller? Con lo que montamos, el botón de auxilio le manda la ubicación y el modelo directamente al técnico de la zona."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción si usan WhatsApp en un solo celular:</strong> Nuestro sistema genera enlaces inteligentes <code>wa.me</code> con texto y telemetría inyectada que funcionan de inmediato con cualquier celular, sin costo mensual de software adicional.
+                </div>
+            </div>
+
+            <!-- APP 4: TELEMETRÍA & DIAGNÓSTICO DTC -->
+            <div class="app-audit-card" id="app_card_4">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">📡</div>
+                        <div>
+                            <div class="app-title-text">4. Telemetría de Flota & Diagnóstico Electrónico DTC</div>
+                            <div class="app-category-text">JCB LiveLink • Escáner Jaltest Heavy Duty • Códigos de Falla SPN/FMI</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#e0e7ff;color:#3730a3;border:1px solid #c7d2fe;">Satelital 24/7</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Qué herramientas de diagnóstico tienen?</label>
+                        <select class="app-select" id="app_status_4" onchange="calcReadiness(); autoSave();">
+                            <option value="livelink">JCB LiveLink Activo en Flota</option>
+                            <option value="jaltest">Escáner Jaltest Cojali Heavy Duty</option>
+                            <option value="scanner_basico">Escáner Manual OBD / Genérico</option>
+                            <option value="sin_telemetria">Sin Telemetría / Diagnóstico en Taller Físico</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_4" placeholder="Ej. JCB LiveLink Enterprise Fleet / Jaltest v2024" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Recepción de <strong>Códigos DTC (Diagnostic Trouble Codes - SPN/FMI)</strong> ingresados por el maquinista en obra para precargar el banco de prueba hidráulico de 350 Bar y despachar el kit de piezas OEM antes de que la máquina llegue a Km 22.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_4_1" onchange="calcReadiness(); autoSave();"> <strong>Portal JCB LiveLink Activo:</strong> Acceso a telemetría de horas, consumo y alarmas.</label>
+                    <label><input type="checkbox" id="app_chk_4_2" onchange="calcReadiness(); autoSave();"> <strong>Diccionario de Códigos DTC:</strong> Base de datos de fallas comunes en JCB EcoMAX, Cummins y Yanmar.</label>
+                    <label><input type="checkbox" id="app_chk_4_3" onchange="calcReadiness(); autoSave();"> <strong>Precarga de Bahía de Taller:</strong> Asignación preventiva de bahía mayor 01-06 según código ingresado.</label>
+                    <label><input type="checkbox" id="app_chk_4_4" onchange="calcReadiness(); autoSave();"> <strong>Generador de Ticket con ID Único:</strong> Formato <code>#TMD-XXXXXX</code> con trazabilidad para el cliente.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Cuando a un cliente se le prende una alarma en cabina con un código como SPN 3251, ¿el operador sabe qué hacer o apaga la máquina y espera a que ustedes lleguen? En el nuevo portal pusimos un campo de DTC: el operador tipea el código y el sistema le dice a su taller en Km 22 exactamente qué filtro o sensor preparar."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción:</strong> Ya implementamos el módulo 1:1 de Diagnóstico DTC en <code>#/service</code> en V1. No requiere suscripción adicional; el motor procesa el código y notifica al jefe de taller al instante.
+                </div>
+            </div>
+
+            <!-- APP 5: SQUARE / PASARELA DE COBRO -->
+            <div class="app-audit-card" id="app_card_5">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">💳</div>
+                        <div>
+                            <div class="app-title-text">5. Pasarela de Cobros & Reservas Online (Square / Azul)</div>
+                            <div class="app-category-text">Depósitos de Reserva de Maquinaria ($500 - $1,000 USD) • Repuestos Express</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;">Cierre Financiero</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Cómo cobran reservas de equipos hoy?</label>
+                        <select class="app-select" id="app_status_5" onchange="calcReadiness(); autoSave();">
+                            <option value="transferencia">Solo Transferencia Bancaria Directa / Cheque</option>
+                            <option value="square">Square Merchant Activo (API / TPV)</option>
+                            <option value="azul">Azul (Banco Popular Dominicano)</option>
+                            <option value="cardnet">Cardnet Dominicano</option>
+                            <option value="verifone">Verifone Físico en Mostrador Km 22</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_5" placeholder="Ej. Square Merchant / Azul Gateway Virtual" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Capacidad de generar <strong>Enlaces de Pago Seguros (Payment Links)</strong> o cobro directo de señas de pre-reserva para bloquear retroexcavadoras o rodillos antes de que se alquilen a otro competidor.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_5_1" onchange="calcReadiness(); autoSave();"> <strong>Cuenta Merchant Online Aprobada:</strong> Capacidad de procesar tarjetas Visa / Mastercard.</label>
+                    <label><input type="checkbox" id="app_chk_5_2" onchange="calcReadiness(); autoSave();"> <strong>Depósito de Reserva Parametrizado:</strong> Montos estándar ($500 USD compra / $250 USD renta).</label>
+                    <label><input type="checkbox" id="app_chk_5_3" onchange="calcReadiness(); autoSave();"> <strong>Webhook de Confirmación de Pago:</strong> Notificación instantánea para marcar máquina como 'Reservada'.</label>
+                    <label><input type="checkbox" id="app_chk_5_4" onchange="calcReadiness(); autoSave();"> <strong>Soporte Bi-Moneda:</strong> Facturación en Dólares (USD) y Pesos Dominicanos (DOP).</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Si un contratista de Punta Cana ve una retroexcavadora JCB 3CX disponible en la web hoy a las 8 de la noche y la quiere para mañana, ¿tiene que esperar a que el banco abra a las 9 am para transferir, o podemos darle la opción de reservarla con $500 dólares en la tarjeta y sacarla del mercado de inmediato?"
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción:</strong> Si no tienen pasarela web activa, en <em>Fase 1</em> implementamos el botón de 'Pre-Reserva con Confirmación Express' que emite el formulario de apartado formal, y conectamos la pasarela de pago (Square o Azul) en cuanto entreguen las credenciales bancarias.
+                </div>
+            </div>
+
+            <!-- APP 6: INFRAESTRUCTURA, DOMINIO & DNS -->
+            <div class="app-audit-card" id="app_card_6">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">🌐</div>
+                        <div>
+                            <div class="app-title-text">6. Dominio, DNS, Correo Corporativo & Hosting Nube</div>
+                            <div class="app-category-text">tmd.com.do en NIC.DO • Google Workspace • Vercel Edge Serverless</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;">Infraestructura Segura</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Dónde está alojado tmd.com.do hoy?</label>
+                        <select class="app-select" id="app_status_6" onchange="calcReadiness(); autoSave();">
+                            <option value="cpanel">WordPress en Hosting cPanel / Compartido Lento</option>
+                            <option value="cloudflare">Cloudflare DNS + Servidor Dedicado</option>
+                            <option value="godaddy">GoDaddy / Bluehost / HostGator</option>
+                            <option value="vercel_ready">Vercel Enterprise Edge (Nuevo Build)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Proveedor de Correo Corporativo:</label>
+                        <input type="text" class="app-input" id="app_plan_6" placeholder="Ej. Google Workspace / Microsoft 365 / cPanel Webmail" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Apuntamiento de registros <strong>A / CNAME hacia Vercel Edge Global</strong> manteniendo los registros <strong>MX, SPF, DKIM y DMARC</strong> 100% intactos para asegurar que ningún correo de cotización de TMD sufra interrupciones.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_6_1" onchange="calcReadiness(); autoSave();"> <strong>Acceso a Panel de DNS:</strong> Credenciales de NIC.DO o del registrador de dominio.</label>
+                    <label><input type="checkbox" id="app_chk_6_2" onchange="calcReadiness(); autoSave();"> <strong>Preservación de Registros MX:</strong> Correos de @tmd.com.do sin 1 solo segundo de caída.</label>
+                    <label><input type="checkbox" id="app_chk_6_3" onchange="calcReadiness(); autoSave();"> <strong>Certificado SSL/TLS Grado A+:</strong> Encriptación militar HTTPS para portal de clientes.</label>
+                    <label><input type="checkbox" id="app_chk_6_4" onchange="calcReadiness(); autoSave();"> <strong>PWA & Instalador Nativo:</strong> Aplicación web instalable en Android, iPhone y Windows.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Don Eduardo, ¿quién les maneja el acceso al dominio tmd.com.do? Nosotros nos encargamos de toda la mudanza técnica hacia nuestra infraestructura de alta velocidad en Vercel, blindando sus correos corporativos para que sigan operando sin un solo minuto de interrupción."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Garantía Técnica:</strong> La migración se realiza mediante delegación de CNAME en minutos. El sitio viejo de WordPress se puede apagar de inmediato, eliminando costos de hosting lento y vulnerabilidades de plugins obsoletos.
+                </div>
+            </div>
+
+            <!-- APP 7: CRM & GESTIÓN DE PROSPECTOS -->
+            <div class="app-audit-card" id="app_card_7">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">🎯</div>
+                        <div>
+                            <div class="app-title-text">7. CRM & Pipeline de Ventas de Maquinaria</div>
+                            <div class="app-category-text">Seguimiento de Leads • Asignación de Vendedores • Tasa de Cierre</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#f3e8ff;color:#6b21a8;border:1px solid #e9d5ff;">Pipeline Comercial</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Dónde gestionan los prospectos de ventas?</label>
+                        <select class="app-select" id="app_status_7" onchange="calcReadiness(); autoSave();">
+                            <option value="excel">En Hojas de Excel / Libreta de Notas</option>
+                            <option value="hubspot">HubSpot CRM (Free / Starter / Pro)</option>
+                            <option value="pipedrive">Pipedrive CRM</option>
+                            <option value="whatsapp_leads">En el Chat de WhatsApp de cada Vendedor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_7" placeholder="Ej. HubSpot Free / Excel Compartido Google Drive" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Captura y <strong>enriquecimiento automático de prospectos</strong>: modelo de maquinaria configurado, plazo de entrega solicitado, provincia de destino y presupuesto estimado inyectado directamente en el canal comercial de TMD.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_7_1" onchange="calcReadiness(); autoSave();"> <strong>Webhook de Entrada de Leads:</strong> Ingesta directa de cotizaciones desde el configurador 360°.</label>
+                    <label><input type="checkbox" id="app_chk_7_2" onchange="calcReadiness(); autoSave();"> <strong>Notificación Instantánea al Equipo de Ventas:</strong> Alerta inmediata con ficha de cliente.</label>
+                    <label><input type="checkbox" id="app_chk_7_3" onchange="calcReadiness(); autoSave();"> <strong>Trazabilidad de Fichas Descargadas:</strong> Saber qué cliente descargó el PDF de la excavadora JCB 220X.</label>
+                    <label><input type="checkbox" id="app_chk_7_4" onchange="calcReadiness(); autoSave();"> <strong>Historial de Interacciones del Cliente:</strong> Registro de equipos cotizados previamente.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Cuando un contratista se pasa 10 minutos en la página armando una excavadora con martillo hidráulico y aire acondicionado de cabina, ¿esa información le llega hoy a su equipo de ventas con el teléfono y el RNC, o el cliente simplemente cierra la página y se va? Con Tier 2, su vendedor recibe la ficha exacta que el cliente armó para llamarlo en 15 minutos."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Plan de Acción:</strong> Si no tienen CRM de pago, integramos la entrega de leads directo a la bandeja de WhatsApp del equipo de ventas y a una hoja maestra sincronizada en la nube sin costo adicional.
+                </div>
+            </div>
+
+            <!-- APP 8: CATÁLOGO MAESTRO 391 SKUS -->
+            <div class="app-audit-card" id="app_card_8">
+                <div class="app-card-header">
+                    <div class="app-title-group">
+                        <div class="app-icon-badge">📦</div>
+                        <div>
+                            <div class="app-title-text">8. Catálogo Maestro & Base de Datos de Inventario OEM</div>
+                            <div class="app-category-text">391 SKUs • JCB, LiuGong, Ammann, LS Tractor, Yanmar • Almacén Km 22</div>
+                        </div>
+                    </div>
+                    <span class="qa-badge" style="background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;">391 SKUs Listos</span>
+                </div>
+
+                <div class="app-meta-grid">
+                    <div>
+                        <label class="app-field-label">¿Cómo administran el inventario de repuestos?</label>
+                        <select class="app-select" id="app_status_8" onchange="calcReadiness(); autoSave();">
+                            <option value="square_catalog">Square Master Catalog (391 SKUs)</option>
+                            <option value="fullbay_inventory">Fullbay Parts Inventory</option>
+                            <option value="excel_bodega">Excel de Bodega Central Km 22</option>
+                            <option value="conteo_fisico">Conteo Físico / Consulta a Encargado de Almacén</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="app-field-label">Nivel de Membresía / Plan Actual:</label>
+                        <input type="text" class="app-input" id="app_plan_8" placeholder="Ej. Base de datos SQL / Square Catalog Pro" oninput="autoSave();">
+                    </div>
+                </div>
+
+                <div class="tier2-req-box">
+                    <div class="tier2-req-title"><span>⚡</span> Requisito Obligatorio para Tier 2 (Build TMD):</div>
+                    Sincronización de <strong>Disponibilidad Física en Km 22 vs. Importación por Pedido</strong> y actualización de precios oficiales de renta y venta para que el catálogo web sea una herramienta de venta 100% verídica.
+                </div>
+
+                <div class="app-checklist-title">Checklist de Compatibilidad Técnica con TMD:</div>
+                <div class="qa-checklist">
+                    <label><input type="checkbox" id="app_chk_8_1" onchange="calcReadiness(); autoSave();"> <strong>Base de Datos 391 SKUs Estructurada:</strong> Nombres, marcas, modelos y fotos 4K integradas.</label>
+                    <label><input type="checkbox" id="app_chk_8_2" onchange="calcReadiness(); autoSave();"> <strong>Tarifas de Renta Diaria / Mensual:</strong> Precios base calibrados para el mercado dominicano.</label>
+                    <label><input type="checkbox" id="app_chk_8_3" onchange="calcReadiness(); autoSave();"> <strong>Buscador Predictivo por Número de Parte:</strong> Búsqueda instantánea de filtros, bombas y sellos.</label>
+                    <label><input type="checkbox" id="app_chk_8_4" onchange="calcReadiness(); autoSave();"> <strong>Filtro por Disponibilidad:</strong> Indicador de entrega en 24 horas en RD.</label>
+                </div>
+
+                <div class="app-script-box">
+                    <span class="app-script-badge">🎙️ Mi Pregunta para Don Eduardo:</span>
+                    "Don Eduardo, nosotros ya nos tomamos el trabajo de estructurar y enriquecer los 391 productos de su catálogo con fotografías 4K de alta calidad y especificaciones completas. Solo necesitamos coordinar cómo bodega nos avisa si un lote de excavadoras entra o sale para mantener el stock al día."
+                </div>
+
+                <div class="app-gap-box">
+                    <strong>Estado Actual:</strong> El catálogo de 391 ítems ya está integrado y funcionando a máxima velocidad en el build actual. La sincronización se puede mantener vía exportación periódica sin requerir desarrollos adicionales.
+                </div>
+            </div>
+
+
+            <!-- SECCIÓN 5: COMPARATIVA TÉCNICA Y OPERATIVA -->
+            <h2>6. Comparativa: Sitio Actual vs. Tier 1 (Showroom) vs. Tier 2 (Fullbay Connected)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Capacidad Operativa</th>
+                        <th>WordPress Actual TMD</th>
+                        <th>Tier 1 (Showroom Digital)</th>
+                        <th>Tier 2 (Fullbay Connected) ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Velocidad de Carga</strong></td>
+                        <td class="cross">✗ Lento (&gt; 4.8 seg)</td>
+                        <td class="check">✓ Ultra Rápido (1.1 seg)</td>
+                        <td class="check">✓ Edge Server Global (0.9 seg)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cotizador de Renta ($/Día)</strong></td>
+                        <td class="cross">✗ Inexistente (Teléfono)</td>
+                        <td class="check">✓ Modal + Exporta a PDF</td>
+                        <td class="check">✓ Cotiza y Reserva con Depósito</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conexión al Taller Km 22</strong></td>
+                        <td class="cross">✗ Cero conexión</td>
+                        <td class="cross">✗ Actualización Manual</td>
+                        <td class="check">✓ Rastreador Live Fullbay API</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Portal VIP para Contratistas</strong></td>
+                        <td class="cross">✗ No existe</td>
+                        <td class="cross">✗ No existe</td>
+                        <td class="check">✓ Historial DVI, Órdenes y Facturas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>App Móvil Instalable (PWA)</strong></td>
+                        <td class="cross">✗ No instalable</td>
+                        <td class="check">✓ PWA Desktop, Android e iOS</td>
+                        <td class="check">✓ PWA con Notificaciones Push</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pre-reserva Puerto Haina</strong></td>
+                        <td class="cross">✗ No existe</td>
+                        <td class="check">✓ Modal Club Privé 48h</td>
+                        <td class="check">✓ Asignación de Chasis Directa</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SECCIÓN 6: MATRIZ DE PÉRDIDA TIER 1 VS TIER 2 -->
+            <h2>7. Matriz de Pérdida Extrema: Lo Que TMD Pierde si Elige Quedarse en Tier 1</h2>
+            <div class="loss-matrix">
+                <div class="loss-col bad">
+                    <h4>⚠️ Lo Que TMD PIERDE si solo eligen Tier 1:</h4>
+                    <ul>
+                        <li>❌ <strong>El taller sigue colapsado:</strong> Los clientes continúan llamando por teléfono a preguntar estatus de bahía. Cero alivio para la recepcionista.</li>
+                        <li>❌ <strong>Doble digitación de inventario:</strong> Su personal tendrá que actualizar el inventario dos veces: una en el software interno y otra en la web a mano.</li>
+                        <li>❌ <strong>Sin cobro de reservas:</strong> El cliente puede generar proformas PDF, pero no puede bloquear la máquina con depósito en línea.</li>
+                        <li>❌ <strong>Sin Portal para clientes clave:</strong> Grandes constructoras y consorcios viales no tienen acceso privado a sus facturas ni reportes de inspección técnica.</li>
+                        <li>❌ <strong>Sin webhooks automáticos:</strong> Los avisos de máquinas listas siguen dependiendo de la memoria de los empleados.</li>
+                    </ul>
+                </div>
+                <div class="loss-col good">
+                    <h4>✅ Lo Que TMD GANA de Inmediato con Tier 2:</h4>
+                    <ul>
+                        <li>✓ <strong>Conexión Total al Taller Km 22:</strong> API Fullbay en tiempo real con estatus transparente para cada contratista.</li>
+                        <li>✓ <strong>Sincronización Automática:</strong> Lo que cambia en patio se refleja de inmediato en la web sin esfuerzo administrativo.</li>
+                        <li>✓ <strong>Bloqueo de Unidades con Depósito:</strong> Transacciones comerciales protegidas en línea para separar maquinaria.</li>
+                        <li>✓ <strong>Portal VIP para Grandes Cuentas:</strong> Acceso corporativo con historial completo de mantenimientos y documentos fiscales.</li>
+                        <li>✓ <strong>SLA y Soporte Técnico Prioritario:</strong> Acompañamiento continuo de mi parte para garantizar 99.5% de disponibilidad.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 7: MATRIZ DE PRECIOS OFICIALES -->
+            <h2>8. Matriz de Precios y Presentación de Tiers</h2>
+            <div class="pricing-grid">
+                <div class="tier-card">
+                    <h3 style="margin-top:0;">Tier 1: Showroom Digital</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Listo para salir hoy con catálogo veloz y cotizador PDF.</p>
+                    <div class="tier-price">$1,250 <span>USD Setup</span></div>
+                    <div style="font-size: 0.9rem; font-weight: 700; color: #b45309; margin-bottom: 12px;">+ $100 USD / mes (Hosting + Soporte)</div>
+                    <ul style="font-size: 0.85rem; padding-left: 18px; color: #475569;">
+                        <li>Catálogo completo 0 Km y Renta</li>
+                        <li>Cotizador PDF automático</li>
+                        <li>PWA instalable para Android, iOS y PC</li>
+                        <li>Modal Club TMD Privé (48h Haina)</li>
+                        <li>Fichas técnicas descargables</li>
+                    </ul>
+                </div>
+                <div class="tier-card selected">
+                    <div class="badge-recommended">RECOMENDADO ★</div>
+                    <h3 style="margin-top:0; color: #92400e;">Tier 2: Fullbay Connected</h3>
+                    <p style="font-size: 0.85rem; color: #92400e;">La solución integral que moderniza la operación del Km 22.</p>
+                    <div class="tier-price" style="color: #92400e;">$2,850 <span>USD Setup</span></div>
+                    <div style="font-size: 0.9rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px;">+ $250 USD / mes (Sync Diario + SLA 99.5%)</div>
+                    <ul style="font-size: 0.85rem; padding-left: 18px; color: #78350f;">
+                        <li><strong>Todo lo del Tier 1 incluido</strong></li>
+                        <li>Integración en vivo con Fullbay API</li>
+                        <li>Rastreador de estatus de órdenes de taller</li>
+                        <li>Portal de Clientes VIP para contratistas</li>
+                        <li>Sincronización automática de stock en patio</li>
+                        <li>Soporte técnico prioritario continuo</li>
+                    </ul>
+                </div>
+                <div class="tier-card">
+                    <h3 style="margin-top:0;">Tier 3: Enterprise Omnicanal</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Para control total omnicanal, IA y telemática de flota.</p>
+                    <div class="tier-price">$4,950 <span>USD Setup</span></div>
+                    <div style="font-size: 0.9rem; font-weight: 700; color: #b45309; margin-bottom: 12px;">+ $450 USD / mes (Soporte 24/7 + SLA 99.9%)</div>
+                    <ul style="font-size: 0.85rem; padding-left: 18px; color: #475569;">
+                        <li><strong>Todo lo del Tier 2 incluido</strong></li>
+                        <li>Agente WhatsApp AI 24/7 conectado</li>
+                        <li>Telemática JCB LiveLink GPS en vivo</li>
+                        <li>Generador fiscal y conector DGII</li>
+                        <li>Despiece interactivo de repuestos en 3D</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 8: UPSELLS (MÓDULOS DE ALTO VALOR) -->
+            <h2>9. Upsells (Módulos Opcionales de Alto Valor)</h2>
+            <div class="upsells">
+                <div class="upsell-card">
+                    <strong>A. Telemática LiveLink en Vivo</strong>
+                    <span class="price-badge">+$1,200 USD</span>
+                    <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Monitoreo satelital de horas de motor y geocercas en el portal.</p>
+                </div>
+                <div class="upsell-card">
+                    <strong>B. Despiece 3D Interactivo</strong>
+                    <span class="price-badge">+$1,500 USD</span>
+                    <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Modelado en 3D para selección visual de repuestos por parte del cliente.</p>
+                </div>
+                <div class="upsell-card">
+                    <strong>C. Generador Fiscal DGII</strong>
+                    <span class="price-badge">+$950 USD</span>
+                    <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Emisión de cotizaciones con NCF válido para crédito fiscal dominicano.</p>
+                </div>
+                <div class="upsell-card">
+                    <strong>D. Agente WhatsApp AI 24/7</strong>
+                    <span class="price-badge">+$750 USD</span>
+                    <p style="font-size:0.8rem; color:#64748b; margin-top:4px;">Asistente inteligente entrenado con el catálogo de TMD para responder en segundos.</p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 9: COSTOS INTERNOS Y LÍMITES DE NEGOCIACIÓN (SOLO PARA MÍ) -->
+            <h2>10. Mis Costos Internos &amp; Límites "Walk-Away" (Solo Para Mis Ojos)</h2>
+            <div class="alert-box">
+                <h3>Mis Costos Operativos Reales (Developer Expenses)</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 12px;">Infraestructura en la nube y servicios necesarios para correr la plataforma:</p>
+                <ul style="font-size: 0.9rem; padding-left: 20px; margin-bottom: 15px;">
+                    <li><strong>Hosting Vercel Pro + Edge:</strong> ~$20 USD/mes</li>
+                    <li><strong>Base de Datos PostgreSQL / Redis:</strong> ~$25 USD/mes</li>
+                    <li><strong>Servicios de Mensajería &amp; APIs:</strong> ~$15 USD/mes</li>
+                    <li><strong>Costo Base Total:</strong> <strong>~$60 USD/mes</strong></li>
+                </ul>
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; color: #991b1b; font-weight: 700;">
+                    Margen de Ganancia Mensual en Tier 2 ($250/mes): <strong>+$190 USD netos/mes recurrentes</strong>.
+                </div>
+                <hr style="margin: 18px 0; border: 0; border-top: 1px solid #fca5a5;">
+                <h3>Mis Precios Mínimos Innegociables ("Walk-Away Limits")</h3>
+                <ul style="font-size: 0.95rem; padding-left: 20px;">
+                    <li><strong>Tier 1:</strong> Precio de lista: $1,250 USD ➔ <strong>Mínimo absoluto: <span class="min-badge">$950 USD</span></strong></li>
+                    <li><strong>Tier 2:</strong> Precio de lista: $2,850 USD ➔ <strong>Mínimo absoluto: <span class="min-badge">$2,400 USD</span></strong></li>
+                    <li><strong>Tier 3:</strong> Precio de lista: $4,950 USD ➔ <strong>Mínimo absoluto: <span class="min-badge">$4,000 USD</span></strong></li>
+                </ul>
+            </div>
+
+            <!-- SECCIÓN 10: GUIONES DE REFUTACIÓN DIRECTA ANTE OBJECIONES -->
+            <h2>11. Mis Respuestas de Cierre ante las 5 Objeciones Típicas</h2>
+
+            <div class="rebuttal-box featured">
+                <div class="objection-title">🔴 Objeción 1: "Eduardo dice: '$2,850 USD de setup es más de lo que teníamos presupuestado'."</div>
+                <div class="response-box">
+                    <strong>Mi Respuesta Directa:</strong><br>
+                    "Don Eduardo, lo entiendo perfectamente y cuido el presupuesto de TMD con la misma seriedad y prudencia con la que cuido cada centavo de mis clientes. Pero veámoslo en términos del patio del Km 22: esto no es un gasto de publicidad, es una herramienta de cobro y automatización para su taller.
+                    <br><br>
+                    Usted vende retroexcavadoras y rodillos de más de $150,000 dólares. Con <strong>una sola máquina</strong> que se rente o un solo cliente que bloquee un equipo en Haina por la plataforma, usted recuperó el 100% de esta inversión el primer mes.
+                    <br><br>
+                    Para que usted tenga total tranquilidad: <strong>iniciemos hoy mismo con la Fase 1 (Tier 1) por $1,250 USD</strong>. La montamos en un subdominio, ponemos a sus vendedores y clientes a probarla 7 días, y cuando usted vea los prospectos entrando, le acreditamos esos $1,250 completitos hacia el Tier 2. Cero riesgo para TMD. ¿Arrancamos así?"
+                </div>
+            </div>
+
+            <div class="rebuttal-box">
+                <div class="objection-title">🔴 Objeción 2: "Eduardo dice: 'Nuestra página actual en WordPress funciona bien, los clientes nos llaman directo'."</div>
+                <div class="response-box">
+                    <strong>Mi Respuesta Directa:</strong><br>
+                    "Don Eduardo, el teléfono funciona para los clientes viejos que ya tienen su celular o el de sus vendedores. Pero el ingeniero de obra o el encargado de compras de un consorcio vial que necesita rentar 2 rodillos un domingo por la noche no se pone a llamar; busca en Google desde su celular y si la página suya tarda 5 segundos en abrir o no le muestra precios claros, se va con la competencia.
+                    <br><br>
+                    Esta plataforma carga en <strong>1 segundo</strong>, funciona como App en celulares Android y iPhone, y le entrega la cotización al instante. No estamos reemplazando sus llamadas, le estamos abriendo una sucursal en el teléfono de cada contratista del país."
+                </div>
+            </div>
+
+            <div class="rebuttal-box">
+                <div class="objection-title">🔴 Objeción 3: "Eduardo dice: 'Fullbay ya tiene su propio portal de clientes, ¿para qué conectarlo a la web?'"</div>
+                <div class="response-box">
+                    <strong>Mi Respuesta Directa:</strong><br>
+                    "Fullbay es un software excelente para sus mecánicos adentro del taller, pero para el cliente final es engorroso y pocos contratistas se toman el trabajo de crear usuario ahí. Lo que hacen es llamar a recepción cada dos horas: <em>'¿Cómo va la bomba de mi retro?'</em>.
+                    <br><br>
+                    Con nuestra integración, el cliente solo escribe su RNC o número de orden en la página de TMD y ve de inmediato: 'En prueba hidrostática - Entrega estimada 3:00 PM'. Le quitamos el 60% de las interrupciones telefónicas a su equipo y ponemos a TMD a la vanguardia tecnológica del sector."
+                </div>
+            </div>
+
+            <div class="rebuttal-box">
+                <div class="objection-title">🔴 Objeción 4: "Eduardo dice: 'Ya tenemos a alguien interno o a una agencia que nos lleva las redes sociales'."</div>
+                <div class="response-box">
+                    <strong>Mi Respuesta Directa:</strong><br>
+                    "Me alegro mucho, Don Eduardo, y de hecho esa persona o agencia va a amar esto. Ellos hacen marketing para atraer gente; yo no soy una agencia de redes, soy un desarrollador de sistemas e ingeniería de software. 
+                    <br><br>
+                    Lo que yo construí es la infraestructura operativa donde caen esos clientes para cotizar, descargar especificaciones en PDF y consultar el taller. Las redes traen el tráfico; mi plataforma lo convierte en dinero y órdenes de trabajo para el Km 22."
+                </div>
+            </div>
+
+            <div class="rebuttal-box">
+                <div class="objection-title">🔴 Objeción 5: "Eduardo dice: 'Déjame pensarlo y lo consulto con la gerencia / los socios'."</div>
+                <div class="response-box">
+                    <strong>Mi Respuesta Directa:</strong><br>
+                    "Por supuesto, Don Eduardo, consúltelo con toda la calma del mundo. Lo que le recomiendo es que no les hable de esto en abstracto; compártales este mismo enlace en vivo que le preparé. Que ellos mismos abran la página en su teléfono, que coticen una máquina y vean la velocidad.
+                    <br><br>
+                    Yo le reservo estas condiciones de lanzamiento hasta este viernes. Si le parece bien, ¿le aparto una llamada de 10 minutos este jueves para despejar cualquier inquietud técnica que tengan los socios?"
+                </div>
+            </div>
+
+            <!-- SECCIÓN 11: CHECKLIST DE ACTIVOS A PEDIR EN EL CIERRE -->
+            <h2>12. Mi Checklist de Datos a Solicitar al Firmar con Don Eduardo</h2>
+            <p>En cuanto Don Eduardo me confirme el inicio, le solicito estos 5 elementos para completar la puesta en marcha definitiva:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Activo Requerido</th>
+                        <th style="width: 45%;">Descripción Detallada</th>
+                        <th style="width: 30%;">Responsable en TMD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Inventario en Patio Km 22</strong></td>
+                        <td>Listado en Excel o export del sistema con modelos disponibles, números de serie/VIN, año y estado (0 Km vs Usado).</td>
+                        <td>Jefe de Patio / Ventas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Credenciales Fullbay API</strong></td>
+                        <td>API Key o credencial de integración de Fullbay para habilitar la sincronización en vivo del taller.</td>
+                        <td>Gerente de Taller / Soporte TI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Tarifario Oficial de Renta</strong></td>
+                        <td>Tabla de precios diarios, semanales y mensuales de excavadoras, retroexcavadoras y rodillos, con depósito de garantía.</td>
+                        <td>Dirección Comercial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Fichas Técnicas Oficiales</strong></td>
+                        <td>Archivos PDF de especificaciones de fábrica de JCB, LiuGong y LS Tractor para descarga directa del cliente.</td>
+                        <td>Marketing / Ventas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Directorio de Despacho</strong></td>
+                        <td>Números oficiales de WhatsApp y correos a los que deben llegar las alertas de cotización y leads de membresía.</td>
+                        <td>Recepción / Despacho Km 22</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SECCIÓN 12: ESTRATEGIA DE CIERRE EN 2 FASES Y APRETÓN DE MANOS -->
+            <h2>13. Estrategia de Cierre en 2 Fases &amp; Frase Final</h2>
+            <div class="mindset-card" style="background: #f8fafc; border-color: #cbd5e1;">
+                <h3 style="color: #0f172a; margin-top: 0;">La Fórmula de Cierre de Bajo Riesgo (2 Fases):</h3>
+                <p style="font-size: 1rem; color: #334155; margin-bottom: 15px;">
+                    <em>"Don Eduardo, hagamos esto sencillo y sin burocracia: iniciemos de inmediato con la <strong>Fase 1 (Tier 1) por $1,250 USD</strong> en un subdominio. En 7 días su equipo valida la herramienta y los prospectos que genera. Luego escalamos al <strong>Tier 2</strong> y le acredito el 100% de lo que pagó hoy. Así usted comprueba los resultados con hechos, no con palabras."</em>
+                </p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                <h3 style="color: #0f172a;">Mi Frase Final de Apretón de Manos:</h3>
+                <p style="font-size: 1.05rem; font-style: italic; color: #1e293b; font-weight: 700;">
+                    "Don Eduardo, los negocios en este país se hacen entre gente seria y con resultados comprobables sobre la mesa. La plataforma está hecha, probada y lista para operar. Déjeme la llave en mano, arranquemos esta misma semana con la Fase 1, y le aseguro que TMD tendrá la presencia tecnológica y el sistema de captación más sólido del sector de maquinaria pesada en toda la República Dominicana."
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    // ══════════════════════════════════════════════════════════════════════
+    // DIAGNOSTIC PLAYGROUND PERSISTENCE (LOCAL STORAGE & EXPORT)
+    // ══════════════════════════════════════════════════════════════════════
+    const STORAGE_KEY = 'tmd_diagnostic_answers_v2';
+
+    function autoSave() {
+        saveDiagnosticAnswers(false);
+    }
+
+    function calcReadiness() {
+        let totalChecks = 0;
+        let checkedCount = 0;
+
+        for (let app = 1; app <= 8; app++) {
+            for (let chk = 1; chk <= 4; chk++) {
+                const el = document.getElementById('app_chk_' + app + '_' + chk);
+                if (el) {
+                    totalChecks++;
+                    if (el.checked) checkedCount++;
+                }
+            }
+        }
+
+        const pct = totalChecks > 0 ? Math.round((checkedCount / totalChecks) * 100) : 0;
+        const valEl = document.getElementById('readinessScoreVal');
+        const fillEl = document.getElementById('readinessBarFill');
+        const msgEl = document.getElementById('readinessStatusMsg');
+
+        if (valEl) valEl.textContent = pct + '%';
+        if (fillEl) fillEl.style.width = pct + '%';
+
+        if (msgEl) {
+            if (pct >= 80) {
+                msgEl.innerHTML = '<span style="color:#10b981;">● Estatus Óptimo:</span> TMD cuenta con la infraestructura lista para Tier 2 Fullbay Connected inmediato.';
+            } else if (pct >= 50) {
+                msgEl.innerHTML = '<span style="color:#f59e0b;">● Estatus Híbrido:</span> Listo para Tier 2 con conectores rápidos en Fase 1, gestionando APIs en Fase 2.';
+            } else if (pct > 0) {
+                msgEl.innerHTML = '<span style="color:#f59e0b;">● Diagnóstico Inicial:</span> Se recomienda iniciar en Tier 1 / Fase 1 mientras se tramitan accesos de software.';
+            } else {
+                msgEl.innerHTML = '<span>⚡</span> Marque las casillas y seleccione los planes para diagnosticar la compatibilidad de TMD.';
+            }
+        }
+        return pct;
+    }
+
+    function saveDiagnosticAnswers(showMessage = true) {
+        const data = {
+            timestamp: new Date().toISOString(),
+            answers: {
+                ans_1: document.getElementById('diag_ans_1')?.value || '',
+                ans_2: document.getElementById('diag_ans_2')?.value || '',
+                ans_3: document.getElementById('diag_ans_3')?.value || '',
+                ans_4: document.getElementById('diag_ans_4')?.value || '',
+                ans_5: document.getElementById('diag_ans_5')?.value || '',
+                ans_6: document.getElementById('diag_ans_6')?.value || '',
+            },
+            apps: {
+                status_1: document.getElementById('app_status_1')?.value || '',
+                plan_1: document.getElementById('app_plan_1')?.value || '',
+                status_2: document.getElementById('app_status_2')?.value || '',
+                plan_2: document.getElementById('app_plan_2')?.value || '',
+                status_3: document.getElementById('app_status_3')?.value || '',
+                plan_3: document.getElementById('app_plan_3')?.value || '',
+                status_4: document.getElementById('app_status_4')?.value || '',
+                plan_4: document.getElementById('app_plan_4')?.value || '',
+                status_5: document.getElementById('app_status_5')?.value || '',
+                plan_5: document.getElementById('app_plan_5')?.value || '',
+                status_6: document.getElementById('app_status_6')?.value || '',
+                plan_6: document.getElementById('app_plan_6')?.value || '',
+                status_7: document.getElementById('app_status_7')?.value || '',
+                plan_7: document.getElementById('app_plan_7')?.value || '',
+                status_8: document.getElementById('app_status_8')?.value || '',
+                plan_8: document.getElementById('app_plan_8')?.value || '',
+            },
+            checkboxes: {}
+        };
+
+        // Save all checkboxes
+        document.querySelectorAll('.qa-checklist input[type="checkbox"]').forEach(chk => {
+            data.checkboxes[chk.id] = chk.checked;
+        });
+
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            const statusEl = document.getElementById('saveStatus');
+            if (statusEl) {
+                statusEl.style.display = 'inline-flex';
+                statusEl.textContent = '✓ Guardado local (' + new Date().toLocaleTimeString() + ')';
+                if (showMessage) {
+                    statusEl.style.color = '#f59e0b';
+                    setTimeout(() => { statusEl.style.color = '#10b981'; }, 1000);
+                }
+            }
+        } catch(e) {
+            console.warn('[TMD Playbook] Could not save to localStorage:', e);
+        }
+    }
+
+    function loadDiagnosticAnswers() {
+        try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) return;
+            const data = JSON.parse(saved);
+
+            if (data.answers) {
+                for (let i = 1; i <= 6; i++) {
+                    const el = document.getElementById('diag_ans_' + i);
+                    if (el && data.answers['ans_' + i] !== undefined) {
+                        el.value = data.answers['ans_' + i];
+                    }
+                }
+            }
+
+            if (data.apps) {
+                for (let app = 1; app <= 8; app++) {
+                    const statusEl = document.getElementById('app_status_' + app);
+                    if (statusEl && data.apps['status_' + app]) statusEl.value = data.apps['status_' + app];
+                    const planEl = document.getElementById('app_plan_' + app);
+                    if (planEl && data.apps['plan_' + app]) planEl.value = data.apps['plan_' + app];
+                }
+            }
+
+            if (data.checkboxes) {
+                for (const [id, val] of Object.entries(data.checkboxes)) {
+                    const chk = document.getElementById(id);
+                    if (chk) chk.checked = !!val;
+                }
+            }
+
+            const statusEl = document.getElementById('saveStatus');
+            if (statusEl && data.timestamp) {
+                statusEl.style.display = 'inline-flex';
+                const d = new Date(data.timestamp);
+                statusEl.textContent = '✓ Datos restaurados (' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + ')';
+            }
+        } catch(e) {
+            console.warn('[TMD Playbook] Could not load from localStorage:', e);
+        }
+    }
+
+    function exportDiagnosticTxt() {
+        let txt = "================================================================\n";
+        txt += "AUDITORÍA Y DIAGNÓSTICO COMERCIAL: TECNOMAQUINARIAS DIESEL (TMD)\n";
+        txt += "Reunión con Don Eduardo López | Sede Central Km 22 Autopista Duarte\n";
+        txt += "Fecha: " + new Date().toLocaleString() + "\n";
+        txt += "================================================================\n\n";
+
+        for (let i = 1; i <= 6; i++) {
+            const card = document.getElementById('card_q' + i);
+            if (!card) continue;
+            const qTitle = card.querySelector('.qa-q')?.innerText || ('Pregunta ' + i);
+            const ans = document.getElementById('diag_ans_' + i)?.value.trim() || '(Sin anotaciones)';
+            
+            txt += "----------------------------------------------------------------\n";
+            txt += qTitle + "\n";
+            txt += "----------------------------------------------------------------\n";
+            
+            // Checkboxes
+            const checks = card.querySelectorAll('.qa-checklist label');
+            txt += "Checklist Operativo Detectado:\n";
+            let anyChecked = false;
+            checks.forEach(lbl => {
+                const chk = lbl.querySelector('input');
+                if (chk && chk.checked) {
+                    txt += "  [X] " + lbl.innerText.trim() + "\n";
+                    anyChecked = true;
+                }
+            });
+            if (!anyChecked) txt += "  (Ningún síntoma marcado)\n";
+
+            txt += "\nRespuesta / Notas de Don Eduardo:\n" + ans + "\n\n";
+        }
+
+        // Apps & Membership Audit Section in TXT
+        txt += "\n================================================================\n";
+        txt += "AUDITORÍA DE APLICACIONES, MEMBRESÍAS Y COMPATIBILIDAD TIER 2\n";
+        txt += "================================================================\n";
+        
+        const appNames = [
+            "Fullbay Heavy Duty Shop Management",
+            "Sistema ERP & Facturación Fiscal NCF (DGII)",
+            "WhatsApp Business Platform & Despacho",
+            "Telemetría JCB LiveLink & Escáner DTC",
+            "Pasarela de Cobros & Reservas (Square/Azul)",
+            "Dominio, DNS & Hosting Web (Vercel/NIC.DO)",
+            "CRM & Pipeline de Ventas de Maquinaria",
+            "Catálogo Maestro de Inventario (391 SKUs)"
+        ];
+
+        for (let app = 1; app <= 8; app++) {
+            const card = document.getElementById('app_card_' + app);
+            if (!card) continue;
+            const statusVal = document.getElementById('app_status_' + app)?.value || 'No especificado';
+            const planVal = document.getElementById('app_plan_' + app)?.value.trim() || 'No especificado';
+
+            txt += "\n[" + app + "] " + appNames[app - 1] + "\n";
+            txt += "  - Estado en TMD: " + statusVal + "\n";
+            txt += "  - Nivel de Plan / Membresía Actual: " + planVal + "\n";
+            txt += "  - Compatibilidad Verificada:\n";
+
+            let anyAppChk = false;
+            card.querySelectorAll('.qa-checklist label').forEach(lbl => {
+                const chk = lbl.querySelector('input');
+                if (chk && chk.checked) {
+                    txt += "    [X] " + lbl.innerText.trim() + "\n";
+                    anyAppChk = true;
+                }
+            });
+            if (!anyAppChk) txt += "    (Sin casillas marcadas)\n";
+        }
+
+        const readinessPct = typeof calcReadiness === 'function' ? calcReadiness() : 0;
+        txt += "\nÍNDICE DE PREPARACIÓN TECNOLÓGICA (TIER 2 READINESS): " + readinessPct + "%\n";
+
+        txt += "\n================================================================\n";
+        txt += "CONCLUSIÓN: Conexión inmediata a Tier 2 Fullbay Connected recomendada.\n";
+        txt += "================================================================\n";
+
+        const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = "TMD_Diagnostico_Operativo_Eduardo_Lopez.txt";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function resetDiagnosticAnswers() {
+        if (!confirm('¿Desea limpiar todas las respuestas y casillas de verificación de este diagnóstico?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        for (let i = 1; i <= 6; i++) {
+            const el = document.getElementById('diag_ans_' + i);
+            if (el) el.value = '';
+        }
+        for (let app = 1; app <= 8; app++) {
+            const statusEl = document.getElementById('app_status_' + app);
+            if (statusEl) statusEl.selectedIndex = 0;
+            const planEl = document.getElementById('app_plan_' + app);
+            if (planEl) planEl.value = '';
+        }
+        if (typeof calcReadiness === 'function') calcReadiness();
+        document.querySelectorAll('.qa-checklist input[type="checkbox"]').forEach(chk => chk.checked = false);
+        const statusEl = document.getElementById('saveStatus');
+        if (statusEl) statusEl.style.display = 'none';
+    }
+
+    // Auto-load on startup
+    window.addEventListener('DOMContentLoaded', () => { loadDiagnosticAnswers(); calcReadiness(); });
+    </script>
+
+</body>
+</html>
