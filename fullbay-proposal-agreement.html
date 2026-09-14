@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acuerdo de Servicios Digitales — Tecnomaquinarias Diesel S.R.L. (TMD) | TodoBuild Technologies Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --surface: #141416;
+      --surface2: #141416;
+      --surface-card: #141416;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(245, 158, 11, 0.4);
+      --accent: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.15);
+      --accent-green: #10b981;
+      --accent-blue: #10b981;
+      --accent-purple: #f59e0b;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 70px;
+    }
+
+    /* TOP STICKY BAR */
+    .top-actions {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 20, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .badge-scope {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-primary { background: var(--accent); color: #141416; border-color: var(--accent); }
+    .btn-primary:hover { background: #fbbf24; }
+    .btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); border-color: var(--accent); }
+
+    .doc-container {
+      max-width: 960px;
+      margin: 32px auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    /* HEADER */
+    .header-table {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-accent);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .meta-box {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .meta-box .ref-num { color: var(--accent); font-weight: 800; font-size: 0.85rem; }
+
+    /* CLIENT RECIPIENT CARD */
+    .client-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .client-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .client-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .pillar-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .ptag {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .ptag-dealer { background: rgba(245, 158, 11, 0.15); color: var(--accent); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .ptag-rental { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .ptag-parts { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .hero-summary h1 { font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+    .hero-summary p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+    /* TIER SELECTOR CONTROLS */
+    .tier-selector-wrap {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+    .tier-selector-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tier-selector-header h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tier-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 768px) {
+      .tier-tabs { grid-template-columns: 1fr; }
+      .doc-container { padding: 20px; margin: 12px; }
+    }
+    .tier-tab {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+    .tier-tab:hover { background: rgba(255, 255, 255, 0.08); }
+    .tier-tab.active {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+    }
+    .tier-tab-title { font-size: 0.82rem; font-weight: 800; color: #fff; }
+    .tier-tab-price { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--accent); font-weight: 700; margin-top: 2px; }
+
+    /* FINANCIAL PRICING CARDS */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px 0 28px;
+    }
+    @media (max-width: 768px) { .pricing-cards { grid-template-columns: 1fr; } }
+    .price-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .price-card.featured {
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.08);
+      box-shadow: 0 0 18px rgba(245, 158, 11, 0.15);
+    }
+    .price-card .label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .price-card .amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .price-card .amount.gold { color: var(--accent); }
+    .price-card .sub {
+      font-size: 0.74rem;
+      color: var(--accent-green);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    /* SECTION BLOCKS */
+    .section-block { margin-bottom: 30px; }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 640px) { .scope-grid { grid-template-columns: 1fr; } }
+    .scope-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .scope-item h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .scope-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* MILESTONES TABLE */
+    .milestone-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.82rem;
+    }
+    .milestone-table th, .milestone-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .milestone-table th {
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .milestone-table td { color: var(--text-muted); }
+    .milestone-table td.highlight {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* CALLOUT BOXES */
+    .subdomain-callout {
+      background: rgba(245, 158, 11, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .subdomain-callout code {
+      color: var(--accent-blue);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .legal-notice {
+      background: rgba(245, 158, 11, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+
+    /* SIGNATURE BLOCK */
+    .sig-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 640px) { .sig-block { grid-template-columns: 1fr; } }
+    .sig-col h5 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .sig-line {
+      border-bottom: 1px dashed var(--text-dim);
+      height: 36px;
+      margin-bottom: 6px;
+    }
+    .sig-meta { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* PRINT STYLES */
+    @page {
+      size: letter portrait;
+      margin: 10mm 12mm;
+    }
+
+    /* ═══════════════════════════════════════════
+       PRINT LAYOUT — 8.5x11 US LETTER CLEAN OUTPUT
+       ═══════════════════════════════════════════ */
+    @page {
+      size: letter portrait;
+      margin: 14mm 16mm 14mm 16mm;
+    }
+    @media print {
+      /* Force color rendering */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      /* Hide interactive / UI-only elements */
+      .top-actions, .btn-group, .btn, .no-print { display: none !important; }
+      
+      /* Body: clean white paper */
+      body {
+        background: #ffffff !important;
+        color: #141416 !important;
+        font-size: 8.5pt !important;
+        line-height: 1.45 !important;
+        padding-bottom: 0 !important;
+      }
+
+      /* Document container: flush to paper edges */
+      .doc-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 16px !important;
+        background: #ffffff !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+
+      /* All dark backgrounds become white */
+      [class*="surface"], [class*="card"],
+      .hero-summary, .tier-selector-wrap,
+      .tier-tab, .scope-item, .warning-box,
+      .price-card, .section-block,
+      .client-card, .signature-block, .timeline-row {
+        background: #ffffff !important;
+        border: 1px solid #d4d4d8 !important;
+        color: #141416 !important;
+        box-shadow: none !important;
+      }
+
+      /* All white text becomes dark */
+      h1, h2, h3, h4, h5, h6,
+      .brand-title, .section-title, .hero-summary h1,
+      .client-name, .tier-tab-title, .price-card .amount {
+        color: #141416 !important;
+        font-weight: 800 !important;
+      }
+
+      p, span, li, td, th, .client-detail, .hero-summary p {
+        color: #27272a !important;
+      }
+      
+      /* Accent amber stays amber (readable on white) */
+      .brand-sub, .badge-scope, .ref-num, .meta-box .ref-num,
+      .tier-tab-price, .price-card .amount.gold {
+        color: #d97706 !important;
+      }
+      
+      /* Emerald accents stay readable */
+      .text-emerald, [style*="color: var(--accent-green)"],
+      [style*="color:#10b981"] { color: #047857 !important; }
+      
+      /* Borders */
+      .header-table { border-bottom: 2px solid #d97706 !important; }
+      .section-title { border-bottom: 1px solid #e5e5e5 !important; }
+      
+      /* Tag pills: legible on white */
+      .ptag-dealer { background: #fef3c7 !important; color: #92400e !important; border-color: #fde68a !important; }
+      .ptag-rental { background: #d1fae5 !important; color: #065f46 !important; border-color: #a7f3d0 !important; }
+      .ptag-parts { background: #d1fae5 !important; color: #065f46 !important; border-color: #a7f3d0 !important; }
+      
+      /* Tables */
+      table { border-collapse: collapse !important; width: 100% !important; }
+      th { background: #fafafa !important; color: #141416 !important; border: 1px solid #d4d4d8 !important; font-size: 7.5pt !important; }
+      td { border: 1px solid #e5e5e5 !important; font-size: 7.8pt !important; color: #27272a !important; }
+      tr { page-break-inside: avoid !important; break-inside: avoid !important; }
+      thead { display: table-header-group !important; }
+      
+      /* Prevent section breaks mid-content */
+      .section-block { page-break-inside: avoid !important; break-inside: avoid !important; margin-bottom: 16px !important; }
+      .scope-grid { page-break-inside: avoid !important; }
+      
+      /* Force page break before major sections */
+      .print-page-break { page-break-before: always !important; break-before: page !important; }
+      
+      /* Signature block: always stays together */
+      .signature-block, .sig-field { page-break-inside: avoid !important; }
+      
+      /* Warning boxes: subtle yellow on print */
+      .warning-box { background: #fffbeb !important; border-color: #fde68a !important; color: #78350f !important; }
+      
+      /* Tier tabs: clean grid on print */
+      .tier-tabs { display: grid !important; grid-template-columns: repeat(3,1fr) !important; }
+      
+      /* Price cards grid */
+      .pricing-cards { display: grid !important; grid-template-columns: repeat(3,1fr) !important; }
+      .price-card.featured { border: 2px solid #d97706 !important; }
+    }
+      .top-actions, .btn-group, .tier-selector-wrap { display: none !important; }
+      .doc-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        background: transparent !important;
+      }
+      .brand-title, .hero-summary h1, .section-title, .price-card .amount, .scope-item h4, .client-name { color: #000 !important; }
+      .brand-sub { color: #444 !important; }
+      .price-card, .scope-item, .hero-summary, .client-card, .subdomain-callout {
+        background: #fafafa !important;
+        border: 1px solid #d4d4d8 !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+      .milestone-table th { background: #f5f5f5 !important; color: #000 !important; }
+      .milestone-table td { color: #27272a !important; border: 1px solid #d4d4d8 !important; }
+      .legal-notice { background: #fffbeb !important; border: 1px solid #fde68a !important; color: #92400e !important; }
+      .badge-scope, .ptag { border: 1px solid #000 !important; color: #000 !important; background: transparent !important; }
+      .sig-line { border-bottom: 1px solid #000 !important; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP ACTION BAR -->
+  <div class="top-actions">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="badge-scope">📄 MASTER SERVICES AGREEMENT (MSA)</span>
+      <span style="font-size:0.75rem; color:var(--text-muted);">REF: <strong>MSA-TDB-TMD-2026-DR</strong></span>
+    </div>
+    <div class="btn-group">
+      <a href="tmd-master-3tiers-and-fullbay-720-dossier.html" class="btn btn-secondary">
+        ← Volver al Dossier Ejecutivo
+      </a>
+      <button class="btn btn-primary" onclick="window.print()">
+        🖨️ Imprimir / Guardar en PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="doc-container">
+    <!-- Header -->
+    <div class="header-table">
+      <div>
+        <div class="brand-title"><a href="https://todobuild.store" target="_blank" style="color:inherit; text-decoration:none;">TODOBUILD TECHNOLOGIES INC.</a></div>
+        <div class="brand-sub">Soluciones de Software &amp; Integraciones ERP para Flotas Pesadas</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">
+          División de Infraestructura Digital · Nueva York &amp; República Dominicana
+        </div>
+      </div>
+      <div class="meta-box">
+        <div>Fecha de Emisión: <strong>Septiembre 11, 2026</strong></div>
+        <div>Código de Acuerdo: <span class="ref-num">MSA-TDB-TMD-2026-DR</span></div>
+        <div>Canónico Square SKU: <strong id="metaSku">TDB-TMD-TIER1</strong></div>
+        <div>SLA de Disponibilidad: <strong>99.5% Uptime Garantizado</strong></div>
+      </div>
+    </div>
+
+    <!-- Client Card -->
+    <div class="client-card">
+      <div>
+        <div style="font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-dim); font-weight:800; margin-bottom:2px;">
+          Cliente Exclusivo / Parte Contratante:
+        </div>
+        <div class="client-name">Tecnomaquinarias Diesel S.R.L. (TMD)</div>
+        <div class="client-detail">Autopista Duarte Km 22, Pedro Brand, Santo Domingo Oeste · RNC: En Archivo</div>
+        <div class="pillar-tags">
+          <span class="ptag ptag-dealer">🚜 Dealer Oficial 0 Km (JCB / LiuGong / Ammann / LS)</span>
+          <span class="ptag ptag-rental">⏱️ Flota de Renta Activa (44 Unidades)</span>
+          <span class="ptag ptag-parts">⚙️ Taller Central Km 22 &amp; Repuestos Fullbay</span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <span class="badge-scope" style="border-color:var(--accent-green); color:var(--accent-green); background:rgba(16,185,129,0.1);">
+          PROTOTIPO VALIDADO DISPONIBLE
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero / Scope Summary -->
+    <div class="hero-summary">
+      <h1 id="heroTitle">Acuerdo de Servicio: Integración Fullbay ERP &amp; Portal de los 3 Pilares</h1>
+      <p>
+        Contrato marco de prestación de servicios tecnológicos para el despliegue del portal digital de <strong>Tecnomaquinarias Diesel S.R.L. (TMD)</strong>, unificando en una sola plataforma de alto rendimiento su operación como <strong>Dealer Oficial de Maquinaria Nueva 0 Km</strong>, su <strong>Flota de Alquiler</strong> y su <strong>Taller Central de Servicios &amp; Repuestos Diésel en el Km 22 con Fullbay ERP</strong>.
+      </p>
+    </div>
+
+    <!-- INTERACTIVE TIER SELECTOR -->
+    <div class="tier-selector-wrap">
+      <div class="tier-selector-header">
+        <h3><span>⚡</span> Seleccione el Nivel de Implementación Acordado:</h3>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono';">Haga clic para actualizar los montos del contrato</span>
+      </div>
+      <div class="tier-tabs">
+        <div class="tier-tab active" id="tabTier1" onclick="selectTier(1)">
+          <div class="tier-tab-title">Nivel 1: Esencial 3 Pilares</div>
+          <div class="tier-tab-price">$1,250 Setup · $100/mes</div>
+          <div style="font-size:0.7rem; color:var(--text-muted); margin-top:2px;">Dealer + Renta + Fullbay Web</div>
+        </div>
+        <div class="tier-tab" id="tabTier2" onclick="selectTier(2)">
+          <div class="tier-tab-title">Nivel 2: Ecosistema 720° (Recomendado)</div>
+          <div class="tier-tab-price">$2,850 Setup · $250/mes</div>
+          <div style="font-size:0.7rem; color:var(--text-muted); margin-top:2px;">Loop Completo + Portal B2B Clientes</div>
+        </div>
+        <div class="tier-tab" id="tabTier3" onclick="selectTier(3)">
+          <div class="tier-tab-title">Nivel 3: Enterprise Autómata</div>
+          <div class="tier-tab-price">$5,800 Setup · $450/mes</div>
+          <div style="font-size:0.7rem; color:var(--text-muted); margin-top:2px;">Samsara Telematics + Auto-Despacho</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commercial Financial Terms (Dynamic) -->
+    <div class="pricing-cards">
+      <div class="price-card featured">
+        <div class="label">Inversión Total de Implementación</div>
+        <div class="amount gold" id="cardTotal">$1,250</div>
+        <div class="sub" id="cardTotalDop">RD$ 74,375 DOP (@ 59.50)</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Hito 1: Anticipo de Inicio (50%)</div>
+        <div class="amount" id="cardDeposit">$625</div>
+        <div class="sub" id="cardDepositDop">RD$ 37,188 DOP al firmar</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Mantenimiento Cloud &amp; Enlace Fullbay</div>
+        <div class="amount" id="cardRetainer">$100<span style="font-size:0.9rem; font-weight:normal; color:var(--text-muted);">/mes</span></div>
+        <div class="sub" id="cardRetainerDop">RD$ 5,950 DOP/mes (Hosting + SLA)</div>
+      </div>
+    </div>
+
+    <!-- ZERO-DOWNTIME SUBDOMAIN ARCHITECTURE -->
+    <div class="subdomain-callout">
+      <strong style="color:#fff;">🛡️ Garantía de Continuidad Operativa (Arquitectura de Subdominio):</strong><br />
+      El sitio web actual de la empresa (<code>tmd.com.do</code>), correos electrónicos de Office 365 / Google Workspace y registros DNS permanecen <strong>100% intactos y sin ninguna interrupción</strong>. TodoBuild despliega la nueva plataforma en un subdominio especializado de alta velocidad (ejemplo: <code>alquiler.tmd.com.do</code> o <code>portal.tmd.com.do</code>), garantizando carga en menos de 1 segundo en Santo Domingo y cobertura total en móviles de clientes de construcción.
+    </div>
+
+    <!-- ALCANCE DETALLADO: LOS 3 PILARES Y EL LOOP 720° -->
+    <div class="section-block">
+      <div class="section-title">
+        <span>🏗️</span> Alcance Técnico de la Solución (3 Pilares + Loop 720°)
+      </div>
+
+      <div class="scope-grid">
+        <div class="scope-item">
+          <h4>🚜 1. Pilar Dealer: Venta Maquinaria 0 Km</h4>
+          <p>Exhibición oficial de las marcas representadas (JCB, LiuGong, Ammann, LS Tractor, Yanmar, Scutti America, Kubota). Fichas técnicas descargables, cotizador de financiamiento para contratistas y solicitud directa de inspección en patio.</p>
+        </div>
+        <div class="scope-item">
+          <h4>⏱️ 2. Pilar Renta: Flota Activa (44 Unidades)</h4>
+          <p>Catálogo de equipos pre-cargado con retroexcavadoras, rodillos, compresores, torres de luz y excavadoras. Tarifas por día, semana y mes, selector de fechas de disponibilidad y cálculo de flete de transporte por provincia.</p>
+        </div>
+        <div class="scope-item">
+          <h4>⚙️ 3. Pilar Servicios &amp; Taller Central Km 22</h4>
+          <p>Agendamiento de citas para mantenimiento preventivo y correctivo de flotas pesadas. Formulario de ingreso con toma de fotos DVI (inspección visual) que genera la Orden de Trabajo directamente en Fullbay ERP.</p>
+        </div>
+        <div class="scope-item">
+          <h4>📦 4. Sincronización de Repuestos Fullbay</h4>
+          <p>Buscador de números de parte OEM y piezas diésel pesadas conectado al inventario de Fullbay. Los jefes de taller de los clientes pueden verificar existencias y solicitar cotizaciones al instante sin saturar las líneas telefónicas.</p>
+        </div>
+        <div class="scope-item">
+          <h4>🔄 5. Despacho Centralizado 720°</h4>
+          <p>Cada consulta genera un ticket estructurado que entra a Fullbay, notifica al despachador de TMD y envía confirmación formal por correo al cliente, garantizando trazabilidad total de punta a punta.</p>
+        </div>
+        <div class="scope-item">
+          <h4>🇩🇴 6. Moneda Dual (USD &amp; RD$) + NCF Fiscal DGII</h4>
+          <p>Precios expresados simultáneamente en Dólares (USD) y Pesos Dominicanos (RD$) con tasa oficial. Opción para que el cliente ingrese su RNC y solicite <strong>Factura con Valor Fiscal (NCF B01)</strong> de conformidad con la DGII.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENDARIO DE ENTREGAS Y DESEMBOLSOS -->
+    <div class="section-block">
+      <div class="section-title">
+        <span>📅</span> Cronograma de Entrega y Desembolsos
+      </div>
+      <table class="milestone-table">
+        <thead>
+          <tr>
+            <th>Hito Contractual</th>
+            <th>Entregables Principales</th>
+            <th>Plazo Estimado</th>
+            <th>Monto de Desembolso</th>
+          </tr>
+        </thead>
+        <tbody id="milestoneRows">
+          <tr>
+            <td class="highlight">Hito 1 (50%)</td>
+            <td>Firma del Acuerdo, Provisión de Credenciales Fullbay API, Despliegue de Subdominio Seguro y Conexión de Base de Datos</td>
+            <td>Día 1 – 2</td>
+            <td class="highlight" id="rowH1">$625.00 USD <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ 37,188)</span></td>
+          </tr>
+          <tr>
+            <td class="highlight">Fase de Integración</td>
+            <td>Sincronización del Catálogo 3 Pilares (Venta 0 Km + Renta 44 Máquinas + Taller Fullbay), Configuración de Despacho y Pasarela de Pagos</td>
+            <td>Días 3 – 10</td>
+            <td>En Ejecución</td>
+          </tr>
+          <tr>
+            <td class="highlight">Hito 2 (50%)</td>
+            <td>Pruebas de Aceptación (UAT) en Vivo con el Despachador de Taller Km 22, Pase a Producción Oficial, Capacitación y Entrega de Código Fuente</td>
+            <td>Días 11 – 14</td>
+            <td class="highlight" id="rowH2">$625.00 USD <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ 37,188)</span></td>
+          </tr>
+          <tr>
+            <td class="highlight">Mantenimiento Cloud</td>
+            <td>Supervisión 24/7 de Enlace API Fullbay, Certificados SSL, Servidores Cloud de Alta Velocidad, Respaldos Diarios y Asistencia Técnica Prioritaria</td>
+            <td>Mensual Recurrente</td>
+            <td class="highlight" id="rowRetainer">$100.00 USD / mes <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ 5,950/mes)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PROPIEDAD INTELECTUAL Y CUMPLIMIENTO -->
+    <div class="legal-notice">
+      <strong>⚖️ Propiedad Intelectual, Garantía y Términos Contractuales:</strong><br />
+      TodoBuild Technologies Inc. actúa como coordinador tecnológico y desarrollador de software para este proyecto. Al liquidarse el desembolso del Hito 2, el 100% de los derechos patrimoniales y el código fuente del portal web pasan a ser propiedad exclusiva de <strong>Tecnomaquinarias Diesel S.R.L.</strong> El servicio de mantenimiento cloud y gateway Fullbay no exige permanencia forzosa y puede suspenderse o modificarse mediante notificación escrita con 30 días de anticipación.
+    </div>
+
+    <!-- BLOQUE DE FIRMAS -->
+    <div class="sig-block">
+      <div class="sig-col">
+        <h5>Aceptado y Conforme (Por el Cliente):</h5>
+        <div class="sig-line"></div>
+        <div class="sig-meta">Firma del Oficial Autorizado</div>
+        <div class="sig-line" style="margin-top:14px;"></div>
+        <div class="sig-meta">Tecnomaquinarias Diesel S.R.L. (TMD) · RNC</div>
+        <div class="sig-line" style="margin-top:14px;"></div>
+        <div class="sig-meta">Nombre del Representante y Fecha de Firma</div>
+      </div>
+      <div class="sig-col">
+        <h5>Autorizado y Preparado (Por TodoBuild):</h5>
+        <div class="sig-line" style="display:flex; align-items:flex-end; font-family:'Cinzel'; color:var(--accent); font-weight:bold; padding-bottom:4px;">
+          Juan Liriano
+        </div>
+        <div class="sig-meta">TodoBuild Technologies Inc. · Soluciones de Flotas Pesadas</div>
+        <div class="sig-line" style="margin-top:14px; display:flex; align-items:flex-end; font-family:'JetBrains Mono'; font-size:0.75rem; padding-bottom:4px;" id="sigAuthCode">
+          AUTH-TDB-TMD-TIER1-2026
+        </div>
+        <div class="sig-meta">Código de Autorización Corporativa</div>
+        <div class="sig-line" style="margin-top:14px; display:flex; align-items:flex-end; font-family:'JetBrains Mono'; font-size:0.75rem; padding-bottom:4px;">
+          11 de Septiembre de 2026
+        </div>
+        <div class="sig-meta">Fecha de Vigencia</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TIER_DATA = {
+      1: {
+        name: 'Nivel 1: Esencial 3 Pilares',
+        sku: 'TDB-TMD-TIER1',
+        totalUsd: 1250,
+        totalDop: 74375,
+        h1Usd: 625,
+        h1Dop: 37188,
+        h2Usd: 625,
+        h2Dop: 37188,
+        retainerUsd: 100,
+        retainerDop: 5950,
+        days: '10 a 14 Días Laborables'
+      },
+      2: {
+        name: 'Nivel 2: Ecosistema 720° (Recomendado)',
+        sku: 'TDB-TMD-TIER2-720',
+        totalUsd: 2850,
+        totalDop: 169575,
+        h1Usd: 1425,
+        h1Dop: 84788,
+        h2Usd: 1425,
+        h2Dop: 84788,
+        retainerUsd: 250,
+        retainerDop: 14875,
+        days: '14 a 21 Días Laborables'
+      },
+      3: {
+        name: 'Nivel 3: Enterprise Autómata',
+        sku: 'TDB-TMD-TIER3-ENT',
+        totalUsd: 5800,
+        totalDop: 345100,
+        h1Usd: 2900,
+        h1Dop: 172550,
+        h2Usd: 2900,
+        h2Dop: 172550,
+        retainerUsd: 450,
+        retainerDop: 26775,
+        days: '21 a 30 Días Laborables'
+      }
+    };
+
+    let currentTier = 1;
+
+    function selectTier(tierNum) {
+      currentTier = tierNum;
+      document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById('tabTier' + tierNum);
+      if (activeTab) activeTab.classList.add('active');
+
+      const data = TIER_DATA[tierNum];
+      document.getElementById('metaSku').innerText = data.sku;
+      document.getElementById('sigAuthCode').innerText = 'AUTH-TDB-TMD-' + data.sku + '-2026';
+
+      document.getElementById('cardTotal').innerText = '$' + data.totalUsd.toLocaleString();
+      document.getElementById('cardTotalDop').innerText = 'RD$ ' + data.totalDop.toLocaleString() + ' DOP (@ 59.50)';
+
+      document.getElementById('cardDeposit').innerText = '$' + data.h1Usd.toLocaleString();
+      document.getElementById('cardDepositDop').innerText = 'RD$ ' + data.h1Dop.toLocaleString() + ' DOP al firmar';
+
+      document.getElementById('cardRetainer').innerHTML = '$' + data.retainerUsd + '<span style="font-size:0.9rem; font-weight:normal; color:var(--text-muted);">/mes</span>';
+      document.getElementById('cardRetainerDop').innerText = 'RD$ ' + data.retainerDop.toLocaleString() + ' DOP/mes (Hosting + SLA)';
+
+      document.getElementById('rowH1').innerHTML = '$' + data.h1Usd.toLocaleString() + '.00 USD <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ ' + data.h1Dop.toLocaleString() + ')</span>';
+      document.getElementById('rowH2').innerHTML = '$' + data.h2Usd.toLocaleString() + '.00 USD <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ ' + data.h2Dop.toLocaleString() + ')</span>';
+      document.getElementById('rowRetainer').innerHTML = '$' + data.retainerUsd + '.00 USD / mes <span style="font-size:0.75rem; color:var(--accent-green);">(RD$ ' + data.retainerDop.toLocaleString() + '/mes)</span>';
+    }
+  </script>
+
+<script>
+window.print = function() {
+  alert('Impresión deshabilitada por motivos de confidencialidad y derechos de autor TMD.');
+  return false;
+};
+window.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
+    e.preventDefault();
+    e.stopPropagation();
+    alert('Impresión deshabilitada por motivos de confidencialidad y derechos de autor TMD.');
+    return false;
+  }
+}, true);
+</script>
+
+</body>
+</html>
