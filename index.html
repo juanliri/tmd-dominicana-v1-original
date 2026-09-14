@@ -191,7 +191,7 @@
     <link rel="preload" as="image" href="/assets/team_hd/brito_fuentes_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/leonardo_encarnacion_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/perkin_soriano_hd.jpg">
-    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260914_v2_service_full_v34"></script>
+    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260914_stitch_ficha_store_v35"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Bsg4cOg_.css?v=1789230245">
 
     <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -2256,7 +2256,131 @@ html:not(.dark) #socios .group:hover {
   box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15) !important;
 }
 
-</style>
+
+    /* ══════════════════════════════════════════════════════════════════ */
+    /* FICHA TÉCNICA 360° & STITCH STORE V2 STYLES                        */
+    /* ══════════════════════════════════════════════════════════════════ */
+    .tmd-ficha-container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 20px 80px 20px;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+    }
+    .tmd-badge-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #f59e0b;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tmd-badge-emerald {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tmd-studio-viewport {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #050507;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.95), 0 0 35px rgba(245, 158, 11, 0.18);
+    }
+    .tmd-studio-btn {
+      padding: 8px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .tmd-studio-btn:hover {
+      border-color: #f59e0b;
+      color: #fff;
+    }
+    .tmd-studio-btn.active {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #000;
+      border-color: #f59e0b;
+      font-weight: 900;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    }
+    .tmd-glass-card {
+      background: rgba(14, 16, 22, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+    .tmd-sticky-panel {
+      background: rgba(14, 16, 22, 0.95);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9);
+    }
+    .tmd-toggle-btn {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #94a3b8;
+      background: transparent;
+    }
+    .tmd-toggle-btn.active {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+    }
+    .tmd-market-pill {
+      background: rgba(14, 16, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 22px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tmd-market-pill:hover {
+      border-color: #f59e0b;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.15);
+    }
+
+    </style>
 
     <!-- ══════════════════════════════════════════════════════════════════ -->
     <!-- LUXURY DESKTOP SCALING & MOBILE VIEWPORT PERFECTION               -->
@@ -4942,11 +5066,852 @@ html:not(.dark) #socios .group:hover {
       details.innerHTML = 'Ticket #TMD-' + Math.floor(100000 + Math.random() * 900000) + ' • ' + vin + ' • ' + type + ' (' + hours + ' hrs) • Contacto: ' + contact + ' (' + phone + ')';
     }
   };
+  
+  // ─── 5. UNIVERSAL 360° DYNAMIC FICHA TÉCNICA (All Catalog Products) ───
+  window.ftCurrentMode = 'compra';
+  window.ftToolsPrice = 2450; // Default enganche rápido
+
+  function mountVehicleFichaTecnica360() {
+    const isVehicle = window.location.hash.includes('vehicle');
+    if (!isVehicle) {
+      const existing = document.getElementById('tmd-ficha-tecnica-360-suite');
+      if (existing) existing.remove();
+      return;
+    }
+
+    const hash = window.location.hash;
+    let slug = hash.replace('#/vehicle/', '').replace('#/vehicle-detail?id=', '').replace('#/vehicle-detail', '').split('?')[0];
+    if (!slug) return;
+
+    // Check if suite is already mounted for this exact slug
+    const currentMountedSlug = document.getElementById('tmd-ficha-tecnica-360-suite')?.getAttribute('data-slug');
+    if (currentMountedSlug === slug) return;
+
+    // Remove existing if switching vehicles
+    const existing = document.getElementById('tmd-ficha-tecnica-360-suite');
+    if (existing) existing.remove();
+
+    const mainEl = document.querySelector('main') || document.querySelector('#root main');
+    if (!mainEl) return;
+
+    // Lookup product in master catalog
+    const catalog = window.tmdCatalog || [];
+    let prod = catalog.find(p => p.slug === slug || p.id === slug);
+    if (!prod) {
+      // Fuzzy search by slug words
+      prod = catalog.find(p => p.slug.includes(slug) || slug.includes(p.slug)) || catalog[0];
+    }
+    if (!prod) return;
+
+    // Prices and financing
+    let basePriceCompra = 84500;
+    let basePriceRenta = 250;
+
+    if (prod.pricing) {
+      if (prod.pricing.purchasePrice) basePriceCompra = prod.pricing.purchasePrice;
+      if (prod.pricing.dailyRate) basePriceRenta = prod.pricing.dailyRate;
+    } else {
+      if (prod.category === 'construccion') { basePriceCompra = 88500; basePriceRenta = 260; }
+      else if (prod.category === 'mineria') { basePriceCompra = 145000; basePriceRenta = 450; }
+      else if (prod.category === 'agricolas') { basePriceCompra = 46000; basePriceRenta = 180; }
+      else if (prod.category === 'industriales') { basePriceCompra = 58000; basePriceRenta = 210; }
+    }
+
+    window.ftBaseCompra = basePriceCompra;
+    window.ftBaseRenta = basePriceRenta;
+
+    // Hide legacy detail container rendered by React
+    const legacyDetail = mainEl.querySelector('.min-h-screen.selection\:bg-amber-500');
+    if (legacyDetail) legacyDetail.style.display = 'none';
+
+    // Build Master Ficha Suite
+    const suite = document.createElement('div');
+    suite.id = 'tmd-ficha-tecnica-360-suite';
+    suite.setAttribute('data-slug', slug);
+    suite.className = 'tmd-ficha-container';
+
+    // Specs
+    const specsMap = {
+      potencia: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('potencia') || s.label.toLowerCase().includes('hp'))?.value) || '173 HP Turbo',
+      peso: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('peso'))?.value) || '22,000 kg (22T)',
+      cucharon: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('cucharón') || s.label.toLowerCase().includes('capacidad'))?.value) || '1.25 m³ HD',
+      profundidad: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('profundidad'))?.value) || '6.70 m',
+      fuerza: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('fuerza') || s.label.toLowerCase().includes('presión'))?.value) || '150 kN / 34.3 MPa',
+      caudal: (prod.specs && prod.specs.find(s => s.label.toLowerCase().includes('caudal') || s.label.toLowerCase().includes('bomba'))?.value) || '2 x 228 L/min Dual'
+    };
+
+    const vinCode = 'TMD-' + prod.brand.toUpperCase() + '-' + (prod.id.replace('tmd-', '') || '01') + '-DR-2026';
+    const waText = encodeURIComponent('Hola TMD Dominicana, deseo cotizar y validar disponibilidad inmediata del equipo ' + prod.name + ' (' + prod.brand + ') VIN: ' + vinCode);
+
+    suite.innerHTML = `
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- TOP BREADCRUMB & HEADER                                            -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="#/vehicles" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #a3a3a3; font-family:'JetBrains Mono',monospace; font-size: 0.72rem; text-decoration: none; text-transform: uppercase;">
+            ← Catálogo Completo
+          </a>
+          <span style="color: #525252;">/</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size: 0.75rem; color: #f59e0b; text-transform: uppercase; font-weight: 700;">${prod.brand}</span>
+          <span style="color: #525252;">/</span>
+          <span style="font-size: 0.78rem; color: #d4d4d4; font-weight: 600;">${prod.name}</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #10b981; font-weight: 800; text-transform: uppercase;">LIVELINK GPS CONECTADO (KM 22)</span>
+        </div>
+      </div>
+
+      <!-- UNIT TITLE & QUICK BADGES -->
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tmd-badge-gold">• ${prod.brand.toUpperCase()} HEAVY LINE 2026</span>
+          <span class="tmd-badge-emerald">✓ LOTE PORTUARIO HAINA APROBADO</span>
+          <span class="tmd-badge-gold">TROPICALIZADA REPÚBLICA DOMINICANA</span>
+        </div>
+        <h1 style="font-family:'Space Grotesk',sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.7rem); font-weight: 900; color: #fff; text-transform: uppercase; margin: 0; line-height: 1.15;">
+          ${prod.name}
+        </h1>
+        <p style="font-size: 0.92rem; color: #a3a3a3; max-width: 820px; line-height: 1.6; margin: 0;">
+          ${prod.shortDescription || prod.fullDescription || 'Equipo certificado de alto rendimiento con respaldo oficial en República Dominicana.'}
+        </p>
+
+        <!-- 3 Quick Info Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 8px;">
+          <div style="background: rgba(14,16,22,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+            <span class="material-symbols-outlined" style="color: #f59e0b; font-size: 26px;">warehouse</span>
+            <div>
+              <div style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Stock Físico</div>
+              <div style="font-size: 0.78rem; color: #fff; font-weight: 800; font-family:'Space Grotesk',sans-serif;">PATIO KM 22 • LISTA PARA SALIDA</div>
+            </div>
+          </div>
+          <div style="background: rgba(14,16,22,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+            <span class="material-symbols-outlined" style="color: #10b981; font-size: 26px;">speed</span>
+            <div>
+              <div style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Horómetro de Entrega</div>
+              <div style="font-size: 0.78rem; color: #10b981; font-weight: 800; font-family:'JetBrains Mono',monospace;">0.0 HORAS (0 KM)</div>
+            </div>
+          </div>
+          <div style="background: rgba(14,16,22,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+            <span class="material-symbols-outlined" style="color: #f59e0b; font-size: 26px;">security</span>
+            <div>
+              <div style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Garantía TMD Oficial</div>
+              <div style="font-size: 0.78rem; color: #fff; font-weight: 800; font-family:'Space Grotesk',sans-serif;">2 AÑOS O 3,000 HORAS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN 2-COLUMN GRID (7 cols Left / 5 cols Right) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; align-items: start;">
+        
+        <!-- ══════════════════════════════════════════════════════════════ -->
+        <!-- LEFT COLUMN: STUDIO 360 + TELEMETRY + SPECS                  -->
+        <!-- ══════════════════════════════════════════════════════════════ -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <!-- 1. 4K STUDIO VIEWPORT -->
+          <div class="tmd-studio-viewport">
+            <div style="position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; background: #050507;">
+              <img id="ftMainViewImage" src="${prod.heroImage}" alt="${prod.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+              
+              <!-- Hotspot GPS Badge -->
+              <div style="position: absolute; top: 16px; left: 16px; display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; background: rgba(5,5,7,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1);">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #fff; font-weight: 800; text-transform: uppercase;">Sensor GPS N-32 Activo</span>
+              </div>
+
+              <!-- Bottom Bar Overlays -->
+              <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; pointer-events: none;">
+                <span style="padding: 6px 14px; border-radius: 10px; background: rgba(5,5,7,0.85); backdrop-filter: blur(8px); font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800;">
+                  Chasis VIN: ${vinCode}
+                </span>
+                <span style="padding: 6px 14px; border-radius: 10px; background: rgba(5,5,7,0.85); backdrop-filter: blur(8px); font-family:'Space Grotesk',sans-serif; font-size: 0.75rem; color: #fff; display: flex; align-items: center; gap: 6px;">
+                  <span class="material-symbols-outlined" style="color:#f59e0b; font-size:16px;">360</span> Vista 360° Activa
+                </span>
+              </div>
+            </div>
+
+            <!-- 4 Angles Studio Switcher -->
+            <div style="padding: 16px 20px; background: rgba(14,16,22,0.95); border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #737373; text-transform: uppercase;">Vistas de Estudio 4K:</span>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                <button class="tmd-studio-btn active" onclick="window.ftSwitchAngle('frente', this, '${prod.heroImage}')">
+                  <span class="material-symbols-outlined" style="font-size:14px;">front_loader</span> Frente
+                </button>
+                <button class="tmd-studio-btn" onclick="window.ftSwitchAngle('brazo', this, '/assets/machinery/heavy_22_ton_liugong_922e_tracked.jpg')">
+                  <span class="material-symbols-outlined" style="font-size:14px;">precision_manufacturing</span> Brazo
+                </button>
+                <button class="tmd-studio-btn" onclick="window.ftSwitchAngle('cabina', this, '/assets/machinery/close_up_industrial_macro_photo_of.jpg')">
+                  <span class="material-symbols-outlined" style="font-size:14px;">airline_seat_recline_extra</span> Cabina
+                </button>
+                <button class="tmd-studio-btn" onclick="window.ftSwitchAngle('motor', this, '/assets/machinery/clean_new_jcb_oem_diesel_fuel.jpg')">
+                  <span class="material-symbols-outlined" style="font-size:14px;">engineering</span> Motor
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. LIVELINK TELEMETRY CARD -->
+          <div class="tmd-glass-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+                <div>
+                  <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff;">Telemetría LiveLink Satelital</div>
+                  <div style="font-size: 0.72rem; color: #737373;">Conexión directa vía red GSM/Iridium en República Dominicana</div>
+                </div>
+              </div>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.65rem; color: #10b981; background: rgba(16,185,129,0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16,185,129,0.3); font-weight: 800;">CONECTADO: NODO KM 22</span>
+            </div>
+
+            <!-- Telemetry 4-grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px;">
+                <span style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase; display: block; margin-bottom: 4px;">Ubicación GPS</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.8rem; color: #fff; font-weight: 700;">18.5711° N, 70.0489° W</span>
+                <span style="font-size: 0.68rem; color: #10b981; display: block; margin-top: 4px;">● Patio Km 22</span>
+              </div>
+              <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px;">
+                <span style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase; display: block; margin-bottom: 4px;">Combustible</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 1.1rem; color: #fff; font-weight: 800;">100.0%</span>
+                <div style="width: 100%; height: 4px; border-radius: 9999px; background: rgba(255,255,255,0.1); margin-top: 6px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: #10b981;"></div>
+                </div>
+              </div>
+              <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px;">
+                <span style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase; display: block; margin-bottom: 4px;">Temp. Hidráulica</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 1.1rem; color: #f59e0b; font-weight: 800;">42.4 °C</span>
+                <span style="font-size: 0.68rem; color: #737373; display: block; margin-top: 4px;">Rango Óptimo (&lt;85°)</span>
+              </div>
+              <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px;">
+                <span style="font-size: 0.65rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase; display: block; margin-bottom: 4px;">Batería & ECU</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 1.1rem; color: #10b981; font-weight: 800;">27.8 V</span>
+                <span style="font-size: 0.68rem; color: #10b981; display: block; margin-top: 4px;">✓ 0 Códigos DTC</span>
+              </div>
+            </div>
+
+            <!-- Valve Auto-Diagnostic SVG Sparkline -->
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="color:#f59e0b; font-size:24px;">monitor_heart</span>
+                <div>
+                  <div style="font-family:'JetBrains Mono',monospace; font-size: 0.75rem; color: #fff; font-weight: 700;">Auto-Diagnóstico de Válvulas Principales</div>
+                  <div style="font-size: 0.7rem; color: #737373;">Presión del circuito calibrada a 343 bar sin anomalías</div>
+                </div>
+              </div>
+              <div style="width: 120px; height: 28px;">
+                <svg viewBox="0 0 144 32" style="width: 100%; height: 100%;" fill="none" stroke="#10b981" stroke-width="2">
+                  <path d="M0 20 L24 20 L36 10 L48 24 L60 16 L84 16 L96 6 L108 22 L120 18 L144 18" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. CERTIFIED SPECIFICATIONS CONSOLE -->
+          <div class="tmd-glass-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Especificaciones Certificadas de Fábrica</div>
+                <div style="font-size: 0.72rem; color: #737373;">Homologación MOPC y estándar internacional ISO 6015</div>
+              </div>
+              <span class="tmd-badge-gold">TIER 4 FINAL / STAGE V</span>
+            </div>
+
+            <!-- Specs Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 20px;">
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Potencia Neta Motor</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #f59e0b; margin-top: 2px;">${specsMap.potencia}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Inyección Electrónica</div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Peso Operativo</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #fff; margin-top: 2px;">${specsMap.peso}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Estructura Reforzada</div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Capacidad de Carga/Balde</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #fff; margin-top: 2px;">${specsMap.cucharon}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Acero Antiabrasivo</div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Profundidad / Altura</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #fff; margin-top: 2px;">${specsMap.profundidad}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Geometría Optimizada</div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Fuerza de Desgarre</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #f59e0b; margin-top: 2px;">${specsMap.fuerza}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Presión 350 Bar</div>
+              </div>
+              <div style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px;">
+                <div style="font-size: 0.68rem; color: #737373; font-family:'JetBrains Mono',monospace; text-transform: uppercase;">Caudal Hidráulico</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #fff; margin-top: 2px;">${specsMap.caudal}</div>
+                <div style="font-size: 0.7rem; color: #a3a3a3; margin-top: 2px;">Pistones Axiales</div>
+              </div>
+            </div>
+
+            <!-- Downloadable Docs Strip -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #737373; text-transform: uppercase; display: block; margin-bottom: 10px;">Documentación Técnica Oficial:</span>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                <a href="${prod.pdfBrochureUrl || '#'}" target="_blank" style="padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: #fff;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color:#f59e0b; font-size:18px;">picture_as_pdf</span>
+                    <span style="font-size: 0.75rem; font-weight: 700;">Ficha de Fábrica</span>
+                  </div>
+                  <span class="material-symbols-outlined" style="color:#737373; font-size:16px;">download</span>
+                </a>
+                <a href="${prod.pdfBrochureUrl || '#'}" target="_blank" style="padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: #fff;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color:#10b981; font-size:18px;">trending_down</span>
+                    <span style="font-size: 0.75rem; font-weight: 700;">Curvas Diésel</span>
+                  </div>
+                  <span class="material-symbols-outlined" style="color:#737373; font-size:16px;">download</span>
+                </a>
+                <a href="${prod.pdfBrochureUrl || '#'}" target="_blank" style="padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: #fff;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color:#f59e0b; font-size:18px;">menu_book</span>
+                    <span style="font-size: 0.75rem; font-weight: 700;">Manual MOPC</span>
+                  </div>
+                  <span class="material-symbols-outlined" style="color:#737373; font-size:16px;">download</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════════ -->
+        <!-- RIGHT COLUMN: STICKY COMMERCIAL CONFIGURATOR                  -->
+        <!-- ══════════════════════════════════════════════════════════════ -->
+        <div class="tmd-sticky-panel" style="position: sticky; top: 90px;">
+          
+          <!-- Mode Switcher Tabs -->
+          <div style="margin-bottom: 20px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #737373; text-transform: uppercase; display: block; margin-bottom: 8px;">Modalidad Comercial:</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <button id="ftTabCompra" class="tmd-toggle-btn active" onclick="window.ftSwitchMode('compra')">
+                Compra Directa 0 Km
+              </button>
+              <button id="ftTabRenta" class="tmd-toggle-btn" onclick="window.ftSwitchMode('renta')">
+                Renta con Opción
+              </button>
+            </div>
+          </div>
+
+          <!-- Panel Compra -->
+          <div id="ftPanelCompra" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px;">
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 0.75rem; color: #737373; font-family:'JetBrains Mono',monospace;">Precio Base CIF Sto Dgo</span>
+                <span id="ftPrecioCompra" style="font-family:'Space Grotesk',sans-serif; font-size: 1.6rem; font-weight: 900; color: #f59e0b;">$${basePriceCompra.toLocaleString()} <span style="font-size:0.8rem; color:#737373; font-weight:400;">USD</span></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px; margin-top: 6px;">
+                <span style="font-size: 0.7rem; color: #737373;">Equivalente estimado RD$:</span>
+                <span id="ftPrecioDopCompra" style="font-family:'JetBrains Mono',monospace; font-size: 0.82rem; color: #fff; font-weight: 700;">RD$ ${(basePriceCompra * 59.5).toLocaleString()}</span>
+              </div>
+            </div>
+
+            <!-- Leasing Banreservas / BHD -->
+            <div style="background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.25); border-radius: 14px; padding: 14px 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800; display: flex; align-items: center; gap: 6px;">
+                  <span class="material-symbols-outlined" style="font-size:16px;">account_balance</span> LEASING BANRESERVAS / BHD
+                </span>
+                <span style="font-size: 0.68rem; color: #10b981; font-weight: 800;">Tasa Preferencial 6.95%</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <div>
+                  <div style="font-size: 0.68rem; color: #a3a3a3;">Cuota mensual estimada:</div>
+                  <div id="ftCuotaLeasing" style="font-family:'Space Grotesk',sans-serif; font-size: 1.25rem; font-weight: 900; color: #fff;">$${Math.round((basePriceCompra * 0.8 * (1 + 0.0695 * 5)) / 60).toLocaleString()} <span style="font-size:0.7rem; color:#a3a3a3; font-weight:400;">USD/mes</span></div>
+                </div>
+                <span style="font-size: 0.68rem; color: #737373;">Plazo 60 Meses • 20% Inicial</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Renta (Hidden initially) -->
+          <div id="ftPanelRenta" style="display: none; flex-direction: column; gap: 14px; margin-bottom: 18px;">
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 0.75rem; color: #737373; font-family:'JetBrains Mono',monospace;">Tarifa Diaria Corporativa</span>
+                <span style="font-family:'Space Grotesk',sans-serif; font-size: 1.6rem; font-weight: 900; color: #f59e0b;">$${basePriceRenta} <span style="font-size:0.8rem; color:#737373; font-weight:400;">USD/día</span></span>
+              </div>
+              <div style="font-size: 0.72rem; color: #10b981; margin-top: 6px;">✓ Descuento de -15% aplicado para contratos de +30 días calendario</div>
+            </div>
+            <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: 14px; padding: 12px 16px; font-size: 0.75rem; color: #a3a3a3; line-height: 1.45;">
+              <strong style="color:#fff; display:block; margin-bottom:2px;">Despacho en Batea en 24 Horas:</strong>
+              Logística a cualquier punto de RD (Santiago, Punta Cana, Pedernales, Puerto Plata) con operador capacitado opcional.
+            </div>
+          </div>
+
+          <!-- Auxiliary Implements Checkboxes -->
+          <div style="margin-bottom: 20px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #737373; text-transform: uppercase; display: block; margin-bottom: 8px;">Implementos Hidráulicos Auxiliares:</span>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="checkbox" id="ftToolMartillo" onchange="window.ftUpdateCalc()" style="accent-color: #f59e0b; width: 16px; height: 16px; cursor: pointer;">
+                  <div>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Martillo Hidráulico Heavy</div>
+                    <div style="font-size: 0.68rem; color: #737373;">Puntero cónico y cincel para roca dura</div>
+                  </div>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.75rem; color: #f59e0b; font-weight: 800;">+$9,800 USD</span>
+              </label>
+
+              <label style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="checkbox" id="ftToolEnganche" checked onchange="window.ftUpdateCalc()" style="accent-color: #f59e0b; width: 16px; height: 16px; cursor: pointer;">
+                  <div>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Enganche Rápido Hidráulico</div>
+                    <div style="font-size: 0.68rem; color: #737373;">Cambio de balde sin salir de cabina</div>
+                  </div>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.75rem; color: #f59e0b; font-weight: 800;">+$2,450 USD</span>
+              </label>
+
+              <label style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <input type="checkbox" id="ftToolBalde" onchange="window.ftUpdateCalc()" style="accent-color: #f59e0b; width: 16px; height: 16px; cursor: pointer;">
+                  <div>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Balde de Talud y Limpieza (1.8m)</div>
+                    <div style="font-size: 0.68rem; color: #737373;">Perfilado de zanjas y drenajes</div>
+                  </div>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size: 0.75rem; color: #f59e0b; font-weight: 800;">+$1,950 USD</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Total Inversión Final Configurada -->
+          <div style="background: rgba(0,0,0,0.5); border: 1px solid rgba(245,158,11,0.3); border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #a3a3a3; text-transform: uppercase;">Inversión Final:</span>
+            <span id="ftTotalMonto" style="font-family:'Space Grotesk',sans-serif; font-size: 1.55rem; font-weight: 900; color: #fff;">$${(basePriceCompra + 2450).toLocaleString()} USD</span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button onclick="window.ftOpenSeparation('${prod.name}', '${vinCode}')" style="width: 100%; padding: 16px; border-radius: 14px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border: none; color: #000; font-family:'Space Grotesk',sans-serif; font-size: 0.92rem; font-weight: 900; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 25px rgba(245,158,11,0.4); transition: transform 0.2s ease;">
+              🔒 SEPARAR UNIDAD CON FIANZA ($2,500 USD)
+            </button>
+            <a href="https://wa.me/18098262222?text=${waText}" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: 12px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10b981; font-family:'JetBrains Mono',monospace; font-size: 0.8rem; font-weight: 800; text-decoration: none; text-transform: uppercase;">
+              <span>WhatsApp Asesor Técnico Km 22 →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Append to main
+    mainEl.appendChild(suite);
+    console.log('[TMD Ficha Técnica 360] Universal Suite mounted for:', prod.name);
+  }
+
+  // Ficha Técnica View Switcher
+  window.ftSwitchAngle = function(angle, btn, imgSrc) {
+    document.querySelectorAll('.tmd-studio-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const imgEl = document.getElementById('ftMainViewImage');
+    if (imgEl && imgSrc) {
+      imgEl.style.opacity = '0.3';
+      setTimeout(() => {
+        imgEl.src = imgSrc;
+        imgEl.style.opacity = '1';
+      }, 150);
+    }
+  };
+
+  // Ficha Técnica Commercial Mode
+  window.ftSwitchMode = function(mode) {
+    window.ftCurrentMode = mode;
+    const tabCompra = document.getElementById('ftTabCompra');
+    const tabRenta = document.getElementById('ftTabRenta');
+    const panelCompra = document.getElementById('ftPanelCompra');
+    const panelRenta = document.getElementById('ftPanelRenta');
+
+    if (mode === 'compra') {
+      tabCompra.classList.add('active');
+      tabRenta.classList.remove('active');
+      panelCompra.style.display = 'flex';
+      panelRenta.style.display = 'none';
+    } else {
+      tabRenta.classList.add('active');
+      tabCompra.classList.remove('active');
+      panelRenta.style.display = 'flex';
+      panelCompra.style.display = 'none';
+    }
+    window.ftUpdateCalc();
+  };
+
+  // Ficha Técnica Dynamic Calc
+  window.ftUpdateCalc = function() {
+    let tools = 0;
+    if (document.getElementById('ftToolMartillo')?.checked) tools += 9800;
+    if (document.getElementById('ftToolEnganche')?.checked) tools += 2450;
+    if (document.getElementById('ftToolBalde')?.checked) tools += 1950;
+
+    const baseCompra = window.ftBaseCompra || 84500;
+    const baseRenta = window.ftBaseRenta || 250;
+
+    const totalEl = document.getElementById('ftTotalMonto');
+    const precioDopEl = document.getElementById('ftPrecioDopCompra');
+    const cuotaEl = document.getElementById('ftCuotaLeasing');
+
+    if (window.ftCurrentMode === 'compra') {
+      const finalTotal = baseCompra + tools;
+      if (totalEl) totalEl.innerText = '$' + finalTotal.toLocaleString() + ' USD';
+      if (precioDopEl) precioDopEl.innerText = 'RD$ ' + (finalTotal * 59.5).toLocaleString();
+      if (cuotaEl) {
+        const cuota = Math.round((finalTotal * 0.8 * (1 + 0.0695 * 5)) / 60);
+        cuotaEl.innerHTML = '$' + cuota.toLocaleString() + ' <span style="font-size:0.7rem; color:#a3a3a3; font-weight:400;">USD/mes</span>';
+      }
+    } else {
+      const dailyTools = Math.round(tools / 120);
+      const finalDaily = baseRenta + dailyTools;
+      if (totalEl) totalEl.innerText = '$' + finalDaily.toLocaleString() + ' USD / día';
+    }
+  };
+
+  // Ficha Técnica Separation
+  window.ftOpenSeparation = function(prodName, vin) {
+    const text = encodeURIComponent('Hola TMD Dominicana, deseo formalizar el depósito de reserva de fianza ($2,500 USD) para el equipo: ' + prodName + ' (VIN: ' + vin + '). Por favor enviarme el enlace de pago de Square / transferencia bancaria.');
+    window.open('https://wa.me/18098262222?text=' + text, '_blank');
+  };
+
+
+  // ─── 6. STITCH STORE V2 UPGRADE (#/vehicles, #/catalogo) ───
+  function mountStitchStoreUpgrade() {
+    const isStore = window.location.hash.includes('vehicles') || window.location.hash.includes('catalogo') || window.location.hash.includes('modelos');
+    if (!isStore) {
+      const existing = document.getElementById('tmd-stitch-store-hero-suite');
+      if (existing) existing.remove();
+      const existingParts = document.getElementById('tmd-stitch-store-fullbay-parts');
+      if (existingParts) existingParts.remove();
+      return;
+    }
+
+    if (document.getElementById('tmd-stitch-store-hero-suite')) return;
+
+    const mainEl = document.querySelector('main') || document.querySelector('#root main');
+    if (!mainEl) return;
+
+    // Build Hero Suite with Atmospheric Background Image
+    const heroSuite = document.createElement('div');
+    heroSuite.id = 'tmd-stitch-store-hero-suite';
+    heroSuite.style.cssText = 'width: 100%; font-family: "Inter", sans-serif;';
+
+    heroSuite.innerHTML = `
+      <!-- TOP OPERATIONAL STATUS TICKER -->
+      <div style="background: #000; border-bottom: 1px solid rgba(245,158,11,0.25); padding: 8px 24px;">
+        <div style="max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #a3a3a3; text-transform: uppercase;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 8px #f59e0b;"></span>
+            <span style="color: #fff; font-weight: 700;">CENTRO KM 22: DESPACHO OPERATIVO & TALLER ACTIVO</span>
+            <span style="color: #525252;">|</span>
+            <span style="display: none; sm:display: inline;">Autopista Duarte Km 22, La Guáyiga, RD</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="color: #f59e0b; font-weight: 800;">TASA OFICIAL USD/DOP: RD$ 59.50</span>
+            <span style="color: #525252;">|</span>
+            <a href="tel:8098262222" style="color: #fff; text-decoration: none; font-weight: 800;">📞 809-826-2222</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDUSTRIAL COMMAND HERO WITH REAL JOB-SITE BACKGROUND -->
+      <div style="position: relative; width: 100%; background: #050507; overflow: hidden; padding: 48px 24px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <!-- Atmospheric Background Image with Luxury Overlay -->
+        <div style="position: absolute; inset: 0; background-image: url('/assets/machinery/fleet_of_yellow_earthmoving_excavators_lined.jpg'); background-size: cover; background-position: center; opacity: 0.18; filter: contrast(1.2);"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,7,0.96) 20%, rgba(5,5,7,0.85) 60%, rgba(5,5,7,0.96) 100%);"></div>
+
+        <div style="position: relative; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 36px; align-items: center;">
+          <!-- Left Narrative -->
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 8px; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); margin-bottom: 16px;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #fff; font-weight: 800; text-transform: uppercase;">Km 22 Autopista Duarte • Patio de Despacho Inmediato</span>
+            </div>
+            <h1 style="font-family:'Space Grotesk',sans-serif; font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 14px 0; line-height: 1.18;">
+              Centro de Suministro Pesado & Concesionario Oficial en República Dominicana
+            </h1>
+            <p style="font-size: 0.92rem; color: #a3a3a3; line-height: 1.6; max-width: 680px; margin-bottom: 24px;">
+              Venta de Maquinaria <strong style="color:#f59e0b">0 Km</strong> certificada, Renta de Flotas para Proyectos MOPC y Almacén Central de Repuestos OEM con Despacho Express en 24h a toda la isla.
+            </p>
+
+            <!-- 4 KPIs Strip -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+              <div style="background: rgba(14,16,22,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px;">
+                <div style="font-family:'JetBrains Mono',monospace; font-size: 0.65rem; color: #737373; text-transform: uppercase;">Flota en Patio</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.5rem; font-weight: 900; color: #fff;">142</div>
+                <div style="font-size: 0.68rem; color: #10b981;">✓ 0 Km Listas</div>
+              </div>
+              <div style="background: rgba(14,16,22,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px;">
+                <div style="font-family:'JetBrains Mono',monospace; font-size: 0.65rem; color: #737373; text-transform: uppercase;">Bahías Km 22</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.5rem; font-weight: 900; color: #f59e0b;">18</div>
+                <div style="font-size: 0.68rem; color: #737373;">Diagnóstico Heavy</div>
+              </div>
+              <div style="background: rgba(14,16,22,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px;">
+                <div style="font-family:'JetBrains Mono',monospace; font-size: 0.65rem; color: #737373; text-transform: uppercase;">SKUs Repuestos</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.5rem; font-weight: 900; color: #fff;">28.4K</div>
+                <div style="font-size: 0.68rem; color: #10b981;">Stock permanente</div>
+              </div>
+              <div style="background: rgba(14,16,22,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px;">
+                <div style="font-family:'JetBrains Mono',monospace; font-size: 0.65rem; color: #737373; text-transform: uppercase;">Rescate Campo</div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-size: 1.5rem; font-weight: 900; color: #f59e0b;">24/7</div>
+                <div style="font-size: 0.68rem; color: #737373;">4 Móviles en RD</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Quick Filter Terminal -->
+          <div style="background: rgba(14,16,22,0.95); border: 1px solid rgba(245,158,11,0.35); border-radius: 24px; padding: 26px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <span style="font-family:'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; color: #fff; text-transform: uppercase;">Buscador Rápido de Flota</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #000; background: #f59e0b; padding: 3px 8px; border-radius: 6px; font-weight: 900;">TMD LIVE</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <label style="display:block; font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #a3a3a3; text-transform: uppercase; margin-bottom: 4px;">Mercado / Sector</label>
+                <select id="quickFilterCategory" style="width:100%; box-sizing:border-box; background:rgba(8,10,14,0.9); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#fff; font-family:'Inter',sans-serif; font-size:0.85rem;">
+                  <option value="todas">Todos los Sectores</option>
+                  <option value="construccion">Construcción Pesada</option>
+                  <option value="agricolas">Agrícola y Labranza</option>
+                  <option value="industriales">Industrial y Potencia</option>
+                  <option value="mineria">Minería y Canteras</option>
+                </select>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div>
+                  <label style="display:block; font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #a3a3a3; text-transform: uppercase; margin-bottom: 4px;">Régimen</label>
+                  <select id="quickFilterRegime" style="width:100%; box-sizing:border-box; background:rgba(8,10,14,0.9); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#fff; font-family:'Inter',sans-serif; font-size:0.85rem;">
+                    <option value="compra">Compra 0 Km</option>
+                    <option value="renta">Renta de Flota</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #a3a3a3; text-transform: uppercase; margin-bottom: 4px;">Marca</label>
+                  <select id="quickFilterBrand" style="width:100%; box-sizing:border-box; background:rgba(8,10,14,0.9); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px; color:#fff; font-family:'Inter',sans-serif; font-size:0.85rem;">
+                    <option value="all">Todas las Marcas</option>
+                    <option value="jcb">JCB Oficial</option>
+                    <option value="liugong">LiuGong HD</option>
+                    <option value="ammann">Ammann</option>
+                    <option value="ls">LS Tractor</option>
+                    <option value="imer">IMER Concreto</option>
+                  </select>
+                </div>
+              </div>
+              <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 0.78rem; color: #fff; display:flex; align-items:center; gap:6px;">
+                  <span style="width:8px; height:8px; border-radius:50%; background:#10b981;"></span> Solo stock en Patio Km 22
+                </span>
+                <input type="checkbox" checked style="accent-color:#f59e0b; width:16px; height:16px;">
+              </div>
+              <button onclick="window.ftApplyQuickFilter()" style="width:100%; margin-top:4px; padding:14px; border-radius:12px; background:linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border:none; color:#000; font-family:'Space Grotesk',sans-serif; font-size:0.88rem; font-weight:900; text-transform:uppercase; cursor:pointer; box-shadow:0 8px 20px rgba(245,158,11,0.35);">
+                🔍 EXPLORAR MAQUINARIA DISPONIBLE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 SPECIALIZED MARKET CARDS WITH REAL ATMOSPHERIC IMAGES -->
+      <div style="max-width: 1360px; margin: 0 auto; padding: 36px 24px 16px 24px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em;">LÍNEAS DE NEGOCIO CERTIFICADAS</span>
+            <h2 style="font-family:'Space Grotesk',sans-serif; font-size: 1.85rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 4px 0 0 0;">Mercados Especializados que Servimos</h2>
+          </div>
+          <p style="font-size: 0.82rem; color: #a3a3a3; max-width: 440px; margin: 0;">Equipos nuevos con respaldo post-venta directo de fábrica, programas de overhaul certificados y telemetría en tiempo real.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <div class="tmd-market-pill" onclick="window.ftFilterByCat('construccion')">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span class="material-symbols-outlined" style="font-size:32px; color:#f59e0b;">precision_manufacturing</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #fff; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px;">46 Unid.</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 4px 0;">Construcción</h3>
+            <p style="font-size: 0.75rem; color: #a3a3a3; margin: 0 0 12px 0;">Retroexcavadoras 3CX, excavadoras de oruga, rodillos y palas mecánicas.</p>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Ver Stock Km 22 →</span>
+          </div>
+
+          <div class="tmd-market-pill" onclick="window.ftFilterByCat('agricolas')">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span class="material-symbols-outlined" style="font-size:32px; color:#10b981;">agriculture</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #fff; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px;">28 Unid.</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 4px 0;">Agrícola</h3>
+            <p style="font-size: 0.75rem; color: #a3a3a3; margin: 0 0 12px 0;">LS Tractor MT7, Escorts Kubota, Yanmar y rastras para caña y arrozales.</p>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #10b981; font-weight: 800; text-transform: uppercase;">Ver Stock Km 22 →</span>
+          </div>
+
+          <div class="tmd-market-pill" onclick="window.ftFilterByCat('industriales')">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span class="material-symbols-outlined" style="font-size:32px; color:#f59e0b;">factory</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #fff; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px;">35 Unid.</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 4px 0;">Industrial</h3>
+            <p style="font-size: 0.75rem; color: #a3a3a3; margin: 0 0 12px 0;">Telehandlers JCB Loadall, montacargas diésel y generadores de potencia.</p>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Ver Stock Km 22 →</span>
+          </div>
+
+          <div class="tmd-market-pill" onclick="window.ftFilterByCat('mineria')">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span class="material-symbols-outlined" style="font-size:32px; color:#ef4444;">landslide</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #fff; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px;">19 Unid.</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 4px 0;">Minería & Canteras</h3>
+            <p style="font-size: 0.75rem; color: #a3a3a3; margin: 0 0 12px 0;">Excavadoras LiuGong 22T HD, trituradoras IMER y cargadores de roca.</p>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #ef4444; font-weight: 800; text-transform: uppercase;">Ver Stock Km 22 →</span>
+          </div>
+
+          <div class="tmd-market-pill" onclick="document.getElementById('tmd-stitch-store-fullbay-parts')?.scrollIntoView({behavior:'smooth'})">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+              <span class="material-symbols-outlined" style="font-size:32px; color:#f59e0b;">settings</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.68rem; color: #000; background: #f59e0b; font-weight: 800; padding: 3px 8px; border-radius: 6px;">EXPRESS 24H</span>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 900; color: #fff; text-transform: uppercase; margin: 0 0 4px 0;">Repuestos OEM</h3>
+            <p style="font-size: 0.75rem; color: #a3a3a3; margin: 0 0 12px 0;">Kits hidráulicos 6,000 PSI, filtros originales Cummins/JCB y orugas.</p>
+            <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800; text-transform: uppercase;">Buscador Fullbay ↓</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Insert Hero Suite before catalog grid
+    const catalogContainer = mainEl.querySelector('.max-w-7xl');
+    if (catalogContainer) {
+      mainEl.insertBefore(heroSuite, catalogContainer);
+    } else {
+      mainEl.appendChild(heroSuite);
+    }
+
+    // Now build Fullbay Parts Search Section below catalog
+    const partsSection = document.createElement('div');
+    partsSection.id = 'tmd-stitch-store-fullbay-parts';
+    partsSection.style.cssText = 'position: relative; width: 100%; max-width: 1360px; margin: 48px auto; padding: 40px 24px; border-radius: 28px; background: rgba(14,16,22,0.95); border: 1px solid rgba(245,158,11,0.35); box-shadow: 0 25px 70px rgba(0,0,0,0.9); font-family: "Inter", sans-serif; overflow: hidden;';
+
+    partsSection.innerHTML = `
+      <!-- Background texture -->
+      <div style="position: absolute; inset: 0; background-image: url('/assets/machinery/automated_hydraulic_testing_bench_with_heavy.jpg'); background-size: cover; background-position: center; opacity: 0.1; filter: contrast(1.2);"></div>
+      <div style="position: relative; z-index: 2;">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="material-symbols-outlined" style="color:#f59e0b; font-size:18px;">warehouse</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size: 0.72rem; color: #f59e0b; font-weight: 800; text-transform: uppercase;">ALMACÉN CENTRAL KM 22 • 28,400 N/P EN INVENTARIO</span>
+            </div>
+            <h2 style="font-family:'Space Grotesk',sans-serif; font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 900; color: #fff; text-transform: uppercase; margin: 0;">
+              Buscador de Repuestos OEM Fullbay
+            </h2>
+            <p style="font-size: 0.85rem; color: #a3a3a3; margin-top: 4px;">Localice componentes críticos por Número de Parte del Fabricante, VIN o Modelo de Máquina. Despacho express vía Metro Pac, Caribe Tours o retiro inmediato en mostrador.</p>
+          </div>
+          <div style="width: 100%; max-width: 360px;">
+            <input id="tmdPartsSearchInput" type="text" placeholder="Ej: 320/04133, KDRDE5K, 531/03205..." oninput="window.ftFilterPartsTable()" style="width: 100%; box-sizing: border-box; background: rgba(5,5,7,0.9); border: 1px solid rgba(245,158,11,0.4); border-radius: 12px; padding: 12px 16px; color: #fff; font-family:'JetBrains Mono',monospace; font-size: 0.85rem; outline: none;">
+          </div>
+        </div>
+
+        <!-- Real OEM Parts Table -->
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.82rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); font-family:'JetBrains Mono',monospace; color:#737373; text-transform:uppercase; font-size:0.7rem;">
+                <th style="padding: 12px 16px;">N/P OEM</th>
+                <th style="padding: 12px 16px;">Descripción del Componente</th>
+                <th style="padding: 12px 16px;">Aplicación / Modelo</th>
+                <th style="padding: 12px 16px;">Disponibilidad Km 22</th>
+                <th style="padding: 12px 16px;">Precio Unitario</th>
+                <th style="padding: 12px 16px; text-align: right;">Acción Express</th>
+              </tr>
+            </thead>
+            <tbody id="tmdPartsTableBody">
+              <tr class="tmd-part-row" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 14px 16px; font-family:'JetBrains Mono',monospace; font-weight: 800; color: #f59e0b;">320/04133</td>
+                <td style="padding: 14px 16px; color: #fff; font-weight: 600;">Filtro de Aceite de Motor JCB Max<br><span style="font-size:0.7rem; color:#737373;">Filtración micrométrica de alto flujo 15W40</span></td>
+                <td style="padding: 14px 16px; color: #cbd5e1;"><span style="background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:0.72rem;">JCB 3CX, 4CX, 531-70</span></td>
+                <td style="padding: 14px 16px; color: #10b981; font-weight: 700;">● 38 en Mostrador</td>
+                <td style="padding: 14px 16px; font-family:'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; color: #fff;">US$ 28.50</td>
+                <td style="padding: 14px 16px; text-align: right;"><button onclick="window.ftOrderPart('320/04133', 'Filtro de Aceite JCB Max', 'US$ 28.50')" style="padding: 8px 16px; border-radius: 8px; background: #f59e0b; border: none; color: #000; font-family:'Space Grotesk',sans-serif; font-size: 0.74rem; font-weight: 900; cursor: pointer; text-transform: uppercase;">Comprar / Reservar</button></td>
+              </tr>
+              <tr class="tmd-part-row" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 14px 16px; font-family:'JetBrains Mono',monospace; font-weight: 800; color: #f59e0b;">KDRDE5K-31</td>
+                <td style="padding: 14px 16px; color: #fff; font-weight: 600;">Válvula Proporcional Solenoide Kawasaki<br><span style="font-size:0.7rem; color:#737373;">Control piloto de bomba principal 6,000 PSI</span></td>
+                <td style="padding: 14px 16px; color: #cbd5e1;"><span style="background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:0.72rem;">LiuGong 922E / 925E</span></td>
+                <td style="padding: 14px 16px; color: #10b981; font-weight: 700;">● 6 en Mostrador</td>
+                <td style="padding: 14px 16px; font-family:'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; color: #fff;">US$ 340.00</td>
+                <td style="padding: 14px 16px; text-align: right;"><button onclick="window.ftOrderPart('KDRDE5K-31', 'Válvula Solenoide Kawasaki', 'US$ 340.00')" style="padding: 8px 16px; border-radius: 8px; background: #f59e0b; border: none; color: #000; font-family:'Space Grotesk',sans-serif; font-size: 0.74rem; font-weight: 900; cursor: pointer; text-transform: uppercase;">Comprar / Reservar</button></td>
+              </tr>
+              <tr class="tmd-part-row" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 14px 16px; font-family:'JetBrains Mono',monospace; font-weight: 800; color: #f59e0b;">531/03205</td>
+                <td style="padding: 14px 16px; color: #fff; font-weight: 600;">Juego Dientes Cucharón Punta Central HD<br><span style="font-size:0.7rem; color:#737373;">Acero forjado con tratamiento térmico antidesgaste</span></td>
+                <td style="padding: 14px 16px; color: #cbd5e1;"><span style="background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:0.72rem;">JCB 3CX Cucharón Frontal</span></td>
+                <td style="padding: 14px 16px; color: #10b981; font-weight: 700;">● 52 en Mostrador</td>
+                <td style="padding: 14px 16px; font-family:'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; color: #fff;">US$ 48.00</td>
+                <td style="padding: 14px 16px; text-align: right;"><button onclick="window.ftOrderPart('531/03205', 'Dientes Cucharón JCB 3CX', 'US$ 48.00')" style="padding: 8px 16px; border-radius: 8px; background: #f59e0b; border: none; color: #000; font-family:'Space Grotesk',sans-serif; font-size: 0.74rem; font-weight: 900; cursor: pointer; text-transform: uppercase;">Comprar / Reservar</button></td>
+              </tr>
+              <tr class="tmd-part-row" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 14px 16px; font-family:'JetBrains Mono',monospace; font-weight: 800; color: #f59e0b;">400401-00086</td>
+                <td style="padding: 14px 16px; color: #fff; font-weight: 600;">Bomba Hidráulica Principal Rexroth A8VO<br><span style="font-size:0.7rem; color:#737373;">Grupo rotativo ensamblado de fábrica con calibración OBD</span></td>
+                <td style="padding: 14px 16px; color: #cbd5e1;"><span style="background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:0.72rem;">Excavadoras 20 a 24 Ton</span></td>
+                <td style="padding: 14px 16px; color: #f59e0b; font-weight: 700;">● 2 en Patio Km 22</td>
+                <td style="padding: 14px 16px; font-family:'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; color: #fff;">US$ 3,850.00</td>
+                <td style="padding: 14px 16px; text-align: right;"><button onclick="window.ftOrderPart('400401-00086', 'Bomba Hidráulica Rexroth A8VO', 'US$ 3,850.00')" style="padding: 8px 16px; border-radius: 8px; background: #f59e0b; border: none; color: #000; font-family:'Space Grotesk',sans-serif; font-size: 0.74rem; font-weight: 900; cursor: pointer; text-transform: uppercase;">Comprar / Reservar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+
+    mainEl.appendChild(partsSection);
+    console.log('[TMD Stitch Store] Upgraded Store Hero & Fullbay Parts mounted');
+  }
+
+  // Quick Filter Handler
+  window.ftApplyQuickFilter = function() {
+    const cat = document.getElementById('quickFilterCategory')?.value || 'todas';
+    window.ftFilterByCat(cat);
+  };
+
+  window.ftFilterByCat = function(cat) {
+    // Scroll to catalog grid
+    const catButtons = document.querySelectorAll('button');
+    catButtons.forEach(btn => {
+      if (btn.innerText.toLowerCase().includes(cat)) {
+        btn.click();
+      }
+    });
+    const catalogEl = document.querySelector('.grid.grid-cols-1.sm\:grid-cols-2') || document.querySelector('.grid.grid-cols-1');
+    if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Filter Parts Table Live
+  window.ftFilterPartsTable = function() {
+    const q = (document.getElementById('tmdPartsSearchInput')?.value || '').toLowerCase();
+    const rows = document.querySelectorAll('.tmd-part-row');
+    rows.forEach(row => {
+      const txt = row.innerText.toLowerCase();
+      row.style.display = txt.includes(q) ? '' : 'none';
+    });
+  };
+
+  // Order Part via WhatsApp
+  window.ftOrderPart = function(np, desc, price) {
+    const text = encodeURIComponent('Hola TMD Dominicana, deseo cotizar y ordenar el repuesto OEM: ' + desc + ' (N/P: ' + np + ') ' + price + ' con despacho express a obra.');
+    window.open('https://wa.me/18098262222?text=' + text, '_blank');
+  };
+
+
   function checkAndMount() {
     if (typeof mountVideoHero === 'function') mountVideoHero();
     if (typeof mountHomeVideoShowcase === 'function') mountHomeVideoShowcase();
     if (typeof mountStaffSection === 'function') mountStaffSection();
     if (typeof mountServiceTechnicalLeadership === 'function') mountServiceTechnicalLeadership();
+    if (typeof mountVehicleFichaTecnica360 === 'function') mountVehicleFichaTecnica360();
+    if (typeof mountStitchStoreUpgrade === 'function') mountStitchStoreUpgrade();
   }
 
   // DOM ready check
