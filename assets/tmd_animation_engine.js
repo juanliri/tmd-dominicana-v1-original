@@ -164,7 +164,7 @@
     canvas.style.width = '100vw';
     canvas.style.height = '100vh';
     canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '0';
+    canvas.style.zIndex = '9999';
     canvas.style.display = 'block';
     canvas.style.opacity = '0.95';
     document.body.prepend(canvas); // Prepend to body so content sits in front
