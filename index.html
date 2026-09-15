@@ -191,7 +191,7 @@
     <link rel="preload" as="image" href="/assets/team_hd/brito_fuentes_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/leonardo_encarnacion_hd.jpg">
     <link rel="preload" as="image" href="/assets/team_hd/perkin_soriano_hd.jpg">
-    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260914_stitch_ficha_store_v35"></script>
+    <script type="module" crossorigin src="/assets/index-CbDvUDOx.js?v=20260914_brands_fullscreen_v45"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Bsg4cOg_.css?v=1789230245">
 
     <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -4638,7 +4638,7 @@ html:not(.dark) #socios .group:hover {
   // ──────────────────────────────────────────────────────────────────
   // ─── 4. COMPLETE V2 SERVICE SUITE 1:1 INJECTION (Original V1 Luxury Theme) ───
   function mountServiceTechnicalLeadership() {
-    const isService = window.location.hash.includes('service') || window.location.hash.includes('servicio');
+    const isService = window.location.hash.includes('service') || window.location.hash.includes('servicio') || Boolean(document.querySelector('main h1')?.innerText.toLowerCase().includes('respaldo'));
     if (!isService) {
       const existing = document.getElementById('tmd-service-v2-full-suite');
       if (existing) existing.remove();
@@ -5026,12 +5026,7 @@ html:not(.dark) #socios .group:hover {
       // Hide legacy small form and legacy 4-photo grid if present
       const legacyForm = serviceGrid.querySelector('.max-w-3xl.mx-auto.rounded-3xl');
       if (legacyForm) legacyForm.style.display = 'none';
-      const legacyPhotos = serviceGrid.querySelectorAll('.mb-20');
-      if (legacyPhotos && legacyPhotos.length > 0) {
-        legacyPhotos.forEach(el => {
-          if (!el.contains(suiteContainer)) el.style.display = 'none';
-        });
-      }
+// Preserving React service sections
 
       // Insert suiteContainer before footer CTA
       const footerCta = serviceGrid.querySelector('.border-t');
@@ -5910,7 +5905,7 @@ html:not(.dark) #socios .group:hover {
     if (typeof mountHomeVideoShowcase === 'function') mountHomeVideoShowcase();
     if (typeof mountStaffSection === 'function') mountStaffSection();
     if (typeof mountServiceTechnicalLeadership === 'function') mountServiceTechnicalLeadership();
-    if (typeof mountVehicleFichaTecnica360 === 'function') mountVehicleFichaTecnica360();
+    // React native s1e handles vehicle detail
     if (typeof mountStitchStoreUpgrade === 'function') mountStitchStoreUpgrade();
   }
 
